@@ -1,0 +1,79 @@
+aid: sun-life
+url: https://raw.githubusercontent.com/api-evangelist/sun-life/refs/heads/main/apis.yml
+name: Sun Life
+kind: company
+description: >-
+  Sun Life Financial Inc. is a Canadian multinational life and health insurer and
+  asset manager headquartered in Toronto, one of the "life trio" that dominates
+  Canada's insurance market alongside Manulife and Great-West Lifeco. Sun Life
+  writes individual life insurance, individual and group health and dental
+  coverage, group benefits, disability and absence management, annuities and
+  retirement products, and runs a large wealth business through Sun Life Global
+  Investments, SLC Management and MFS Investment Management, with operations
+  across Canada, the United States, the United Kingdom, Ireland and Asia. In the
+  United States it is a leading group benefits, stop-loss and dental carrier and
+  owns DentaQuest. Sun Life publishes no public, self-serve developer portal and
+  no downloadable OpenAPI definitions in any market. Its only named API surface is
+  Sun Life Link, a partner-gated benefits-connectivity program that exchanges
+  evidence of insurability, plan setup, enrollment, billing and absence data in
+  real time with HR and benefits-administration platforms including Workday, ADP,
+  UKG, PlanSource, Employee Navigator and bswift; access is negotiated per client
+  and per platform rather than signed up for. Every other Sun Life digital surface
+  — Sun Life Connect for employers, the member account, the Canadian advisor and
+  Lumino Health communities — sits behind a sign-in wall. Canada's supervisory
+  split between OSFI (prudential) and the provincial conduct regulators, and the
+  exclusion of insurance from Consumer-Driven Banking, means there is no
+  open-insurance mandate creating any forcing function for a public API here.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+  - Insurance
+  - Canada
+  - Life Insurance
+  - Health Insurance
+  - Employee Benefits
+  - Group Benefits
+  - Dental Insurance
+  - Disability
+  - Wealth Management
+  - Financial Services
+  - Carrier
+created: '2026-07-25'
+modified: '2026-07-25'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://www.sunlife.com/
+  - type: AboutUs
+    url: https://www.sunlife.com/en/about-us/
+  - type: Canada
+    url: https://www.sunlife.ca/
+  - type: UnitedStates
+    url: https://www.sunlife.com/us/en/
+  - type: DigitalCapabilities
+    url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/
+  - type: PartnerIntegrations
+    url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-link/
+  - type: EmployerPortal
+    url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-connect/
+  - type: MemberPortal
+    url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/member-portal/
+  - type: Onboarding
+    url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-onboard/
+  - type: WhitePapers
+    url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-link/navigating-connectivity-in-benefits-administration/
+  - type: SignIn
+    url: https://login.sunlifeconnect.com/commonlogin/
+  - type: AdvisorCommunity
+    url: https://connect.sunlife.ca/s/
+  - type: InvestorRelations
+    url: https://www.sunlife.com/en/investors/
+  - type: News
+    url: https://www.sunlife.com/en/newsroom/
+  - type: Careers
+    url: https://www.sunlife.com/en/careers/
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/sun-life-financial
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
