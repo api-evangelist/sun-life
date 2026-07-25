@@ -1,0 +1,72 @@
+generated: '2026-07-25'
+method: searched
+source:
+- https://developers.dentaquest.com/apis
+- https://api.dentaquest.com/FhirPatientAccess/v1/metadata
+style: HL7 FHIR R4 RESTful API (read-only), fronted by Azure API Management
+authentication:
+  patient_access: SMART on FHIR authorization code + PKCE (S256); Bearer JWT
+  provider_directory: Azure APIM subscription key in Ocp-Apim-Subscription-Key header or subscription-key
+    query parameter
+  metadata: anonymous
+  artifact: authentication/sun-life-authentication.yml
+media_types:
+  request: []
+  response:
+  - application/fhir+json
+  - application/json
+  evidence: 'CapabilityStatement format: ["application/fhir+json","json"]; FHIR Metadata operation also
+    advertises application/xml.'
+search:
+  style: FHIR search parameters on the resource collection endpoints
+  evidence: Collection paths (/Patient, /Coverage, /Practitioner, ...) are GET-only searches returning
+    a Bundle of type searchset.
+  note: The exported OpenAPI declares no individual search parameters; the searchable parameters per resource
+    are enumerated in the CapabilityStatement at /metadata.
+pagination:
+  style: FHIR Bundle link relations
+  params:
+  - _count
+  response_fields:
+  - Bundle.link[relation=next]
+  - Bundle.link[relation=self]
+  - Bundle.total
+  note: Standard FHIR paging; no page/offset parameters are documented in the OpenAPI export.
+versioning:
+  api: URI path (/FhirPatientAccess/v1)
+  resource: FHIR vread + _history
+  artifact: lifecycle/sun-life-lifecycle.yml
+idempotency:
+  supported: false
+  header: null
+  note: 'Not applicable as published: every FHIR data operation in both specs is a GET. The only non-GET
+    operations are the OAuth /token and the Okta /tokenhook callback. No idempotency-key contract exists.'
+error_envelope:
+  primary: FHIR OperationOutcome
+  gateway: '{"statusCode": n, "message": "..."}'
+  artifact: errors/sun-life-problem-types.yml
+rate_limits:
+  published: false
+  headers: null
+  note: No rate limit, quota or throttling policy is published. Azure APIM products can enforce quotas,
+    but no limit is disclosed to developers.
+request_tracing:
+  header: null
+  note: No correlation/request-id header is documented.
+consent:
+  model: 'Member-directed. Published verbatim: developers retrieve claims data "with the approval and
+    at the direction of an applicable member or the members personal representative."'
+  mechanism: SMART standalone launch with launch/patient context and permission-patient; 403 is returned
+    when the member has not granted the application access.
+onboarding:
+  self_serve: false
+  form: https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+  note: 'Published verbatim: "Submit our developer questionnaire form. Once received, we will start the
+    process of subscribing you to our production APIs. If approved, you will receive a secure email with
+    production credentials."'
+multi_tenant_hosts:
+  note: 'Both specs list two production servers: api.dentaquest.com and api.deltadentalma.com. The same
+    DentaQuest FHIR backend serves the Delta Dental of Massachusetts brand.'
+  servers:
+  - https://api.dentaquest.com
+  - https://api.deltadentalma.com

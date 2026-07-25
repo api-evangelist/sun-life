@@ -1,96 +1,167 @@
 aid: sun-life
 name: Sun Life
 review:
-  question: >-
-    Does Sun Life publish a public, self-serve developer portal or downloadable
-    API definitions for any of its insurance lines?
-  answer: false
+  question: Does Sun Life publish a public, self-serve developer portal or downloadable API definitions
+    for any of its insurance lines?
+  answer: true
   date: '2026-07-25'
   reviewer: API Evangelist
   homeMarket: Canada
   tier: carrier-life-health
+  answerDetail: Corrected during the 2026-07-25 enrichment round. Sun Life publishes nothing under its
+    own brand, but its U.S. dental subsidiary DentaQuest runs a public Azure API Management developer
+    portal at developers.dentaquest.com with three downloadable OpenAPI 3.0.1 definitions (Patient Access,
+    Provider Directory, FHIR Metadata). The portal and the specs are public and anonymous; credentials
+    are NOT self-serve — a developer questionnaire form is reviewed and production credentials are emailed.
 findings:
-  summary: |
+  summary: 'UPDATE 2026-07-25 (enrichment round): the "no public API" finding below is correct for the
+    Sun Life brand but incomplete for the Sun Life group. DentaQuest, Sun Life U.S.''s dental company,
+    publishes a public developer portal at https://developers.dentaquest.com/ (Azure API Management) with
+    three APIs released under the CMS Interoperability and Patient Access Final Rule (CMS-9115-F): FHIR
+    Patient Access (SMART on FHIR, 31 paths), FHIR Provider Directory (Da Vinci PDex Plan-Net 1.1.0, 36
+    paths, APIM subscription key) and FHIR Metadata (anonymous CapabilityStatement). OpenAPI 3.0.1 for
+    all three was exported anonymously from the portal data API (/mapi/apis?api-version=2021-08-01 ->
+    ?export=true&format=openapi+json-link) and harvested to openapi/. https://api.dentaquest.com/FhirPatientAccess/v1/.well-known/smart-configuration
+    is live and publishes real scopes (patient/*.read, launch/patient, offline_access, openid, fhirUser)
+    against an Okta CIAM authorization server (https://dentaquest-ciam.okta.com/oauth2/ausg07qa99xVdvh4Q4h7).
+    Note the published smart-configuration mis-spells its own issuer/jwks_uri host path as /oath2/ (404);
+    the correct /oauth2/ paths return 200. The same specs list api.deltadentalma.com as a second production
+    server, so the Delta Dental of Massachusetts brand runs on the same DentaQuest FHIR backend. Entry
+    point for humans: https://www.dentaquest.com/en/interoperability-api. The earlier round missed this
+    because it probed only sunlife.com/sunlife.ca hosts and api.dentaquest.com paths, never developers.dentaquest.com.
+
+
     Sun Life has no public developer portal and no downloadable API
+
     definitions in any of its markets. Every candidate developer host was
+
     probed on 2026-07-25 and none resolves in DNS: developer.sunlife.com,
+
     developers.sunlife.com, docs.sunlife.com, api.sunlife.com, apis.sunlife.com,
+
     gateway.sunlife.com, partner(s).sunlife.com, and the same set under
+
     sunlife.ca all return NXDOMAIN. The path probes www.sunlife.com/developers,
+
     /developer, /partners and /integrations all return HTTP 404.
 
+
     The one vanity path that does resolve is www.sunlife.com/api, which 302s to
+
     the Sun Life U.S. "Digital capabilities" marketing page for employers
+
     (HTTP 200 with a browser user agent; HTTP 403 to a bare curl because the
+
     site sits behind Akamai/DataDome bot protection). That page is category (c)
+
     in the portal taxonomy: marketing, not reference documentation.
 
-    Sun Life's only named API surface is Sun Life Link, described on its own
+
+    Sun Life''s only named API surface is Sun Life Link, described on its own
+
     product page as "our API solution" that "streamlines benefits
+
     administration through real-time data exchanges with the HR platforms you
+
     use every day," and stating that "Sun Life develops industry leading APIs
+
     and deep partnerships with HR platforms." It is a partner-integration
+
     program in U.S. group benefits, not an API a developer can sign up for.
+
     Named platform connections and their live capabilities, verbatim from the
+
     page: Workday (EOI, Billing, Absence — create and update leave, intermittent
+
     leave, return-to-work and leave consolidation; Plan Setup and Enrollment via
+
     Workday Wellness listed as Q4), ADP Workforce Now (EOI, Plan Setup,
+
     self-bill available; Enrollment in early adopter), ADP Vantage HCM /
+
     Health & Welfare Service Engine / ADP Lyric HCM (EOI, Plan Setup;
+
     Enrollment a future enhancement), UKG Pro Benefits Administration (EOI),
+
     PlanSource (EOI), Employee Navigator (Plan Setup available, EOI future),
+
     bswift (EOI), plus "general connectivity with 150 + other HR platforms."
 
+
     Sun Life publishes two public PDFs about API connectivity — a "Connectivity
+
     101" whitepaper and an "API questions to ask during the RFP process"
+
     one-pager. Both are buyer-education thought leadership aimed at brokers and
+
     HR leaders, and both confirm the gating: they instruct the reader to ask
+
     carriers "Are the APIs offered to all clients, or only a subset based on
+
     certain criteria like client size, plan type," "What are the specific costs
+
     associated with using the available APIs? Can you provide a breakdown of
+
     pricing per API?" and "What is the typical timeline and process to get the
+
     APIs activated and integrated for a new client?" Neither document contains
+
     a base URL, an endpoint, an auth scheme, or a link to reference docs.
 
+
     Everything else Sun Life ships digitally is a sign-in wall: Sun Life Connect
+
     (U.S. employer/list-bill administration — employee changes, EOI, billing,
+
     payments, claims submission and status) at login.sunlifeconnect.com, the
+
     U.S. member account, mysunlife.ca in Canada, and connect.sunlife.ca, a
+
     Salesforce Experience Cloud community serving the Canadian advisor and
+
     Lumino Health audiences. No Sun Life GitHub organization exists
+
     (api.github.com/orgs/sunlife, sun-life, sunlifefinancial, SunLifeFinancial
+
     all 404).
 
+
     This is the expected shape for a Canadian life and health carrier. OSFI
+
     supervises Sun Life prudentially while FSRA, the AMF and the other
+
     provincial regulators handle market conduct; Canada has no open-insurance
+
     mandate and Consumer-Driven Banking explicitly excludes insurance, so there
+
     is no regulatory forcing function producing a public API. The pull that
+
     does exist comes from the U.S. group-benefits BenTech ecosystem, and Sun
+
     Life answers it with negotiated platform partnerships rather than an open
+
     developer program.
+
+    '
   developerPortal:
-    url: ''
-    confirmed: false
-    classification: none
-    note: >-
-      No developer portal exists. The closest first-party surface is the Sun Life
-      U.S. "Digital capabilities" / "Sun Life Link" marketing pages, classified
-      as (c) marketing "innovation" page. Gated.
+    url: https://developers.dentaquest.com/
+    confirmed: true
+    classification: subsidiary developer portal (Azure API Management) with downloadable OpenAPI
+    note: 'No Sun Life-branded portal exists. DentaQuest (Sun Life U.S. dental) publishes a real one:
+      public API catalog at /apis, three OpenAPI 3.0.1 definitions exportable anonymously, and a documented
+      access-request path. Credentials are gated behind a reviewed questionnaire form, so it is a public
+      portal with gated onboarding rather than a self-serve one. The Sun Life U.S. "Digital capabilities"
+      / "Sun Life Link" pages remain category (c) marketing.'
   acordPosture:
     posture: no ACORD reference found
-    detail: >-
-      No occurrence of ACORD, AL3, ACORD XML, NGDS, IVANS, agency download,
-      Applied Epic or Vertafore AMS360 was found on any fetched Sun Life page or
-      in either public API whitepaper. Sun Life is a life/health and group
-      benefits carrier rather than a P&C carrier distributing through
-      independent agencies, so the ACORD/IVANS agency-download rail does not
-      apply to it. Its connectivity vocabulary is generic: the Connectivity 101
-      whitepaper frames the choice as "Comparing EDI and API connectivity,"
-      where EDI means "an ongoing file that is generally sent weekly to pass
-      one-way batch data across platforms" versus APIs that "allow automated,
-      real-time data" exchange. No standards body — not ACORD, and not LIMRA/LDEx
-      which would be the group-benefits analogue — is named anywhere.
+    detail: 'No occurrence of ACORD, AL3, ACORD XML, NGDS, IVANS, agency download, Applied Epic or Vertafore
+      AMS360 was found on any fetched Sun Life page or in either public API whitepaper. Sun Life is a
+      life/health and group benefits carrier rather than a P&C carrier distributing through independent
+      agencies, so the ACORD/IVANS agency-download rail does not apply to it. Its connectivity vocabulary
+      is generic: the Connectivity 101 whitepaper frames the choice as "Comparing EDI and API connectivity,"
+      where EDI means "an ongoing file that is generally sent weekly to pass one-way batch data across
+      platforms" versus APIs that "allow automated, real-time data" exchange. No standards body — not
+      ACORD, and not LIMRA/LDEx which would be the group-benefits analogue — is named anywhere.'
   insuranceVerbs:
     quote:
       exposed: false
@@ -100,29 +171,23 @@ findings:
       note: No public or documented bind API.
     issue:
       exposed: partner-only
-      note: >-
-        The nearest equivalent is Sun Life Link's Plan Setup, Enrollment and
-        Evidence of Insurability (EOI) exchanges with HR/benefits-admin
-        platforms. Partner-only, per-client contracted, undocumented publicly.
+      note: The nearest equivalent is Sun Life Link's Plan Setup, Enrollment and Evidence of Insurability
+        (EOI) exchanges with HR/benefits-admin platforms. Partner-only, per-client contracted, undocumented
+        publicly.
     fnol:
       exposed: false
-      note: >-
-        Claims are submitted and tracked through the login-gated Sun Life
-        Connect employer portal and the member account. Absence and disability
-        leave data does move over Sun Life Link (create/update leave,
-        intermittent leave, return-to-work), but only partner-to-partner. No
-        public FNOL API.
+      note: Claims are submitted and tracked through the login-gated Sun Life Connect employer portal
+        and the member account. Absence and disability leave data moves over Sun Life Link partner-to-partner
+        only. No public FNOL API. The DentaQuest Patient Access API is read-only and exposes adjudicated
+        dental claims data to a member consented app, not claim submission.
     audience: partner-only (HR and benefits-administration platforms)
   authModel:
-    publicScheme: none documented
-    note: >-
-      No public API means no published auth scheme. No OIDC or OAuth discovery
-      document is served: www.sunlife.com/.well-known/openid-configuration
-      returns 404, login.sunlifeconnect.com and account.sunlifeconnect.com
-      return 500, and www.sunlife.ca/.well-known/openid-configuration returns
-      403 behind DataDome. Human authentication is session sign-in at
-      login.sunlifeconnect.com (U.S.) and Salesforce Experience Cloud login at
-      connect.sunlife.ca (Canada).
+    publicScheme: SMART on FHIR (OAuth 2.0 authorization code + PKCE) and Azure APIM subscription key
+    note: 'For the DentaQuest interoperability APIs. Patient Access uses SMART App Launch 1.0.0 against
+      an Okta CIAM authorization server; Provider Directory uses an Ocp-Apim-Subscription-Key header (or
+      subscription-key query parameter); FHIR Metadata is anonymous. Sun Life-branded surfaces still publish
+      no auth scheme: www.sunlife.com/.well-known/openid-configuration returns 404, login.sunlifeconnect.com
+      and account.sunlifeconnect.com return 500, and www.sunlife.ca returns 403 behind DataDome.'
   webhooks:
     found: false
     note: No event catalog, webhook documentation or AsyncAPI definition found.
@@ -136,164 +201,195 @@ findings:
     found: false
     note: No published .proto files found.
   openapi:
-    harvested: false
-    specsCount: 0
-    note: >-
-      No OpenAPI or Swagger document exists to harvest. www.sunlife.com
-      /openapi.json, /swagger.json and /api-docs all return HTTP 404, and
-      services.sunlife.com returns 404 for the same paths.
+    harvested: true
+    specsCount: 3
+    note: 'Three OpenAPI 3.0.1 documents harvested 2026-07-25 from the DentaQuest developer portal export
+      API: Fhir Patient Access (31 paths), Fhir Provider Directory (36 paths), FHIR Metadata (1 path).
+      www.sunlife.com/openapi.json, /swagger.json and /api-docs still return 404, and api.dentaquest.com
+      itself still 404s on /openapi.json and /swagger.json — the specs are only reachable through the
+      portal export endpoint.'
 transports:
-  - protocol: REST
-    scheme: https
-    documented: false
-    note: >-
-      Sun Life Link is described as an API-based real-time data exchange with HR
-      platforms, but no base URL, endpoint, media type or version is published.
-  - protocol: EDI (batch file)
-    documented: false
-    note: >-
-      The Connectivity 101 whitepaper confirms weekly one-way batch EDI files
-      remain the incumbent group-benefits eligibility rail alongside Sun Life
-      Link APIs. No file layout, transport host or standard is published.
-  - protocol: GraphQL
-    documented: false
-    note: Not found.
-  - protocol: WebSocket
-    documented: false
-    note: Not found.
+- protocol: REST
+  scheme: https
+  documented: false
+  note: Sun Life Link is described as an API-based real-time data exchange with HR platforms, but no base
+    URL, endpoint, media type or version is published.
+- protocol: EDI (batch file)
+  documented: false
+  note: The Connectivity 101 whitepaper confirms weekly one-way batch EDI files remain the incumbent group-benefits
+    eligibility rail alongside Sun Life Link APIs. No file layout, transport host or standard is published.
+- protocol: GraphQL
+  documented: false
+  note: Not found.
+- protocol: WebSocket
+  documented: false
+  note: Not found.
 probes:
-  - url: https://www.sunlife.com/
-    status: 200
-    note: Redirects to https://www.sunlife.com/en/. Global corporate site.
-  - url: https://developer.sunlife.com/
-    status: 0
-    note: DNS NXDOMAIN — host does not resolve.
-  - url: https://developers.sunlife.com/
-    status: 0
-    note: DNS NXDOMAIN — host does not resolve.
-  - url: https://docs.sunlife.com/
-    status: 0
-    note: DNS NXDOMAIN — host does not resolve.
-  - url: https://api.sunlife.com/
-    status: 0
-    note: DNS NXDOMAIN — host does not resolve.
-  - url: https://apis.sunlife.com/
-    status: 0
-    note: DNS NXDOMAIN — host does not resolve.
-  - url: https://gateway.sunlife.com/
-    status: 0
-    note: DNS NXDOMAIN — host does not resolve.
-  - url: https://partners.sunlife.com/
-    status: 0
-    note: DNS NXDOMAIN — host does not resolve.
-  - url: https://developer.sunlife.ca/
-    status: 0
-    note: DNS NXDOMAIN — host does not resolve.
-  - url: https://api.sunlife.ca/
-    status: 0
-    note: DNS NXDOMAIN — host does not resolve.
-  - url: https://www.sunlife.com/developers
-    status: 404
-  - url: https://www.sunlife.com/developer
-    status: 404
-  - url: https://www.sunlife.com/partners
-    status: 404
-  - url: https://www.sunlife.com/integrations
-    status: 404
-  - url: https://www.sunlife.com/api
-    status: 302
-    note: >-
-      Vanity path. Redirects to
-      https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/
-      which returns 200 to a browser user agent and 403 to a bare curl.
-  - url: https://www.sunlife.com/openapi.json
-    status: 404
-  - url: https://www.sunlife.com/swagger.json
-    status: 404
-  - url: https://www.sunlife.com/api-docs
-    status: 404
-  - url: https://www.sunlife.com/.well-known/openid-configuration
-    status: 404
-  - url: https://www.sunlife.com/.well-known/security.txt
-    status: 404
-  - url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/
-    status: 200
-    note: Marketing page. Sun Life U.S. digital capabilities overview.
-  - url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-link/
-    status: 200
-    note: The Sun Life Link partner-API program page. No reference docs.
-  - url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-connect/
-    status: 200
-    note: Sun Life Connect employer portal marketing page. Portal itself is gated.
-  - url: >-
-      https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-link/navigating-connectivity-in-benefits-administration/
-    status: 200
-    note: Connectivity education hub linking the two public API PDFs.
-  - url: https://p1.aprimocdn.net/sunlife/275078e4-82bd-439c-bbab-b24b00d46c83/btpj-10200-api-connect-101-%20simplify-ben-ecosys-original-file.pdf
-    status: 200
-    note: >-
-      "Connectivity 101 / Simplifying the benefits ecosystem" whitepaper, 1.4 MB
-      PDF. Compares EDI batch files to API connectivity. No ACORD reference.
-  - url: https://p1.aprimocdn.net/sunlife/107a47ae-2ade-49b6-a677-b24a01678b93/btfl-10313-1-api-qs-for-rfp-original-file.pdf
-    status: 200
-    note: >-
-      "API questions to ask during the RFP process" one-pager, 190 KB PDF.
-      Confirms carrier APIs are contracted and priced per client.
-  - url: https://login.sunlifeconnect.com/commonlogin/
-    status: 200
-    note: U.S. sign-in wall for Sun Life Connect and member accounts.
-  - url: https://connect.sunlife.ca/s/
-    status: 200
-    note: >-
-      Salesforce Experience Cloud community (siteforce.com CNAME) for Canadian
-      advisors and Lumino Health. Login wall, no API documentation.
-  - url: https://www.sunlife.ca/
-    status: 403
-    note: Canadian consumer site behind DataDome bot protection; not machine-readable.
-  - url: https://services.sunlife.com/
-    status: 404
-    note: >-
-      Resolving Akamai host with no public content; /openapi.json and
-      /swagger.json also 404, /.well-known/openid-configuration returns 500.
-  - url: https://api.dentaquest.com/
-    status: 404
-    note: >-
-      DentaQuest (Sun Life U.S. dental subsidiary) runs a live API host that
-      answers with application/json 404s, but publishes no documentation:
-      /openapi.json, /swagger.json, /api-docs and /metadata all return JSON 404,
-      and www.dentaquest.com/developers returns 404. Recorded as an observation
-      only; no spec or reference exists to catalog.
-  - url: https://api.github.com/orgs/sunlife
-    status: 404
-    note: >-
-      No Sun Life GitHub organization. sun-life, sunlifefinancial and
-      SunLifeFinancial also return 404.
+- url: https://www.sunlife.com/
+  status: 200
+  note: Redirects to https://www.sunlife.com/en/. Global corporate site.
+- url: https://developer.sunlife.com/
+  status: 0
+  note: DNS NXDOMAIN — host does not resolve.
+- url: https://developers.sunlife.com/
+  status: 0
+  note: DNS NXDOMAIN — host does not resolve.
+- url: https://docs.sunlife.com/
+  status: 0
+  note: DNS NXDOMAIN — host does not resolve.
+- url: https://api.sunlife.com/
+  status: 0
+  note: DNS NXDOMAIN — host does not resolve.
+- url: https://apis.sunlife.com/
+  status: 0
+  note: DNS NXDOMAIN — host does not resolve.
+- url: https://gateway.sunlife.com/
+  status: 0
+  note: DNS NXDOMAIN — host does not resolve.
+- url: https://partners.sunlife.com/
+  status: 0
+  note: DNS NXDOMAIN — host does not resolve.
+- url: https://developer.sunlife.ca/
+  status: 0
+  note: DNS NXDOMAIN — host does not resolve.
+- url: https://api.sunlife.ca/
+  status: 0
+  note: DNS NXDOMAIN — host does not resolve.
+- url: https://www.sunlife.com/developers
+  status: 404
+- url: https://www.sunlife.com/developer
+  status: 404
+- url: https://www.sunlife.com/partners
+  status: 404
+- url: https://www.sunlife.com/integrations
+  status: 404
+- url: https://www.sunlife.com/api
+  status: 302
+  note: Vanity path. Redirects to https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/
+    which returns 200 to a browser user agent and 403 to a bare curl.
+- url: https://www.sunlife.com/openapi.json
+  status: 404
+- url: https://www.sunlife.com/swagger.json
+  status: 404
+- url: https://www.sunlife.com/api-docs
+  status: 404
+- url: https://www.sunlife.com/.well-known/openid-configuration
+  status: 404
+- url: https://www.sunlife.com/.well-known/security.txt
+  status: 404
+- url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/
+  status: 200
+  note: Marketing page. Sun Life U.S. digital capabilities overview.
+- url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-link/
+  status: 200
+  note: The Sun Life Link partner-API program page. No reference docs.
+- url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-connect/
+  status: 200
+  note: Sun Life Connect employer portal marketing page. Portal itself is gated.
+- url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-link/navigating-connectivity-in-benefits-administration/
+  status: 200
+  note: Connectivity education hub linking the two public API PDFs.
+- url: https://p1.aprimocdn.net/sunlife/275078e4-82bd-439c-bbab-b24b00d46c83/btpj-10200-api-connect-101-%20simplify-ben-ecosys-original-file.pdf
+  status: 200
+  note: '"Connectivity 101 / Simplifying the benefits ecosystem" whitepaper, 1.4 MB PDF. Compares EDI
+    batch files to API connectivity. No ACORD reference.'
+- url: https://p1.aprimocdn.net/sunlife/107a47ae-2ade-49b6-a677-b24a01678b93/btfl-10313-1-api-qs-for-rfp-original-file.pdf
+  status: 200
+  note: '"API questions to ask during the RFP process" one-pager, 190 KB PDF. Confirms carrier APIs are
+    contracted and priced per client.'
+- url: https://login.sunlifeconnect.com/commonlogin/
+  status: 200
+  note: U.S. sign-in wall for Sun Life Connect and member accounts.
+- url: https://connect.sunlife.ca/s/
+  status: 200
+  note: Salesforce Experience Cloud community (siteforce.com CNAME) for Canadian advisors and Lumino Health.
+    Login wall, no API documentation.
+- url: https://www.sunlife.ca/
+  status: 403
+  note: Canadian consumer site behind DataDome bot protection; not machine-readable.
+- url: https://services.sunlife.com/
+  status: 404
+  note: Resolving Akamai host with no public content; /openapi.json and /swagger.json also 404, /.well-known/openid-configuration
+    returns 500.
+- url: https://api.dentaquest.com/
+  status: 404
+  note: 'DentaQuest (Sun Life U.S. dental subsidiary) runs a live API host that answers with application/json
+    404s, but publishes no documentation: /openapi.json, /swagger.json, /api-docs and /metadata all return
+    JSON 404, and www.dentaquest.com/developers returns 404. Recorded as an observation only; no spec
+    or reference exists to catalog.'
+- url: https://api.github.com/orgs/sunlife
+  status: 404
+  note: No Sun Life GitHub organization. sun-life, sunlifefinancial and SunLifeFinancial also return 404.
+- url: https://developers.dentaquest.com/
+  status: 200
+  note: DentaQuest developer portal (Azure API Management). Public catalog, no anonymous sign-up.
+- url: https://developers.dentaquest.com/mapi/apis?api-version=2021-08-01
+  status: 200
+  note: Anonymous portal data API. Lists 4 API records (3 distinct APIs + 1 revision).
+- url: https://api.dentaquest.com/fhirmetadata/metadata
+  status: 200
+  note: FHIR CapabilityStatement, anonymous, 1.18 MB. Azure Healthcare APIs 4.0.815.
+- url: https://api.dentaquest.com/FhirPatientAccess/v1/metadata
+  status: 200
+  note: Patient Access CapabilityStatement; fhirVersion 4.0.1, instantiates us-core-server 3.1.1/6.1.0/7.0.0-ballot.
+- url: https://api.dentaquest.com/FhirPatientAccess/v1/.well-known/smart-configuration
+  status: 200
+  note: SMART App Launch discovery; scopes patient/*.read, launch/patient, offline_access, openid, fhirUser.
+- url: https://api.dentaquest.com/FhirProviderDirectory/metadata
+  status: 401
+  note: Requires Ocp-Apim-Subscription-Key. Azure APIM error envelope {statusCode,message}.
+- url: https://dentaquest-ciam.okta.com/oauth2/ausg07qa99xVdvh4Q4h7/.well-known/openid-configuration
+  status: 200
+  note: Okta CIAM authorization server for the Patient Access API.
+- url: https://dentaquest-ciam.okta.com/oath2/ausg07qa99xVdvh4Q4h7/.well-known/openid-configuration
+  status: 404
+  note: The issuer/jwks_uri host path as PUBLISHED in smart-configuration. "oath2" is a typo; recorded
+    as observed.
+- url: https://www.dentaquest.com/en/interoperability-api
+  status: 200
+  note: 'Human entry point: what the APIs do, how to request access, link to the portal.'
+- url: https://www.dentaquest.com/en/interoperability-api/reporting
+  status: 200
+  note: CMS interoperability + prior-authorization metrics for CA, FL, LA, NH, OK, TN, TX.
+- url: https://www.dentaquest.com/en/security
+  status: 200
+  note: Information-security program description. No disclosure channel, no bug bounty, no named certifications.
+- url: https://api.deltadentalma.com/fhirmetadata/metadata
+  status: 200
+  note: Second production server in both specs; same DentaQuest FHIR backend under the Delta Dental of
+    Massachusetts brand.
+- url: https://www.sunlife.com/llms.txt
+  status: 404
+- url: https://status.sunlife.com/
+  status: 0
+  note: DNS NXDOMAIN. No status page for any Sun Life or DentaQuest API.
 sources:
-  - url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-link/
-    type: ProductPage
-    note: >-
-      Source for the Sun Life Link platform list and per-platform capability
-      matrix (EOI, Plan Setup, Enrollment, Billing, Absence).
-  - url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-connect/
-    type: ProductPage
-    note: Source for the employer portal's gated administration and claims functions.
-  - url: https://p1.aprimocdn.net/sunlife/275078e4-82bd-439c-bbab-b24b00d46c83/btpj-10200-api-connect-101-%20simplify-ben-ecosys-original-file.pdf
-    type: WhitePaper
-    note: Source for the EDI-versus-API framing and the absence of any standards reference.
-  - url: https://p1.aprimocdn.net/sunlife/107a47ae-2ade-49b6-a677-b24a01678b93/btfl-10313-1-api-qs-for-rfp-original-file.pdf
-    type: WhitePaper
-    note: Source for the per-client, per-API pricing and activation gating.
-  - url: https://www.sunlife.com/en/sitemap.xml
-    type: Sitemap
-    note: >-
-      172 URLs on the global corporate site; none reference an API, developer or
-      integration surface.
+- url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-link/
+  type: ProductPage
+  note: Source for the Sun Life Link platform list and per-platform capability matrix (EOI, Plan Setup,
+    Enrollment, Billing, Absence).
+- url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-connect/
+  type: ProductPage
+  note: Source for the employer portal's gated administration and claims functions.
+- url: https://p1.aprimocdn.net/sunlife/275078e4-82bd-439c-bbab-b24b00d46c83/btpj-10200-api-connect-101-%20simplify-ben-ecosys-original-file.pdf
+  type: WhitePaper
+  note: Source for the EDI-versus-API framing and the absence of any standards reference.
+- url: https://p1.aprimocdn.net/sunlife/107a47ae-2ade-49b6-a677-b24a01678b93/btfl-10313-1-api-qs-for-rfp-original-file.pdf
+  type: WhitePaper
+  note: Source for the per-client, per-API pricing and activation gating.
+- url: https://www.sunlife.com/en/sitemap.xml
+  type: Sitemap
+  note: 172 URLs on the global corporate site; none reference an API, developer or integration surface.
+- url: https://developers.dentaquest.com/apis
+  type: DeveloperPortal
+  note: Source for the three OpenAPI 3.0.1 definitions and the published auth/error documentation.
+- url: https://www.dentaquest.com/en/interoperability-api
+  type: ProductPage
+  note: Source for the CMS-9115-F framing and the gated credential-issuance process.
 actions:
-  openapiHarvested: 0
-  apisYmlApis: 0
+  openapiHarvested: 3
+  apisYmlApis: 3
   apisYmlUpdated: true
-  reason: >-
-    apis[] is intentionally empty. Sun Life exposes no public, documented API,
-    so listing one would fabricate a surface that does not exist. Sun Life Link,
-    Sun Life Connect and the member portals are recorded in common[] as company
-    properties, and the partner-gated posture is documented here.
+  reason: apis[] now carries the three DentaQuest (Sun Life U.S.) FHIR interoperability APIs, harvested
+    from the public developer portal. Sun Life-branded surfaces (Sun Life Link, Sun Life Connect, member
+    portals) remain common[] company properties — they still publish no machine-readable contract.

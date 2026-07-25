@@ -1,0 +1,81 @@
+generated: '2026-07-25'
+method: searched
+source:
+- https://developers.dentaquest.com/apis
+- https://api.dentaquest.com/FhirPatientAccess/v1/metadata
+- https://api.dentaquest.com/FhirPatientAccess/v1/.well-known/smart-configuration
+scope_note: Conformance claims apply to the DentaQuest (Sun Life U.S.) Interoperability APIs. No Sun Life-branded
+  API publishes conformance claims.
+standards:
+- id: fhir-r4
+  conforms: true
+  evidence: 'CapabilityStatement at /FhirPatientAccess/v1/metadata reports fhirVersion 4.0.1; API description
+    states "FHIR Version: 4.0.1 (R4)".'
+- id: us-core-7.0.0-ballot
+  conforms: true
+  evidence: API description names "HL7 US Core Implementation Guide 7.0.0-ballot"; CapabilityStatement
+    instantiates us-core-server 3.1.1, 6.1.0 and 7.0.0-ballot.
+- id: davinci-pdex-plan-net-1.1.0
+  conforms: true
+  evidence: Provider Directory API description names "HL7 Da Vinci PDex Plan-Net Implementation Guide
+    Version 1.1.0"; paths expose Practitioner, PractitionerRole, Organization, Location, HealthcareService,
+    InsurancePlan, Endpoint.
+- id: smart-app-launch-1.0.0
+  conforms: true
+  evidence: /.well-known/smart-configuration published with authorize/token endpoints, S256 PKCE and SMART
+    capabilities.
+- id: oauth2
+  conforms: true
+  evidence: authorization_code and client_credentials grants at https://api.dentaquest.com/FhirPatientAccess/v1/token.
+- id: oidc
+  conforms: true
+  evidence: Okta authorization server publishes /.well-known/openid-configuration; sso-openid-connect
+    in SMART capabilities.
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: true
+  evidence: https://dentaquest-ciam.okta.com/oauth2/ausg07qa99xVdvh4Q4h7/.well-known/oauth-authorization-server
+    returns 200.
+- id: cms-9115-f-patient-access
+  conforms: true
+  evidence: Portal and API descriptions state the APIs are provided "pursuant to the Centers for Medicare
+    & Medicaid Services Interoperability and Patient Access Final Rule"; per-state interoperability metrics
+    published at https://www.dentaquest.com/en/interoperability-api/reporting.
+- id: hipaa
+  conforms: true
+  evidence: HIPAA Privacy Policy and Notice of Privacy Practices published at https://www.dentaquest.com/en/policies/hipaa-privacy-policy.
+- id: fhir-operationoutcome-errors
+  conforms: true
+  evidence: API descriptions state 4xx/5xx responses carry a FHIR OperationOutcome resource.
+- id: openapi-3
+  conforms: true
+  evidence: Developer portal exports OpenAPI 3.0.1 for all three APIs.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use FHIR OperationOutcome and the Azure APIM {statusCode,message} envelope, not application/problem+json.
+- id: fapi
+  conforms: false
+- id: scim
+  conforms: false
+- id: odata
+  conforms: false
+- id: json-api
+  conforms: false
+- id: asyncapi
+  conforms: false
+  evidence: No event, streaming or webhook surface published.
+compliance_program:
+  published: true
+  documents:
+  - name: HIPAA Privacy Policy
+    url: https://www.dentaquest.com/en/policies/hipaa-privacy-policy
+  - name: Notice of Privacy Practices
+    url: https://www.dentaquest.com/en/policies/notice-of-privacy-practices
+  - name: Information Security at DentaQuest
+    url: https://www.dentaquest.com/en/security
+  - name: Interoperability and Prior Authorization Metrics (per state)
+    url: https://www.dentaquest.com/en/interoperability-api/reporting
+  named_certifications: []
+  note: DentaQuest publishes a HIPAA privacy program, an information-security program description (security
+    awareness, vendor risk management, vulnerability management, penetration testing, SDLC, encryption
+    at rest and in transit, SIEM) and CMS-mandated interoperability reporting. No SOC 2 / ISO 27001 /
+    HITRUST certificate is named on any public page, and no trust center exists.

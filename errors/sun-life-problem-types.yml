@@ -1,0 +1,55 @@
+generated: '2026-07-25'
+method: searched
+source:
+- https://developers.dentaquest.com/apis
+- openapi/sun-life-dentaquest-fhir-patient-access-openapi.json
+format: fhir-operationoutcome
+envelope:
+  resource: OperationOutcome
+  fhir_version: 4.0.1
+  fields:
+  - issue[].severity
+  - issue[].code
+  - issue[].details
+  - issue[].diagnostics
+  note: 'Published verbatim: "The response body will also contain a FHIR OperationOutcome resource. This
+    resource provides detailed, structured information about the error, including severity, error codes,
+    and human-readable diagnostics to assist with troubleshooting."'
+gateway_envelope:
+  shape: '{"statusCode": <int>, "message": "<string>"}'
+  observed: GET https://api.dentaquest.com/FhirProviderDirectory/metadata without a subscription key returns
+    401 {"statusCode":401,"message":"Access denied due to missing subscription key. Make sure to include
+    subscription key when making requests to an API."}
+  note: Azure API Management emits this envelope before the request reaches the FHIR server; it is NOT
+    an OperationOutcome.
+problems:
+- status: 400
+  title: Bad Request
+  detail: The request could not be understood by the server due to malformed syntax (e.g., an invalid
+    parameter).
+  body: FHIR OperationOutcome
+  source: DentaQuest FHIR Patient Access / Provider Directory API description
+- status: 401
+  title: Unauthorized
+  detail: The request lacks valid authentication credentials. This may occur if the JWT token is missing,
+    expired, or invalid.
+  body: FHIR OperationOutcome
+  source: DentaQuest FHIR Patient Access / Provider Directory API description
+- status: 403
+  title: Forbidden
+  detail: The server understood the request, but refuses to authorize it. This may occur if the member
+    has not granted the application access.
+  body: FHIR OperationOutcome
+  source: DentaQuest FHIR Patient Access / Provider Directory API description
+- status: 404
+  title: Not Found
+  detail: The requested FHIR resource (e.g., a specific Patient or Coverage record) does not exist.
+  body: FHIR OperationOutcome
+  source: DentaQuest FHIR Patient Access / Provider Directory API description
+- status: 500
+  title: Internal Server Error
+  detail: The server encountered an unexpected condition that prevented it from fulfilling the request.
+  body: FHIR OperationOutcome
+  source: DentaQuest FHIR Patient Access / Provider Directory API description
+not_documented:
+- No error-code registry, no rate-limit error, no retry guidance and no correlation-id header are published.

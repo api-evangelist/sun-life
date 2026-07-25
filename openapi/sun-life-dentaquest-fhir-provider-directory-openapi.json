@@ -1,0 +1,2139 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Fhir Provider Directory",
+    "description": "\n**Provider Directory API for CMS 9115-F**\n\nThe Provider Directory API provides access to provider information. To get started, a third-party developer must request an API key.\n\n**1. Get Your API Key** Request an API key by filling out the form at: [Logic Manager Form](https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241). Be sure to select \"Provider Directory\" from the API dropdown menu.\n\n**2. Make Requests** Once you receive your key, include it in the `Ocp-Apim-Subscription-Key` header for all API calls to your requests.\n\n### **API Standards and Conformance**\n\nThis API conforms to the following standards and implementation specifications:\n\n- **FHIR Version:** `4.0.1` (R4)\n    \n- **Implementation Guide:** `HL7 Da Vinci PDex Plan-Net Implementation Guide Version 1.1.0`\n    \n\n### **Exception Handling**\n\nThe API uses standard HTTP status codes to indicate the success or failure of a request. In the event of an error (HTTP status codes `4xx` or `5xx`), for example an invalid API key (`403 Forbidden`) or a malformed request (`400 Bad Request`). The response body will also contain a FHIR `OperationOutcome` resource. This resource provides detailed, structured information about the error, including severity, error codes, and human-readable diagnostics to assist with troubleshooting.\n\n\n\n### **Exception Response**\n| HTTP Status | Response                | Reason                                                                                                                               |\n| ----------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |\n| **400**     | `Bad Request`           | The request could not be understood by the server due to malformed syntax (e.g., an invalid parameter).                              |\n| **401**     | `Unauthorized`          | The request lacks valid authentication credentials. This may occur if the JWT token is missing, expired, or invalid.                 |\n| **403**     | `Forbidden`             | The server understood the request, but refuses to authorize it. This may occur if the member has not granted the application access. |\n| **404**     | `Not Found`             | The requested FHIR resource (e.g., a specific Patient or Coverage record) does not exist.                                            |\n| **500**     | `Internal Server Error` | The server encountered an unexpected condition that prevented it from fulfilling the request.                                        |\n\n",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.dentaquest.com/FhirProviderDirectory"
+    },
+    {
+      "url": "https://api.deltadentalma.com/FhirProviderDirectory"
+    }
+  ],
+  "paths": {
+    "/metadata": {
+      "get": {
+        "summary": "Get conformance statement.",
+        "description": "Get conformance statement.",
+        "operationId": "get-metadata",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { },
+              "application/xml": { }
+            }
+          }
+        }
+      }
+    },
+    "/Endpoint": {
+      "get": {
+        "summary": "/Endpoint - GET",
+        "description": "/Endpoint - GET",
+        "operationId": "get-endpoint",
+        "parameters": [
+          {
+            "name": "organization",
+            "in": "query",
+            "description": "The organization that is managing the endpoint",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "payload-type",
+            "in": "query",
+            "description": "The type of content that may be used at this endpoint (e.g. XDS Discharge summaries)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_id",
+            "in": "query",
+            "description": "Logical id of this artifact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_profile",
+            "in": "query",
+            "description": "Profiles this resource claims to conform to",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "The current status of the Endpoint (usually expected to be active)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "connection-type",
+            "in": "query",
+            "description": "Protocol/Profile/Standard to be used with this endpoint connection",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_lastUpdated",
+            "in": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "_security",
+            "in": "query",
+            "description": "Security Labels applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_source",
+            "in": "query",
+            "description": "Identifies where the resource comes from",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "A name that this endpoint can be identified by",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_tag",
+            "in": "query",
+            "description": "Tags applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "Identifies this endpoint across multiple systems",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_format",
+            "in": "query",
+            "description": "Output formatting",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Endpoint/{id}": {
+      "get": {
+        "summary": "/Endpoint/{id} - GET",
+        "description": "/Endpoint/{id} - GET",
+        "operationId": "get-endpoint-id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Endpoint/{id}/_history/{vid}": {
+      "get": {
+        "summary": "/Endpoint/{id}/_history/{vid} - GET",
+        "description": "/Endpoint/{id}/_history/{vid} - GET",
+        "operationId": "get-endpoint-id-_history-vid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vid",
+            "in": "path",
+            "description": "version id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Endpoint/{id}/_history": {
+      "get": {
+        "summary": "/Endpoint/{id}/_history - GET",
+        "description": "/Endpoint/{id}/_history - GET",
+        "operationId": "get-endpoint-id-_history",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Endpoint/_history": {
+      "get": {
+        "summary": "/Endpoint/_history - GET",
+        "description": "/Endpoint/_history - GET",
+        "operationId": "get-endpoint-_history",
+        "parameters": [
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/HealthcareService": {
+      "get": {
+        "summary": "/HealthcareService - GET",
+        "description": "/HealthcareService - GET",
+        "operationId": "get-healthcareservice",
+        "parameters": [
+          {
+            "name": "coverage-area",
+            "in": "query",
+            "description": "Location(s) service is intended for/available to",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "characteristic",
+            "in": "query",
+            "description": "One of the HealthcareService's characteristics",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "organization",
+            "in": "query",
+            "description": "The organization that provides this Healthcare Service",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "service-category",
+            "in": "query",
+            "description": "Service Category of the Healthcare Service",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "program",
+            "in": "query",
+            "description": "One of the Programs supported by this HealthcareService",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "description": "The location of the Healthcare Service",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "The Healthcare Service is currently marked as active",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_id",
+            "in": "query",
+            "description": "Logical id of this artifact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_profile",
+            "in": "query",
+            "description": "Profiles this resource claims to conform to",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "service-type",
+            "in": "query",
+            "description": "The type of service provided by this healthcare service",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_lastUpdated",
+            "in": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "_security",
+            "in": "query",
+            "description": "Security Labels applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "specialty",
+            "in": "query",
+            "description": "The specialty of the service provided by this healthcare service",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_source",
+            "in": "query",
+            "description": "Identifies where the resource comes from",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "endpoint",
+            "in": "query",
+            "description": "Technical endpoints providing access to electronic services operated for the healthcare service",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "A portion of the Healthcare service name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_tag",
+            "in": "query",
+            "description": "Tags applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "External identifiers for this item",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_format",
+            "in": "query",
+            "description": "Output formatting",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/HealthcareService/{id}": {
+      "get": {
+        "summary": "/HealthcareService/{id} - GET",
+        "description": "/HealthcareService/{id} - GET",
+        "operationId": "get-healthcareservice-id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/HealthcareService/{id}/_history/{vid}": {
+      "get": {
+        "summary": "/HealthcareService/{id}/_history/{vid} - GET",
+        "description": "/HealthcareService/{id}/_history/{vid} - GET",
+        "operationId": "get-healthcareservice-id-_history-vid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vid",
+            "in": "path",
+            "description": "version id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/HealthcareService/{id}/_history": {
+      "get": {
+        "summary": "/HealthcareService/{id}/_history - GET",
+        "description": "/HealthcareService/{id}/_history - GET",
+        "operationId": "get-healthcareservice-id-_history",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/HealthcareService/_history": {
+      "get": {
+        "summary": "/HealthcareService/_history - GET",
+        "description": "/HealthcareService/_history - GET",
+        "operationId": "get-healthcareservice-_history",
+        "parameters": [
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/InsurancePlan": {
+      "get": {
+        "summary": "/InsurancePlan - GET",
+        "description": "/InsurancePlan - GET",
+        "operationId": "get-insuranceplan",
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "description": "A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phonetic",
+            "in": "query",
+            "description": "A portion of the organization's name using some kind of phonetic matching algorithm",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-state",
+            "in": "query",
+            "description": "A state specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_id",
+            "in": "query",
+            "description": "Logical id of this artifact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_profile",
+            "in": "query",
+            "description": "Profiles this resource claims to conform to",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-country",
+            "in": "query",
+            "description": "A country specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "A code for the type of organization",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Is the Organization record active",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_lastUpdated",
+            "in": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "_security",
+            "in": "query",
+            "description": "Security Labels applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-postalcode",
+            "in": "query",
+            "description": "A postal code specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_source",
+            "in": "query",
+            "description": "Identifies where the resource comes from",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "endpoint",
+            "in": "query",
+            "description": "Technical endpoint",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-use",
+            "in": "query",
+            "description": "A use code specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-city",
+            "in": "query",
+            "description": "A city specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "A portion of the organization's name or alias",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_tag",
+            "in": "query",
+            "description": "Tags applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "owned-by",
+            "in": "query",
+            "description": "An organization of which this organization forms a part",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "Any identifier for the organization (not the accreditation issuer's identifier)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "administered-by",
+            "in": "query",
+            "description": "Product administrator",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_format",
+            "in": "query",
+            "description": "Output formatting",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/InsurancePlan/{id}": {
+      "get": {
+        "summary": "/InsurancePlan/{id} - GET",
+        "description": "/InsurancePlan/{id} - GET",
+        "operationId": "get-insuranceplan-id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/InsurancePlan/{id}/_history/{vid}": {
+      "get": {
+        "summary": "/InsurancePlan/{id}/_history/{vid} - GET",
+        "description": "/InsurancePlan/{id}/_history/{vid} - GET",
+        "operationId": "get-insuranceplan-id-_history-vid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vid",
+            "in": "path",
+            "description": "version id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/InsurancePlan/{id}/_history": {
+      "get": {
+        "summary": "/InsurancePlan/{id}/_history - GET",
+        "description": "/InsurancePlan/{id}/_history - GET",
+        "operationId": "get-insuranceplan-id-_history",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/InsurancePlan/_history": {
+      "get": {
+        "summary": "/InsurancePlan/_history - GET",
+        "description": "/InsurancePlan/_history - GET",
+        "operationId": "get-insuranceplan-_history",
+        "parameters": [
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Location": {
+      "get": {
+        "summary": "/Location - GET",
+        "description": "/Location - GET",
+        "operationId": "get-location",
+        "parameters": [
+          {
+            "name": "organization",
+            "in": "query",
+            "description": "Searches for locations that are managed by the provided organization",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "description": "A (part of the) address of the location",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "operational-status",
+            "in": "query",
+            "description": "Searches for locations (typically bed/room) that have an operational status (e.g. contaminated, housekeeping)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "partof",
+            "in": "query",
+            "description": "A location of which this location is a part",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-state",
+            "in": "query",
+            "description": "A state specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_id",
+            "in": "query",
+            "description": "Logical id of this artifact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_profile",
+            "in": "query",
+            "description": "Profiles this resource claims to conform to",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-country",
+            "in": "query",
+            "description": "A country specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "A code for the type of location",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Searches for locations with a specific kind of status",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_lastUpdated",
+            "in": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "_security",
+            "in": "query",
+            "description": "Security Labels applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-postalcode",
+            "in": "query",
+            "description": "A postal code specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_source",
+            "in": "query",
+            "description": "Identifies where the resource comes from",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "endpoint",
+            "in": "query",
+            "description": "Technical endpoints providing access to services operated for the location",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-use",
+            "in": "query",
+            "description": "A use code specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-city",
+            "in": "query",
+            "description": "A city specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "A portion of the location's name or alias",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_tag",
+            "in": "query",
+            "description": "Tags applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "An identifier for the location",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_format",
+            "in": "query",
+            "description": "Output formatting",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Location/{id}": {
+      "get": {
+        "summary": "/Location/{id} - GET",
+        "description": "/Location/{id} - GET",
+        "operationId": "get-location-id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Location/{id}/_history/{vid}": {
+      "get": {
+        "summary": "/Location/{id}/_history/{vid} - GET",
+        "description": "/Location/{id}/_history/{vid} - GET",
+        "operationId": "get-location-id-_history-vid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vid",
+            "in": "path",
+            "description": "version id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Location/{id}/_history": {
+      "get": {
+        "summary": "/Location/{id}/_history - GET",
+        "description": "/Location/{id}/_history - GET",
+        "operationId": "get-location-id-_history",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Location/_history": {
+      "get": {
+        "summary": "/Location/_history - GET",
+        "description": "/Location/_history - GET",
+        "operationId": "get-location-_history",
+        "parameters": [
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Organization": {
+      "get": {
+        "summary": "/Organization - GET",
+        "description": "/Organization - GET",
+        "operationId": "get-organization",
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "description": "A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phonetic",
+            "in": "query",
+            "description": "A portion of the organization's name using some kind of phonetic matching algorithm",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "partof",
+            "in": "query",
+            "description": "An organization of which this organization forms a part",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "Is the Organization record active",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-state",
+            "in": "query",
+            "description": "A state specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_id",
+            "in": "query",
+            "description": "Logical id of this artifact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_profile",
+            "in": "query",
+            "description": "Profiles this resource claims to conform to",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-country",
+            "in": "query",
+            "description": "A country specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "A code for the type of organization",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_lastUpdated",
+            "in": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "_security",
+            "in": "query",
+            "description": "Security Labels applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-postalcode",
+            "in": "query",
+            "description": "A postal code specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_source",
+            "in": "query",
+            "description": "Identifies where the resource comes from",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "endpoint",
+            "in": "query",
+            "description": "Technical endpoints providing access to services operated for the organization",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-use",
+            "in": "query",
+            "description": "A use code specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-city",
+            "in": "query",
+            "description": "A city specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "A portion of the organization's name or alias",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_tag",
+            "in": "query",
+            "description": "Tags applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "Any identifier for the organization (not the accreditation issuer's identifier)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_format",
+            "in": "query",
+            "description": "Output formatting",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Organization/{id}": {
+      "get": {
+        "summary": "/Organization/{id} - GET",
+        "description": "/Organization/{id} - GET",
+        "operationId": "get-organization-id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Organization/{id}/_history/{vid}": {
+      "get": {
+        "summary": "/Organization/{id}/_history/{vid} - GET",
+        "description": "/Organization/{id}/_history/{vid} - GET",
+        "operationId": "get-organization-id-_history-vid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vid",
+            "in": "path",
+            "description": "version id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Organization/{id}/_history": {
+      "get": {
+        "summary": "/Organization/{id}/_history - GET",
+        "description": "/Organization/{id}/_history - GET",
+        "operationId": "get-organization-id-_history",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Organization/_history": {
+      "get": {
+        "summary": "/Organization/_history - GET",
+        "description": "/Organization/_history - GET",
+        "operationId": "get-organization-_history",
+        "parameters": [
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Practitioner": {
+      "get": {
+        "summary": "/Practitioner - GET",
+        "description": "/Practitioner - GET",
+        "operationId": "get-practitioner",
+        "parameters": [
+          {
+            "name": "phone",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in a phone contact\r\n* [Person](person.html): A value in a phone contact\r\n* [Practitioner](practitioner.html): A value in a phone contact\r\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\r\n* [RelatedPerson](relatedperson.html): A value in a phone contact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Person](person.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Practitioner](practitioner.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [RelatedPerson](relatedperson.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phonetic",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [Person](person.html): A portion of name using some kind of phonetic matching algorithm\r\n* [Practitioner](practitioner.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [RelatedPerson](relatedperson.html): A portion of name using some kind of phonetic matching algorithm",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "family",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of the family name of the patient\r\n* [Practitioner](practitioner.html): A portion of the family name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "Whether the practitioner record is active",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-state",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A state specified in an address\r\n* [Person](person.html): A state specified in an address\r\n* [Practitioner](practitioner.html): A state specified in an address\r\n* [RelatedPerson](relatedperson.html): A state specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_id",
+            "in": "query",
+            "description": "Logical id of this artifact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_profile",
+            "in": "query",
+            "description": "Profiles this resource claims to conform to",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "gender",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): Gender of the patient\r\n* [Person](person.html): The gender of the person\r\n* [Practitioner](practitioner.html): Gender of the practitioner\r\n* [RelatedPerson](relatedperson.html): Gender of the related person",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-country",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A country specified in an address\r\n* [Person](person.html): A country specified in an address\r\n* [Practitioner](practitioner.html): A country specified in an address\r\n* [RelatedPerson](relatedperson.html): A country specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "given",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of the given name of the patient\r\n* [Practitioner](practitioner.html): A portion of the given name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_lastUpdated",
+            "in": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "_security",
+            "in": "query",
+            "description": "Security Labels applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-postalcode",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A postalCode specified in an address\r\n* [Person](person.html): A postal code specified in an address\r\n* [Practitioner](practitioner.html): A postalCode specified in an address\r\n* [RelatedPerson](relatedperson.html): A postal code specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_source",
+            "in": "query",
+            "description": "Identifies where the resource comes from",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "communication",
+            "in": "query",
+            "description": "One of the languages that the practitioner can communicate with",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-use",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A use code specified in an address\r\n* [Person](person.html): A use code specified in an address\r\n* [Practitioner](practitioner.html): A use code specified in an address\r\n* [RelatedPerson](relatedperson.html): A use code specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-city",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A city specified in an address\r\n* [Person](person.html): A city specified in an address\r\n* [Practitioner](practitioner.html): A city specified in an address\r\n* [RelatedPerson](relatedperson.html): A city specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_tag",
+            "in": "query",
+            "description": "Tags applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "A practitioner's Identifier",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in an email contact\r\n* [Person](person.html): A value in an email contact\r\n* [Practitioner](practitioner.html): A value in an email contact\r\n* [PractitionerRole](practitionerrole.html): A value in an email contact\r\n* [RelatedPerson](relatedperson.html): A value in an email contact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "telecom",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): The value in any kind of telecom details of the patient\r\n* [Person](person.html): The value in any kind of contact\r\n* [Practitioner](practitioner.html): The value in any kind of contact\r\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\r\n* [RelatedPerson](relatedperson.html): The value in any kind of contact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_format",
+            "in": "query",
+            "description": "Output formatting",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Practitioner/{id}": {
+      "get": {
+        "summary": "/Practitioner/{id} - GET",
+        "description": "/Practitioner/{id} - GET",
+        "operationId": "get-practitioner-id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Practitioner/{id}/_history/{vid}": {
+      "get": {
+        "summary": "/Practitioner/{id}/_history/{vid} - GET",
+        "description": "/Practitioner/{id}/_history/{vid} - GET",
+        "operationId": "get-practitioner-id-_history-vid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vid",
+            "in": "path",
+            "description": "version id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Practitioner/{id}/_history": {
+      "get": {
+        "summary": "/Practitioner/{id}/_history - GET",
+        "description": "/Practitioner/{id}/_history - GET",
+        "operationId": "get-practitioner-id-_history",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Practitioner/_history": {
+      "get": {
+        "summary": "/Practitioner/_history - GET",
+        "description": "/Practitioner/_history - GET",
+        "operationId": "get-practitioner-_history",
+        "parameters": [
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/PractitionerRole": {
+      "get": {
+        "summary": "/PractitionerRole - GET",
+        "description": "/PractitionerRole - GET",
+        "operationId": "get-practitionerrole",
+        "parameters": [
+          {
+            "name": "phone",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in a phone contact\r\n* [Person](person.html): A value in a phone contact\r\n* [Practitioner](practitioner.html): A value in a phone contact\r\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\r\n* [RelatedPerson](relatedperson.html): A value in a phone contact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "organization",
+            "in": "query",
+            "description": "The identity of the organization the practitioner represents / acts on behalf of",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). The period during which the practitioner is authorized to perform in these role(s)",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "description": "One of the locations at which this practitioner provides care",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "practitioner",
+            "in": "query",
+            "description": "Practitioner that is able to provide the defined services for the organization",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "Whether this practitioner role record is in active use",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_id",
+            "in": "query",
+            "description": "Logical id of this artifact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_profile",
+            "in": "query",
+            "description": "Profiles this resource claims to conform to",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "service",
+            "in": "query",
+            "description": "The list of healthcare services that this worker provides for this role's Organization/Location(s)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_lastUpdated",
+            "in": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "_security",
+            "in": "query",
+            "description": "Security Labels applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "specialty",
+            "in": "query",
+            "description": "The practitioner has this specialty at an organization",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_source",
+            "in": "query",
+            "description": "Identifies where the resource comes from",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "endpoint",
+            "in": "query",
+            "description": "Technical endpoints providing access to services operated for the practitioner with this role",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_tag",
+            "in": "query",
+            "description": "Tags applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "A practitioner's Identifier",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in an email contact\r\n* [Person](person.html): A value in an email contact\r\n* [Practitioner](practitioner.html): A value in an email contact\r\n* [PractitionerRole](practitionerrole.html): A value in an email contact\r\n* [RelatedPerson](relatedperson.html): A value in an email contact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "description": "The practitioner can perform this role at for the organization",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "telecom",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): The value in any kind of telecom details of the patient\r\n* [Person](person.html): The value in any kind of contact\r\n* [Practitioner](practitioner.html): The value in any kind of contact\r\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\r\n* [RelatedPerson](relatedperson.html): The value in any kind of contact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_format",
+            "in": "query",
+            "description": "Output formatting",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/PractitionerRole/{id}": {
+      "get": {
+        "summary": "/PractitionerRole/{id} - GET",
+        "description": "/PractitionerRole/{id} - GET",
+        "operationId": "get-practitionerrole-id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/PractitionerRole/{id}/_history/{vid}": {
+      "get": {
+        "summary": "/PractitionerRole/{id}/_history/{vid} - GET",
+        "description": "/PractitionerRole/{id}/_history/{vid} - GET",
+        "operationId": "get-practitionerrole-id-_history-vid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vid",
+            "in": "path",
+            "description": "version id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/PractitionerRole/{id}/_history": {
+      "get": {
+        "summary": "/PractitionerRole/{id}/_history - GET",
+        "description": "/PractitionerRole/{id}/_history - GET",
+        "operationId": "get-practitionerrole-id-_history",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/PractitionerRole/_history": {
+      "get": {
+        "summary": "/PractitionerRole/_history - GET",
+        "description": "/PractitionerRole/_history - GET",
+        "operationId": "get-practitionerrole-_history",
+        "parameters": [
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Body": {
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "apiKeyHeader": {
+        "type": "apiKey",
+        "name": "Ocp-Apim-Subscription-Key",
+        "in": "header"
+      },
+      "apiKeyQuery": {
+        "type": "apiKey",
+        "name": "subscription-key",
+        "in": "query"
+      }
+    }
+  },
+  "security": [
+    {
+      "apiKeyHeader": [ ]
+    },
+    {
+      "apiKeyQuery": [ ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+generated: '2026-07-25'
+method: searched
+source: https://api.dentaquest.com/FhirPatientAccess/v1/.well-known/smart-configuration
+docs: https://www.dentaquest.com/en/interoperability-api
+scope_note: Applies to the DentaQuest (Sun Life U.S.) Interoperability APIs. Sun Life itself publishes
+  no public API and therefore no public auth scheme; Sun Life Link is contracted per client and Sun Life
+  Connect / mysunlife.ca are human sign-in walls.
+summary:
+  types:
+  - oauth2
+  - openIdConnect
+  - apiKey
+  api_key_in:
+  - header
+  - query
+  oauth2_flows:
+  - authorizationCode
+  - clientCredentials
+  profiles:
+  - SMART App Launch 1.0.0
+  - OpenID Connect Core 1.0
+schemes:
+- name: SMART on FHIR (authorization code + PKCE)
+  type: oauth2
+  flow: authorizationCode
+  api: DentaQuest FHIR Patient Access API
+  authorization_endpoint: https://api.dentaquest.com/FhirPatientAccess/v1/authorize
+  token_endpoint: https://api.dentaquest.com/FhirPatientAccess/v1/token
+  issuer: https://dentaquest-ciam.okta.com/oauth2/ausg07qa99xVdvh4Q4h7
+  jwks_uri: https://dentaquest-ciam.okta.com/oauth2/ausg07qa99xVdvh4Q4h7/v1/keys
+  token_endpoint_auth_methods:
+  - client_secret_basic
+  - private_key_jwt
+  code_challenge_methods:
+  - S256
+  grant_types:
+  - authorization_code
+  - client_credentials
+  capabilities:
+  - launch-standalone
+  - context-standalone-patient
+  - permission-patient
+  - permission-user
+  - permission-offline
+  - client-public
+  - client-confidential-symmetric
+  - sso-openid-connect
+  - launch-ehr
+  - context-ehr-patient
+  - context-banner
+  - context-style
+  sources:
+  - well-known/sun-life-dentaquest-smart-configuration.json
+  - openapi/sun-life-dentaquest-fhir-patient-access-openapi.json
+- name: Okta CIAM authorization server
+  type: openIdConnect
+  api: DentaQuest FHIR Patient Access API
+  openid_configuration: https://dentaquest-ciam.okta.com/oauth2/ausg07qa99xVdvh4Q4h7/.well-known/openid-configuration
+  userinfo_endpoint: https://dentaquest-ciam.okta.com/oauth2/ausg07qa99xVdvh4Q4h7/v1/userinfo
+  introspection_endpoint: https://dentaquest-ciam.okta.com/oauth2/ausg07qa99xVdvh4Q4h7/v1/introspect
+  revocation_endpoint: https://dentaquest-ciam.okta.com/oauth2/ausg07qa99xVdvh4Q4h7/v1/revoke
+  id_token_signing_alg:
+  - RS256
+  sources:
+  - well-known/sun-life-dentaquest-okta-openid-configuration.json
+- name: apiKeyHeader
+  type: apiKey
+  in: header
+  parameter: Ocp-Apim-Subscription-Key
+  api: DentaQuest FHIR Provider Directory API
+  sources:
+  - openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json
+- name: apiKeyQuery
+  type: apiKey
+  in: query
+  parameter: subscription-key
+  api: DentaQuest FHIR Provider Directory API
+  sources:
+  - openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json
+anonymous:
+- api: DentaQuest FHIR Metadata API
+  note: GET /metadata conformance statement is served without credentials on api.dentaquest.com and api.deltadentalma.com.
+credential_issuance:
+  process: Request form, manually reviewed; production credentials returned by secure email.
+  form: https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+  self_serve: false
+  note: No self-service key issuance. The developer portal has no anonymous sign-up; the Provider Directory
+    API requires an APIM subscription key, the Patient Access API requires a registered client_id/client_secret.

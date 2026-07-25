@@ -1,0 +1,66 @@
+generated: '2026-07-25'
+method: searched
+source: https://api.dentaquest.com/FhirPatientAccess/v1/.well-known/smart-configuration
+docs: https://www.dentaquest.com/en/interoperability-api
+note: SMART App Launch 1.0.0 scopes published by the DentaQuest FHIR Patient Access API (Sun Life U.S.
+  dental).
+schemes:
+- name: SMART on FHIR
+  source: well-known/sun-life-dentaquest-smart-configuration.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.dentaquest.com/FhirPatientAccess/v1/authorize
+    tokenUrl: https://api.dentaquest.com/FhirPatientAccess/v1/token
+  - flow: clientCredentials
+    tokenUrl: https://api.dentaquest.com/FhirPatientAccess/v1/token
+scopes:
+- scope: patient/*.read
+  description: Read access to every FHIR resource in the authorized patient compartment (Patient, Coverage,
+    Organization, Practitioner, RelatedPerson).
+  flows:
+  - authorizationCode
+  sources:
+  - well-known/sun-life-dentaquest-smart-configuration.json
+- scope: launch/patient
+  description: Request the standalone patient launch context so the app is bound to one member.
+  flows:
+  - authorizationCode
+  sources:
+  - well-known/sun-life-dentaquest-smart-configuration.json
+- scope: offline_access
+  description: Issue a refresh token so the app can keep reading after the member leaves the browser.
+  flows:
+  - authorizationCode
+  sources:
+  - well-known/sun-life-dentaquest-smart-configuration.json
+- scope: openid
+  description: OpenID Connect authentication; returns an id_token for the member.
+  flows:
+  - authorizationCode
+  sources:
+  - well-known/sun-life-dentaquest-smart-configuration.json
+- scope: fhirUser
+  description: Return the FHIR resource representing the authenticated user.
+  flows:
+  - authorizationCode
+  sources:
+  - well-known/sun-life-dentaquest-smart-configuration.json
+authorization_server_scopes:
+  issuer: https://dentaquest-ciam.okta.com/oauth2/ausg07qa99xVdvh4Q4h7
+  scopes_supported:
+  - interclient_access
+  - openid
+  - profile
+  - email
+  - address
+  - phone
+  - offline_access
+  - device_sso
+  source: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  note: Okta authorization-server scopes; the FHIR-facing scope set published for app developers is the
+    SMART list above.
+not_offered:
+- scope: user/*.read
+  note: Not advertised in smart-configuration despite permission-user in capabilities.
+- scope: '*.write'
+  note: The Patient Access API is read-only; no write scopes are published.

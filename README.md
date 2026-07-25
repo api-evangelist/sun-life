@@ -25,9 +25,17 @@ Sun Life Financial Inc. is a Canadian multinational life and health insurer and 
 
 ## APIs
 
-None. Sun Life publishes no public, self-serve developer portal and no downloadable OpenAPI or Swagger definitions in any of its markets, so `apis[]` is intentionally empty.
+Three, all from **DentaQuest**, the Sun Life U.S. dental company — not from the Sun Life brand itself. DentaQuest runs a public Azure API Management developer portal at [developers.dentaquest.com](https://developers.dentaquest.com/) publishing OpenAPI 3.0.1 for three FHIR R4 APIs released under the CMS Interoperability and Patient Access Final Rule (CMS-9115-F). All three specs are harvested to `openapi/`.
 
-Probed on 2026-07-25: `developer.sunlife.com`, `developers.sunlife.com`, `docs.sunlife.com`, `api.sunlife.com`, `apis.sunlife.com`, `gateway.sunlife.com` and `partners.sunlife.com` do not resolve in DNS, and neither do the equivalents under `sunlife.ca`. The paths `/developers`, `/developer`, `/partners` and `/integrations` on `www.sunlife.com` all return HTTP 404, as do `/openapi.json`, `/swagger.json` and `/api-docs`. The `www.sunlife.com/api` vanity path redirects to the Sun Life U.S. [Digital capabilities](https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/) marketing page.
+| API | Base URL | Auth | Paths |
+| --- | --- | --- | --- |
+| FHIR Patient Access | `https://api.dentaquest.com/FhirPatientAccess/v1` | SMART on FHIR (OAuth 2.0 code + PKCE) via Okta CIAM | 31 |
+| FHIR Provider Directory | `https://api.dentaquest.com/FhirProviderDirectory` | Azure APIM subscription key | 36 |
+| FHIR Metadata | `https://api.dentaquest.com/fhirmetadata` | anonymous | 1 |
+
+Patient Access instantiates US Core 3.1.1 / 6.1.0 / 7.0.0-ballot and publishes a live [SMART configuration](https://api.dentaquest.com/FhirPatientAccess/v1/.well-known/smart-configuration) with real scopes (`patient/*.read`, `launch/patient`, `offline_access`, `openid`, `fhirUser`). Provider Directory conforms to Da Vinci PDex Plan-Net 1.1.0. Both specs list `api.deltadentalma.com` as a second production server — the same backend serves the Delta Dental of Massachusetts brand. Credentials are not self-serve: a [developer questionnaire](https://www.dentaquest.com/en/interoperability-api) is reviewed and production credentials are emailed.
+
+Under the **Sun Life brand there is still no public API**. Probed on 2026-07-25: `developer.sunlife.com`, `developers.sunlife.com`, `docs.sunlife.com`, `api.sunlife.com`, `apis.sunlife.com`, `gateway.sunlife.com` and `partners.sunlife.com` do not resolve in DNS, and neither do the equivalents under `sunlife.ca`. The paths `/developers`, `/developer`, `/partners` and `/integrations` on `www.sunlife.com` all return HTTP 404, as do `/openapi.json`, `/swagger.json` and `/api-docs`. The `www.sunlife.com/api` vanity path redirects to the Sun Life U.S. [Digital capabilities](https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/) marketing page.
 
 ## Sun Life Link — the real integration surface
 

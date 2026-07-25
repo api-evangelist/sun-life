@@ -1,0 +1,50 @@
+generated: '2026-07-25'
+method: searched
+source:
+- https://developers.dentaquest.com/mapi/apis?api-version=2021-08-01
+- https://developers.dentaquest.com/apis
+versioning:
+  scheme: uri-path + Azure APIM version set
+  current: v1
+  evidence: Patient Access API is published in version set 683db76466aa0fa702e7e2de as v1 at /FhirPatientAccess/v1;
+    Provider Directory and FHIR Metadata are unversioned paths.
+  revisions:
+  - api: Fhir Patient Access
+    revision: 1
+    current: false
+  - api: Fhir Patient Access
+    revision: 2
+    current: true
+    description: new aws lambda prod fhir facade
+  fhir_version: 4.0.1
+  server_software: Azure Healthcare APIs 4.0.815
+resource_versioning:
+  supported: true
+  evidence: Every FHIR resource exposes /_history and /{id}/_history/{vid} (vread) operations in both
+    specs.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No deprecation or sunset policy is published for the DentaQuest APIs; no operation in either spec
+    is marked deprecated.
+sla:
+  url: null
+  uptime_target: null
+  note: No SLA is published for the public interoperability APIs.
+status_page: null
+status_page_probe:
+- url: https://status.sunlife.com/
+  result: NXDOMAIN
+- url: https://www.sunlife.com/status
+  status: 404
+- url: https://status.sunlifeconnect.com/
+  result: NXDOMAIN
+changelog:
+  url: null
+  note: No dated changelog is published; the only change signal is the APIM revision description above.
+deprecated_operations: []
+regulatory_clock:
+  regime: CMS Interoperability and Patient Access Final Rule (CMS-9115-F)
+  reporting: https://www.dentaquest.com/en/interoperability-api/reporting
+  note: Per-state interoperability and prior-authorization metrics are published for CA, FL, LA, NH, OK,
+    TN and TX.

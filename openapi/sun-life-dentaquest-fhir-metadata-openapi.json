@@ -1,0 +1,41 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "FHIR Metadata",
+    "description": "Azure Healthcare APIs Conformance Metadata Endpoint",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.dentaquest.com/fhirmetadata"
+    },
+    {
+      "url": "https://api.deltadentalma.com/fhirmetadata"
+    }
+  ],
+  "paths": {
+    "/metadata": {
+      "get": {
+        "summary": "Get conformance statement.",
+        "description": "Get conformance statement.",
+        "operationId": "get-metadata",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { },
+              "application/xml": { }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Body": {
+        "type": "object"
+      }
+    }
+  }
+}

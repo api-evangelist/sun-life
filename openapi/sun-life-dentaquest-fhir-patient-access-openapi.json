@@ -1,0 +1,1722 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Fhir Patient Access",
+    "description": "**Patient Access API for CMS 9115-F**\n\nTo access the DentaQuest Patient Access API, a third-party application must obtain a valid JWT token by following the SMART on FHIR authorization framework.\n\n**1. Get Your Credentials** To begin, you must request a `client_id` and `client_secret` by completing the request form available at: [Logic Manager Form](https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241)\n\n**2. Authorize and Get a Token** With your credentials, you can initiate the authorization flow to obtain member consent and exchange the resulting authorization code for a JWT token.\n\n- **Authorization Endpoint:** `https://api.dentaquest.com/FhirPatientAccess/v1/authorize`\n    \n- **Token Endpoint:** `https://api.dentaquest.com/FhirPatientAccess/v1/token`\n    \n\nFor a detailed guide on this process, refer to the [SMART App Launch Framework](https://hl7.org/fhir/smart-app-launch/1.0.0/).\n\n### **API Standards and Conformance**\n\nThis API conforms to the following standards and implementation specifications:\n\n- **FHIR Version:** `4.0.1` (R4)\n    \n- **Implementation Guide:** `HL7 US Core Implementation Guide 7.0.0-ballot`\n    \n- **Security:** \n    - `SMART Application Launch Framework Implementation Guide Release 1.0.0`\n    - `OpenID Connect Core 1.0`\n    \n\n### **Exception Handling**\n\nThe API uses standard HTTP status codes to indicate the success or failure of a request. In the event of an error (HTTP status codes `4xx` or `5xx`), for example an invalid SMART on FHIR Token (`403 Forbidden`) or a malformed request (`400 Bad Request`). The response body will also contain a FHIR `OperationOutcome` resource. This resource provides detailed, structured information about the error, including severity, error codes, and human-readable diagnostics to assist with troubleshooting.\n\n### **Exception Response**\n| HTTP Status | Response                | Reason                                                                                                                               |\n| ----------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |\n| **400**     | `Bad Request`           | The request could not be understood by the server due to malformed syntax (e.g., an invalid parameter).                              |\n| **401**     | `Unauthorized`          | The request lacks valid authentication credentials. This may occur if the JWT token is missing, expired, or invalid.                 |\n| **403**     | `Forbidden`             | The server understood the request, but refuses to authorize it. This may occur if the member has not granted the application access. |\n| **404**     | `Not Found`             | The requested FHIR resource (e.g., a specific Patient or Coverage record) does not exist.                                            |\n| **500**     | `Internal Server Error` | The server encountered an unexpected condition that prevented it from fulfilling the request.                                        |\n\n",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://api.dentaquest.com/FhirPatientAccess/v1"
+    },
+    {
+      "url": "https://api.deltadentalma.com/FhirPatientAccess/v1"
+    }
+  ],
+  "paths": {
+    "/metadata": {
+      "get": {
+        "summary": "Get conformance statement.",
+        "description": "Get conformance statement.",
+        "operationId": "get-metadata",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": { },
+              "application/xml": { }
+            }
+          }
+        }
+      }
+    },
+    "/Coverage": {
+      "get": {
+        "summary": "/Coverage - GET",
+        "description": "/Coverage - GET",
+        "operationId": "get-coverage",
+        "parameters": [
+          {
+            "name": "payor",
+            "in": "query",
+            "description": "The identity of the insurer or party paying for services",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_id",
+            "in": "query",
+            "description": "Logical id of this artifact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_profile",
+            "in": "query",
+            "description": "Profiles this resource claims to conform to",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "The kind of coverage (health plan, auto, Workers Compensation)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subscriber",
+            "in": "query",
+            "description": "Reference to the subscriber",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "The status of the Coverage",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "policy-holder",
+            "in": "query",
+            "description": "Reference to the policyholder",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "class-value",
+            "in": "query",
+            "description": "Value of the class (eg. Plan number, group number)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_lastUpdated",
+            "in": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "_security",
+            "in": "query",
+            "description": "Security Labels applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "patient",
+            "in": "query",
+            "description": "Retrieve coverages for a patient",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "beneficiary",
+            "in": "query",
+            "description": "Covered party",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_source",
+            "in": "query",
+            "description": "Identifies where the resource comes from",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_tag",
+            "in": "query",
+            "description": "Tags applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "The primary identifier of the insured and the coverage",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "class-type",
+            "in": "query",
+            "description": "Coverage class (eg. plan, group)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dependent",
+            "in": "query",
+            "description": "Dependent number",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_format",
+            "in": "query",
+            "description": "Output formatting",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Coverage/{id}": {
+      "get": {
+        "summary": "/Coverage/{id} - GET",
+        "description": "/Coverage/{id} - GET",
+        "operationId": "get-coverage-id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Coverage/{id}/_history/{vid}": {
+      "get": {
+        "summary": "/Coverage/{id}/_history/{vid} - GET",
+        "description": "/Coverage/{id}/_history/{vid} - GET",
+        "operationId": "get-coverage-id-_history-vid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vid",
+            "in": "path",
+            "description": "version id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Coverage/{id}/_history": {
+      "get": {
+        "summary": "/Coverage/{id}/_history - GET",
+        "description": "/Coverage/{id}/_history - GET",
+        "operationId": "get-coverage-id-_history",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Coverage/_history": {
+      "get": {
+        "summary": "/Coverage/_history - GET",
+        "description": "/Coverage/_history - GET",
+        "operationId": "get-coverage-_history",
+        "parameters": [
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Organization": {
+      "get": {
+        "summary": "/Organization - GET",
+        "description": "/Organization - GET",
+        "operationId": "get-organization",
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "description": "A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phonetic",
+            "in": "query",
+            "description": "A portion of the organization's name using some kind of phonetic matching algorithm",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "partof",
+            "in": "query",
+            "description": "An organization of which this organization forms a part",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "Is the Organization record active",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-state",
+            "in": "query",
+            "description": "A state specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_id",
+            "in": "query",
+            "description": "Logical id of this artifact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_profile",
+            "in": "query",
+            "description": "Profiles this resource claims to conform to",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-country",
+            "in": "query",
+            "description": "A country specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "A code for the type of organization",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_lastUpdated",
+            "in": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "_security",
+            "in": "query",
+            "description": "Security Labels applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-postalcode",
+            "in": "query",
+            "description": "A postal code specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_source",
+            "in": "query",
+            "description": "Identifies where the resource comes from",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "endpoint",
+            "in": "query",
+            "description": "Technical endpoints providing access to services operated for the organization",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-use",
+            "in": "query",
+            "description": "A use code specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-city",
+            "in": "query",
+            "description": "A city specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "A portion of the organization's name or alias",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_tag",
+            "in": "query",
+            "description": "Tags applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "Any identifier for the organization (not the accreditation issuer's identifier)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_format",
+            "in": "query",
+            "description": "Output formatting",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Organization/{id}": {
+      "get": {
+        "summary": "/Organization/{id} - GET",
+        "description": "/Organization/{id} - GET",
+        "operationId": "get-organization-id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Organization/{id}/_history/{vid}": {
+      "get": {
+        "summary": "/Organization/{id}/_history/{vid} - GET",
+        "description": "/Organization/{id}/_history/{vid} - GET",
+        "operationId": "get-organization-id-_history-vid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vid",
+            "in": "path",
+            "description": "version id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Organization/{id}/_history": {
+      "get": {
+        "summary": "/Organization/{id}/_history - GET",
+        "description": "/Organization/{id}/_history - GET",
+        "operationId": "get-organization-id-_history",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Organization/_history": {
+      "get": {
+        "summary": "/Organization/_history - GET",
+        "description": "/Organization/_history - GET",
+        "operationId": "get-organization-_history",
+        "parameters": [
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Patient": {
+      "get": {
+        "summary": "/Patient - GET",
+        "description": "/Patient - GET",
+        "operationId": "get-patient",
+        "parameters": [
+          {
+            "name": "phone",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in a phone contact\r\n* [Person](person.html): A value in a phone contact\r\n* [Practitioner](practitioner.html): A value in a phone contact\r\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\r\n* [RelatedPerson](relatedperson.html): A value in a phone contact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "death-date",
+            "in": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). The date of death has been provided and satisfies this search value",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "organization",
+            "in": "query",
+            "description": "The organization that is the custodian of the patient record",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "deceased",
+            "in": "query",
+            "description": "This patient has been marked as deceased, or as a death date entered",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Person](person.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Practitioner](practitioner.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [RelatedPerson](relatedperson.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "birthdate",
+            "in": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). Multiple Resources: \r\n\r\n* [Patient](patient.html): The patient's date of birth\r\n* [Person](person.html): The person's date of birth\r\n* [RelatedPerson](relatedperson.html): The Related Person's date of birth",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "link",
+            "in": "query",
+            "description": "All patients linked to the given patient",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phonetic",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [Person](person.html): A portion of name using some kind of phonetic matching algorithm\r\n* [Practitioner](practitioner.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [RelatedPerson](relatedperson.html): A portion of name using some kind of phonetic matching algorithm",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "family",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of the family name of the patient\r\n* [Practitioner](practitioner.html): A portion of the family name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "Whether the patient record is active",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-state",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A state specified in an address\r\n* [Person](person.html): A state specified in an address\r\n* [Practitioner](practitioner.html): A state specified in an address\r\n* [RelatedPerson](relatedperson.html): A state specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_id",
+            "in": "query",
+            "description": "Logical id of this artifact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_profile",
+            "in": "query",
+            "description": "Profiles this resource claims to conform to",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "gender",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): Gender of the patient\r\n* [Person](person.html): The gender of the person\r\n* [Practitioner](practitioner.html): Gender of the practitioner\r\n* [RelatedPerson](relatedperson.html): Gender of the related person",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-country",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A country specified in an address\r\n* [Person](person.html): A country specified in an address\r\n* [Practitioner](practitioner.html): A country specified in an address\r\n* [RelatedPerson](relatedperson.html): A country specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "given",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of the given name of the patient\r\n* [Practitioner](practitioner.html): A portion of the given name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "general-practitioner",
+            "in": "query",
+            "description": "Patient's nominated general practitioner, not the organization that manages the record",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_lastUpdated",
+            "in": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "description": "Language code (irrespective of use value)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_security",
+            "in": "query",
+            "description": "Security Labels applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-postalcode",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A postalCode specified in an address\r\n* [Person](person.html): A postal code specified in an address\r\n* [Practitioner](practitioner.html): A postalCode specified in an address\r\n* [RelatedPerson](relatedperson.html): A postal code specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_source",
+            "in": "query",
+            "description": "Identifies where the resource comes from",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-use",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A use code specified in an address\r\n* [Person](person.html): A use code specified in an address\r\n* [Practitioner](practitioner.html): A use code specified in an address\r\n* [RelatedPerson](relatedperson.html): A use code specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-city",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A city specified in an address\r\n* [Person](person.html): A city specified in an address\r\n* [Practitioner](practitioner.html): A city specified in an address\r\n* [RelatedPerson](relatedperson.html): A city specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_tag",
+            "in": "query",
+            "description": "Tags applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "A patient identifier",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in an email contact\r\n* [Person](person.html): A value in an email contact\r\n* [Practitioner](practitioner.html): A value in an email contact\r\n* [PractitionerRole](practitionerrole.html): A value in an email contact\r\n* [RelatedPerson](relatedperson.html): A value in an email contact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "telecom",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): The value in any kind of telecom details of the patient\r\n* [Person](person.html): The value in any kind of contact\r\n* [Practitioner](practitioner.html): The value in any kind of contact\r\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\r\n* [RelatedPerson](relatedperson.html): The value in any kind of contact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_format",
+            "in": "query",
+            "description": "Output formatting",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Patient/{id}": {
+      "get": {
+        "summary": "/Patient/{id} - GET",
+        "description": "/Patient/{id} - GET",
+        "operationId": "get-patient-id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Patient/{id}/_history/{vid}": {
+      "get": {
+        "summary": "/Patient/{id}/_history/{vid} - GET",
+        "description": "/Patient/{id}/_history/{vid} - GET",
+        "operationId": "get-patient-id-_history-vid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vid",
+            "in": "path",
+            "description": "version id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Patient/{id}/_history": {
+      "get": {
+        "summary": "/Patient/{id}/_history - GET",
+        "description": "/Patient/{id}/_history - GET",
+        "operationId": "get-patient-id-_history",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Patient/_history": {
+      "get": {
+        "summary": "/Patient/_history - GET",
+        "description": "/Patient/_history - GET",
+        "operationId": "get-patient-_history",
+        "parameters": [
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Practitioner": {
+      "get": {
+        "summary": "/Practitioner - GET",
+        "description": "/Practitioner - GET",
+        "operationId": "get-practitioner",
+        "parameters": [
+          {
+            "name": "phone",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in a phone contact\r\n* [Person](person.html): A value in a phone contact\r\n* [Practitioner](practitioner.html): A value in a phone contact\r\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\r\n* [RelatedPerson](relatedperson.html): A value in a phone contact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Person](person.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Practitioner](practitioner.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [RelatedPerson](relatedperson.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phonetic",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [Person](person.html): A portion of name using some kind of phonetic matching algorithm\r\n* [Practitioner](practitioner.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [RelatedPerson](relatedperson.html): A portion of name using some kind of phonetic matching algorithm",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "family",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of the family name of the patient\r\n* [Practitioner](practitioner.html): A portion of the family name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "Whether the practitioner record is active",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-state",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A state specified in an address\r\n* [Person](person.html): A state specified in an address\r\n* [Practitioner](practitioner.html): A state specified in an address\r\n* [RelatedPerson](relatedperson.html): A state specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_id",
+            "in": "query",
+            "description": "Logical id of this artifact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_profile",
+            "in": "query",
+            "description": "Profiles this resource claims to conform to",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "gender",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): Gender of the patient\r\n* [Person](person.html): The gender of the person\r\n* [Practitioner](practitioner.html): Gender of the practitioner\r\n* [RelatedPerson](relatedperson.html): Gender of the related person",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-country",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A country specified in an address\r\n* [Person](person.html): A country specified in an address\r\n* [Practitioner](practitioner.html): A country specified in an address\r\n* [RelatedPerson](relatedperson.html): A country specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "given",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of the given name of the patient\r\n* [Practitioner](practitioner.html): A portion of the given name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_lastUpdated",
+            "in": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "_security",
+            "in": "query",
+            "description": "Security Labels applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-postalcode",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A postalCode specified in an address\r\n* [Person](person.html): A postal code specified in an address\r\n* [Practitioner](practitioner.html): A postalCode specified in an address\r\n* [RelatedPerson](relatedperson.html): A postal code specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_source",
+            "in": "query",
+            "description": "Identifies where the resource comes from",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "communication",
+            "in": "query",
+            "description": "One of the languages that the practitioner can communicate with",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-use",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A use code specified in an address\r\n* [Person](person.html): A use code specified in an address\r\n* [Practitioner](practitioner.html): A use code specified in an address\r\n* [RelatedPerson](relatedperson.html): A use code specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-city",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A city specified in an address\r\n* [Person](person.html): A city specified in an address\r\n* [Practitioner](practitioner.html): A city specified in an address\r\n* [RelatedPerson](relatedperson.html): A city specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_tag",
+            "in": "query",
+            "description": "Tags applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "A practitioner's Identifier",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in an email contact\r\n* [Person](person.html): A value in an email contact\r\n* [Practitioner](practitioner.html): A value in an email contact\r\n* [PractitionerRole](practitionerrole.html): A value in an email contact\r\n* [RelatedPerson](relatedperson.html): A value in an email contact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "telecom",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): The value in any kind of telecom details of the patient\r\n* [Person](person.html): The value in any kind of contact\r\n* [Practitioner](practitioner.html): The value in any kind of contact\r\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\r\n* [RelatedPerson](relatedperson.html): The value in any kind of contact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_format",
+            "in": "query",
+            "description": "Output formatting",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Practitioner/{id}": {
+      "get": {
+        "summary": "/Practitioner/{id} - GET",
+        "description": "/Practitioner/{id} - GET",
+        "operationId": "get-practitioner-id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Practitioner/{id}/_history/{vid}": {
+      "get": {
+        "summary": "/Practitioner/{id}/_history/{vid} - GET",
+        "description": "/Practitioner/{id}/_history/{vid} - GET",
+        "operationId": "get-practitioner-id-_history-vid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vid",
+            "in": "path",
+            "description": "version id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Practitioner/{id}/_history": {
+      "get": {
+        "summary": "/Practitioner/{id}/_history - GET",
+        "description": "/Practitioner/{id}/_history - GET",
+        "operationId": "get-practitioner-id-_history",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Practitioner/_history": {
+      "get": {
+        "summary": "/Practitioner/_history - GET",
+        "description": "/Practitioner/_history - GET",
+        "operationId": "get-practitioner-_history",
+        "parameters": [
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/RelatedPerson": {
+      "get": {
+        "summary": "/RelatedPerson - GET",
+        "description": "/RelatedPerson - GET",
+        "operationId": "get-relatedperson",
+        "parameters": [
+          {
+            "name": "phone",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in a phone contact\r\n* [Person](person.html): A value in a phone contact\r\n* [Practitioner](practitioner.html): A value in a phone contact\r\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\r\n* [RelatedPerson](relatedperson.html): A value in a phone contact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "relationship",
+            "in": "query",
+            "description": "The relationship between the patient and the relatedperson",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Person](person.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Practitioner](practitioner.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [RelatedPerson](relatedperson.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "birthdate",
+            "in": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). Multiple Resources: \r\n\r\n* [Patient](patient.html): The patient's date of birth\r\n* [Person](person.html): The person's date of birth\r\n* [RelatedPerson](relatedperson.html): The Related Person's date of birth",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "phonetic",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [Person](person.html): A portion of name using some kind of phonetic matching algorithm\r\n* [Practitioner](practitioner.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [RelatedPerson](relatedperson.html): A portion of name using some kind of phonetic matching algorithm",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "Indicates if the related person record is active",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-state",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A state specified in an address\r\n* [Person](person.html): A state specified in an address\r\n* [Practitioner](practitioner.html): A state specified in an address\r\n* [RelatedPerson](relatedperson.html): A state specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_id",
+            "in": "query",
+            "description": "Logical id of this artifact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_profile",
+            "in": "query",
+            "description": "Profiles this resource claims to conform to",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "gender",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): Gender of the patient\r\n* [Person](person.html): The gender of the person\r\n* [Practitioner](practitioner.html): Gender of the practitioner\r\n* [RelatedPerson](relatedperson.html): Gender of the related person",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-country",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A country specified in an address\r\n* [Person](person.html): A country specified in an address\r\n* [Practitioner](practitioner.html): A country specified in an address\r\n* [RelatedPerson](relatedperson.html): A country specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_lastUpdated",
+            "in": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "_security",
+            "in": "query",
+            "description": "Security Labels applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "patient",
+            "in": "query",
+            "description": "The patient this related person is related to",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-postalcode",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A postalCode specified in an address\r\n* [Person](person.html): A postal code specified in an address\r\n* [Practitioner](practitioner.html): A postalCode specified in an address\r\n* [RelatedPerson](relatedperson.html): A postal code specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_source",
+            "in": "query",
+            "description": "Identifies where the resource comes from",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-use",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A use code specified in an address\r\n* [Person](person.html): A use code specified in an address\r\n* [Practitioner](practitioner.html): A use code specified in an address\r\n* [RelatedPerson](relatedperson.html): A use code specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address-city",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A city specified in an address\r\n* [Person](person.html): A city specified in an address\r\n* [Practitioner](practitioner.html): A city specified in an address\r\n* [RelatedPerson](relatedperson.html): A city specified in an address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_tag",
+            "in": "query",
+            "description": "Tags applied to this resource",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "An Identifier of the RelatedPerson",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in an email contact\r\n* [Person](person.html): A value in an email contact\r\n* [Practitioner](practitioner.html): A value in an email contact\r\n* [PractitionerRole](practitionerrole.html): A value in an email contact\r\n* [RelatedPerson](relatedperson.html): A value in an email contact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "telecom",
+            "in": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): The value in any kind of telecom details of the patient\r\n* [Person](person.html): The value in any kind of contact\r\n* [Practitioner](practitioner.html): The value in any kind of contact\r\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\r\n* [RelatedPerson](relatedperson.html): The value in any kind of contact",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_format",
+            "in": "query",
+            "description": "Output formatting",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/RelatedPerson/{id}": {
+      "get": {
+        "summary": "/RelatedPerson/{id} - GET",
+        "description": "/RelatedPerson/{id} - GET",
+        "operationId": "get-relatedperson-id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/RelatedPerson/{id}/_history/{vid}": {
+      "get": {
+        "summary": "/RelatedPerson/{id}/_history/{vid} - GET",
+        "description": "/RelatedPerson/{id}/_history/{vid} - GET",
+        "operationId": "get-relatedperson-id-_history-vid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vid",
+            "in": "path",
+            "description": "version id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/RelatedPerson/{id}/_history": {
+      "get": {
+        "summary": "/RelatedPerson/{id}/_history - GET",
+        "description": "/RelatedPerson/{id}/_history - GET",
+        "operationId": "get-relatedperson-id-_history",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/RelatedPerson/_history": {
+      "get": {
+        "summary": "/RelatedPerson/_history - GET",
+        "description": "/RelatedPerson/_history - GET",
+        "operationId": "get-relatedperson-_history",
+        "parameters": [
+          {
+            "name": "_count",
+            "in": "query",
+            "description": "number to return",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_since",
+            "in": "query",
+            "description": "how far back",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/.well-known/smart-configuration": {
+      "get": {
+        "summary": "/.well-known/smart-configuration ",
+        "operationId": "well-known-smart-configuration",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/authorize": {
+      "get": {
+        "summary": "/Authorize",
+        "operationId": "authorize",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/callback": {
+      "get": {
+        "summary": "/Callback",
+        "operationId": "callback",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/token": {
+      "post": {
+        "summary": "/token",
+        "operationId": "token",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/tokenhook": {
+      "post": {
+        "summary": "/tokenhook",
+        "operationId": "tokenhook",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Body": {
+        "type": "object"
+      }
+    }
+  }
+}

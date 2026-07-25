@@ -1,0 +1,342 @@
+generated: '2026-07-25'
+method: derived
+status: candidate
+source:
+- openapi/sun-life-dentaquest-fhir-patient-access-openapi.json
+- openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json
+note: 'No official or hosted MCP server is published by Sun Life or DentaQuest. Searched: the DentaQuest
+  developer portal (Azure API Management — the mcpProperties/isAgent fields on all three APIs are null/false),
+  the interoperability pages, npm and the public MCP registries. The tools below are DERIVED candidates,
+  one per read operation in the published OpenAPI, and are not endorsed by the provider.'
+server:
+  name: sun-life-dentaquest
+  transport: http
+  url: null
+  auth: Would inherit SMART on FHIR bearer tokens (Patient Access) and an APIM subscription key (Provider
+    Directory).
+tool_count: 63
+tools:
+- name: patient_access_get_metadata
+  description: Get conformance statement.
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-metadata
+  method: GET
+  path: /metadata
+- name: patient_access_get_coverage
+  description: /Coverage - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-coverage
+  method: GET
+  path: /Coverage
+- name: patient_access_get_coverage_id
+  description: /Coverage/{id} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-coverage-id
+  method: GET
+  path: /Coverage/{id}
+- name: patient_access_get_coverage_id__history_vid
+  description: /Coverage/{id}/_history/{vid} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-coverage-id-_history-vid
+  method: GET
+  path: /Coverage/{id}/_history/{vid}
+- name: patient_access_get_coverage_id__history
+  description: /Coverage/{id}/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-coverage-id-_history
+  method: GET
+  path: /Coverage/{id}/_history
+- name: patient_access_get_coverage__history
+  description: /Coverage/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-coverage-_history
+  method: GET
+  path: /Coverage/_history
+- name: patient_access_get_organization
+  description: /Organization - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-organization
+  method: GET
+  path: /Organization
+- name: patient_access_get_organization_id
+  description: /Organization/{id} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-organization-id
+  method: GET
+  path: /Organization/{id}
+- name: patient_access_get_organization_id__history_vid
+  description: /Organization/{id}/_history/{vid} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-organization-id-_history-vid
+  method: GET
+  path: /Organization/{id}/_history/{vid}
+- name: patient_access_get_organization_id__history
+  description: /Organization/{id}/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-organization-id-_history
+  method: GET
+  path: /Organization/{id}/_history
+- name: patient_access_get_organization__history
+  description: /Organization/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-organization-_history
+  method: GET
+  path: /Organization/_history
+- name: patient_access_get_patient
+  description: /Patient - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-patient
+  method: GET
+  path: /Patient
+- name: patient_access_get_patient_id
+  description: /Patient/{id} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-patient-id
+  method: GET
+  path: /Patient/{id}
+- name: patient_access_get_patient_id__history_vid
+  description: /Patient/{id}/_history/{vid} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-patient-id-_history-vid
+  method: GET
+  path: /Patient/{id}/_history/{vid}
+- name: patient_access_get_patient_id__history
+  description: /Patient/{id}/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-patient-id-_history
+  method: GET
+  path: /Patient/{id}/_history
+- name: patient_access_get_patient__history
+  description: /Patient/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-patient-_history
+  method: GET
+  path: /Patient/_history
+- name: patient_access_get_practitioner
+  description: /Practitioner - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-practitioner
+  method: GET
+  path: /Practitioner
+- name: patient_access_get_practitioner_id
+  description: /Practitioner/{id} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-practitioner-id
+  method: GET
+  path: /Practitioner/{id}
+- name: patient_access_get_practitioner_id__history_vid
+  description: /Practitioner/{id}/_history/{vid} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-practitioner-id-_history-vid
+  method: GET
+  path: /Practitioner/{id}/_history/{vid}
+- name: patient_access_get_practitioner_id__history
+  description: /Practitioner/{id}/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-practitioner-id-_history
+  method: GET
+  path: /Practitioner/{id}/_history
+- name: patient_access_get_practitioner__history
+  description: /Practitioner/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-practitioner-_history
+  method: GET
+  path: /Practitioner/_history
+- name: patient_access_get_relatedperson
+  description: /RelatedPerson - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-relatedperson
+  method: GET
+  path: /RelatedPerson
+- name: patient_access_get_relatedperson_id
+  description: /RelatedPerson/{id} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-relatedperson-id
+  method: GET
+  path: /RelatedPerson/{id}
+- name: patient_access_get_relatedperson_id__history_vid
+  description: /RelatedPerson/{id}/_history/{vid} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-relatedperson-id-_history-vid
+  method: GET
+  path: /RelatedPerson/{id}/_history/{vid}
+- name: patient_access_get_relatedperson_id__history
+  description: /RelatedPerson/{id}/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-relatedperson-id-_history
+  method: GET
+  path: /RelatedPerson/{id}/_history
+- name: patient_access_get_relatedperson__history
+  description: /RelatedPerson/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#get-relatedperson-_history
+  method: GET
+  path: /RelatedPerson/_history
+- name: patient_access_well_known_smart_configuration
+  description: /.well-known/smart-configuration
+  source_operation: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json#well-known-smart-configuration
+  method: GET
+  path: /.well-known/smart-configuration
+- name: provider_directory_get_metadata
+  description: Get conformance statement.
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-metadata
+  method: GET
+  path: /metadata
+- name: provider_directory_get_endpoint
+  description: /Endpoint - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-endpoint
+  method: GET
+  path: /Endpoint
+- name: provider_directory_get_endpoint_id
+  description: /Endpoint/{id} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-endpoint-id
+  method: GET
+  path: /Endpoint/{id}
+- name: provider_directory_get_endpoint_id__history_vid
+  description: /Endpoint/{id}/_history/{vid} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-endpoint-id-_history-vid
+  method: GET
+  path: /Endpoint/{id}/_history/{vid}
+- name: provider_directory_get_endpoint_id__history
+  description: /Endpoint/{id}/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-endpoint-id-_history
+  method: GET
+  path: /Endpoint/{id}/_history
+- name: provider_directory_get_endpoint__history
+  description: /Endpoint/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-endpoint-_history
+  method: GET
+  path: /Endpoint/_history
+- name: provider_directory_get_healthcareservice
+  description: /HealthcareService - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-healthcareservice
+  method: GET
+  path: /HealthcareService
+- name: provider_directory_get_healthcareservice_id
+  description: /HealthcareService/{id} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-healthcareservice-id
+  method: GET
+  path: /HealthcareService/{id}
+- name: provider_directory_get_healthcareservice_id__history_vid
+  description: /HealthcareService/{id}/_history/{vid} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-healthcareservice-id-_history-vid
+  method: GET
+  path: /HealthcareService/{id}/_history/{vid}
+- name: provider_directory_get_healthcareservice_id__history
+  description: /HealthcareService/{id}/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-healthcareservice-id-_history
+  method: GET
+  path: /HealthcareService/{id}/_history
+- name: provider_directory_get_healthcareservice__history
+  description: /HealthcareService/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-healthcareservice-_history
+  method: GET
+  path: /HealthcareService/_history
+- name: provider_directory_get_insuranceplan
+  description: /InsurancePlan - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-insuranceplan
+  method: GET
+  path: /InsurancePlan
+- name: provider_directory_get_insuranceplan_id
+  description: /InsurancePlan/{id} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-insuranceplan-id
+  method: GET
+  path: /InsurancePlan/{id}
+- name: provider_directory_get_insuranceplan_id__history_vid
+  description: /InsurancePlan/{id}/_history/{vid} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-insuranceplan-id-_history-vid
+  method: GET
+  path: /InsurancePlan/{id}/_history/{vid}
+- name: provider_directory_get_insuranceplan_id__history
+  description: /InsurancePlan/{id}/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-insuranceplan-id-_history
+  method: GET
+  path: /InsurancePlan/{id}/_history
+- name: provider_directory_get_insuranceplan__history
+  description: /InsurancePlan/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-insuranceplan-_history
+  method: GET
+  path: /InsurancePlan/_history
+- name: provider_directory_get_location
+  description: /Location - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-location
+  method: GET
+  path: /Location
+- name: provider_directory_get_location_id
+  description: /Location/{id} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-location-id
+  method: GET
+  path: /Location/{id}
+- name: provider_directory_get_location_id__history_vid
+  description: /Location/{id}/_history/{vid} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-location-id-_history-vid
+  method: GET
+  path: /Location/{id}/_history/{vid}
+- name: provider_directory_get_location_id__history
+  description: /Location/{id}/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-location-id-_history
+  method: GET
+  path: /Location/{id}/_history
+- name: provider_directory_get_location__history
+  description: /Location/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-location-_history
+  method: GET
+  path: /Location/_history
+- name: provider_directory_get_organization
+  description: /Organization - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-organization
+  method: GET
+  path: /Organization
+- name: provider_directory_get_organization_id
+  description: /Organization/{id} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-organization-id
+  method: GET
+  path: /Organization/{id}
+- name: provider_directory_get_organization_id__history_vid
+  description: /Organization/{id}/_history/{vid} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-organization-id-_history-vid
+  method: GET
+  path: /Organization/{id}/_history/{vid}
+- name: provider_directory_get_organization_id__history
+  description: /Organization/{id}/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-organization-id-_history
+  method: GET
+  path: /Organization/{id}/_history
+- name: provider_directory_get_organization__history
+  description: /Organization/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-organization-_history
+  method: GET
+  path: /Organization/_history
+- name: provider_directory_get_practitioner
+  description: /Practitioner - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-practitioner
+  method: GET
+  path: /Practitioner
+- name: provider_directory_get_practitioner_id
+  description: /Practitioner/{id} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-practitioner-id
+  method: GET
+  path: /Practitioner/{id}
+- name: provider_directory_get_practitioner_id__history_vid
+  description: /Practitioner/{id}/_history/{vid} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-practitioner-id-_history-vid
+  method: GET
+  path: /Practitioner/{id}/_history/{vid}
+- name: provider_directory_get_practitioner_id__history
+  description: /Practitioner/{id}/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-practitioner-id-_history
+  method: GET
+  path: /Practitioner/{id}/_history
+- name: provider_directory_get_practitioner__history
+  description: /Practitioner/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-practitioner-_history
+  method: GET
+  path: /Practitioner/_history
+- name: provider_directory_get_practitionerrole
+  description: /PractitionerRole - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-practitionerrole
+  method: GET
+  path: /PractitionerRole
+- name: provider_directory_get_practitionerrole_id
+  description: /PractitionerRole/{id} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-practitionerrole-id
+  method: GET
+  path: /PractitionerRole/{id}
+- name: provider_directory_get_practitionerrole_id__history_vid
+  description: /PractitionerRole/{id}/_history/{vid} - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-practitionerrole-id-_history-vid
+  method: GET
+  path: /PractitionerRole/{id}/_history/{vid}
+- name: provider_directory_get_practitionerrole_id__history
+  description: /PractitionerRole/{id}/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-practitionerrole-id-_history
+  method: GET
+  path: /PractitionerRole/{id}/_history
+- name: provider_directory_get_practitionerrole__history
+  description: /PractitionerRole/_history - GET
+  source_operation: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json#get-practitionerrole-_history
+  method: GET
+  path: /PractitionerRole/_history
+excluded_operations:
+- operationId: authorize
+  reason: OAuth/identity endpoint, not a data tool
+- operationId: callback
+  reason: OAuth/identity endpoint, not a data tool
+- operationId: token
+  reason: OAuth/identity endpoint, not a data tool
+- operationId: tokenhook
+  reason: OAuth/identity endpoint, not a data tool

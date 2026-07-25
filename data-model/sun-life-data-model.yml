@@ -1,0 +1,140 @@
+generated: '2026-07-25'
+method: derived
+source:
+- openapi/sun-life-dentaquest-fhir-patient-access-openapi.json
+- openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json
+- https://api.dentaquest.com/FhirPatientAccess/v1/metadata
+model: HL7 FHIR R4 (4.0.1)
+note: Entity list is derived from the resource collections actually exposed in each published OpenAPI.
+  Relationship edges are the FHIR R4 reference elements defined by the implementation guides the APIs
+  declare conformance to (US Core 7.0.0-ballot, Da Vinci PDex Plan-Net 1.1.0) — the exported OpenAPI carries
+  only a generic "Body" schema, so no field-level schema was available to derive from.
+domains:
+- name: Patient Access (member compartment)
+  api: DentaQuest FHIR Patient Access API
+  entities:
+  - Coverage
+  - Organization
+  - Patient
+  - Practitioner
+  - RelatedPerson
+- name: Provider Directory (plan network)
+  api: DentaQuest FHIR Provider Directory API
+  entities:
+  - Endpoint
+  - HealthcareService
+  - InsurancePlan
+  - Location
+  - Organization
+  - Practitioner
+  - PractitionerRole
+entities:
+- name: Patient
+  domain: patient-access
+  id: FHIR logical id
+  note: The authorized member; bound to the token via launch/patient context.
+- name: Coverage
+  domain: patient-access
+  note: The member dental benefit plan.
+- name: Organization
+  domain: both
+  note: Payer, plan sponsor or provider organization.
+- name: Practitioner
+  domain: both
+  note: Individual dentist or hygienist.
+- name: RelatedPerson
+  domain: patient-access
+  note: Personal representative acting for the member.
+- name: PractitionerRole
+  domain: provider-directory
+  note: PDex Plan-Net join of practitioner, organization, location and network.
+- name: Location
+  domain: provider-directory
+- name: HealthcareService
+  domain: provider-directory
+- name: InsurancePlan
+  domain: provider-directory
+  note: The dental product / network.
+- name: Endpoint
+  domain: provider-directory
+  note: Technical endpoint for a directory entry.
+relationships:
+- from: Coverage
+  to: Patient
+  type: belongs_to
+  via: Coverage.beneficiary
+  basis: FHIR R4 / US Core
+- from: Coverage
+  to: Organization
+  type: belongs_to
+  via: Coverage.payor
+  basis: FHIR R4
+- from: Coverage
+  to: RelatedPerson
+  type: has_one
+  via: Coverage.subscriber
+  basis: FHIR R4
+- from: RelatedPerson
+  to: Patient
+  type: belongs_to
+  via: RelatedPerson.patient
+  basis: FHIR R4
+- from: PractitionerRole
+  to: Practitioner
+  type: belongs_to
+  via: PractitionerRole.practitioner
+  basis: PDex Plan-Net 1.1.0
+- from: PractitionerRole
+  to: Organization
+  type: belongs_to
+  via: PractitionerRole.organization
+  basis: PDex Plan-Net 1.1.0
+- from: PractitionerRole
+  to: Location
+  type: has_many
+  via: PractitionerRole.location
+  basis: PDex Plan-Net 1.1.0
+- from: PractitionerRole
+  to: HealthcareService
+  type: has_many
+  via: PractitionerRole.healthcareService
+  basis: PDex Plan-Net 1.1.0
+- from: HealthcareService
+  to: Location
+  type: has_many
+  via: HealthcareService.location
+  basis: PDex Plan-Net 1.1.0
+- from: HealthcareService
+  to: Organization
+  type: belongs_to
+  via: HealthcareService.providedBy
+  basis: PDex Plan-Net 1.1.0
+- from: InsurancePlan
+  to: Organization
+  type: belongs_to
+  via: InsurancePlan.ownedBy
+  basis: PDex Plan-Net 1.1.0
+- from: InsurancePlan
+  to: Organization
+  type: belongs_to
+  via: InsurancePlan.administeredBy
+  basis: PDex Plan-Net 1.1.0
+- from: Organization
+  to: Endpoint
+  type: has_many
+  via: Organization.endpoint
+  basis: PDex Plan-Net 1.1.0
+- from: Location
+  to: Organization
+  type: belongs_to
+  via: Location.managingOrganization
+  basis: FHIR R4
+access_patterns:
+- pattern: search
+  shape: GET /{Resource}?<search params> -> Bundle(searchset)
+- pattern: read
+  shape: GET /{Resource}/{id} -> resource
+- pattern: vread
+  shape: GET /{Resource}/{id}/_history/{vid} -> historical version
+- pattern: history
+  shape: GET /{Resource}/_history and /{Resource}/{id}/_history -> Bundle(history)

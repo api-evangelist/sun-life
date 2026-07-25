@@ -1,0 +1,31 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for DentaQuest FHIR Provider Directory API
+  version: 1.0.0
+extends: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: sun-life
+    x-apievangelist-operator: DentaQuest, a Sun Life U.S. company
+    x-apievangelist-source: https://developers.dentaquest.com/apis (Azure API Management export, OpenAPI
+      3.0.1)
+    x-apievangelist-harvested: '2026-07-25'
+    x-apievangelist-regulatory-regime: CMS Interoperability and Patient Access Final Rule (CMS-9115-F)
+    x-apievangelist-artifacts:
+      authentication: authentication/sun-life-authentication.yml
+      scopes: scopes/sun-life-scopes.yml
+      conformance: conformance/sun-life-conformance.yml
+      errors: errors/sun-life-problem-types.yml
+      conventions: conventions/sun-life-conventions.yml
+      lifecycle: lifecycle/sun-life-lifecycle.yml
+      data_model: data-model/sun-life-data-model.yml
+- target: $
+  update:
+    x-apievangelist-gaps:
+    - No tags are declared and no operation is tagged.
+    - Responses declare only 200; the documented 400/401/403/404/500 OperationOutcome responses are absent
+      from the spec.
+    - components.schemas contains a single generic "Body" schema — no FHIR resource schemas.
+    - No examples are carried in-spec.
+    - securitySchemes declare only the Azure APIM subscription key.

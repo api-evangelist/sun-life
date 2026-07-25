@@ -2,78 +2,224 @@ aid: sun-life
 url: https://raw.githubusercontent.com/api-evangelist/sun-life/refs/heads/main/apis.yml
 name: Sun Life
 kind: company
-description: >-
-  Sun Life Financial Inc. is a Canadian multinational life and health insurer and
-  asset manager headquartered in Toronto, one of the "life trio" that dominates
-  Canada's insurance market alongside Manulife and Great-West Lifeco. Sun Life
-  writes individual life insurance, individual and group health and dental
-  coverage, group benefits, disability and absence management, annuities and
-  retirement products, and runs a large wealth business through Sun Life Global
-  Investments, SLC Management and MFS Investment Management, with operations
-  across Canada, the United States, the United Kingdom, Ireland and Asia. In the
-  United States it is a leading group benefits, stop-loss and dental carrier and
-  owns DentaQuest. Sun Life publishes no public, self-serve developer portal and
-  no downloadable OpenAPI definitions in any market. Its only named API surface is
-  Sun Life Link, a partner-gated benefits-connectivity program that exchanges
-  evidence of insurability, plan setup, enrollment, billing and absence data in
-  real time with HR and benefits-administration platforms including Workday, ADP,
-  UKG, PlanSource, Employee Navigator and bswift; access is negotiated per client
-  and per platform rather than signed up for. Every other Sun Life digital surface
-  — Sun Life Connect for employers, the member account, the Canadian advisor and
-  Lumino Health communities — sits behind a sign-in wall. Canada's supervisory
-  split between OSFI (prudential) and the provincial conduct regulators, and the
-  exclusion of insurance from Consumer-Driven Banking, means there is no
-  open-insurance mandate creating any forcing function for a public API here.
+description: 'Sun Life Financial Inc. is a Canadian multinational life and health insurer and asset manager
+  headquartered in Toronto, one of the "life trio" that dominates Canada''s insurance market alongside
+  Manulife and Great-West Lifeco. Sun Life writes individual life insurance, individual and group health
+  and dental coverage, group benefits, disability and absence management, annuities and retirement products,
+  and runs a large wealth business through Sun Life Global Investments, SLC Management and MFS Investment
+  Management, with operations across Canada, the United States, the United Kingdom, Ireland and Asia.
+  In the United States it is a leading group benefits, stop-loss and dental carrier and owns DentaQuest.
+  Sun Life publishes no developer portal under its own brand: its only named Sun Life API surface is Sun
+  Life Link, a partner-gated benefits-connectivity program that exchanges evidence of insurability, plan
+  setup, enrollment, billing and absence data with HR and benefits-administration platforms including
+  Workday, ADP, UKG, PlanSource, Employee Navigator and bswift, negotiated per client rather than signed
+  up for. The public, machine-readable APIs in the Sun Life group belong to DentaQuest, its U.S. dental
+  subsidiary, which runs an Azure API Management developer portal at developers.dentaquest.com publishing
+  three OpenAPI 3.0.1 definitions: a SMART-on-FHIR Patient Access API, a Da Vinci PDex Plan-Net Provider
+  Directory API and an anonymous FHIR CapabilityStatement endpoint, all released under the CMS Interoperability
+  and Patient Access Final Rule (CMS-9115-F) and served for both the DentaQuest and Delta Dental of Massachusetts
+  brands. Canada''s supervisory split between OSFI and the provincial conduct regulators, and the exclusion
+  of insurance from Consumer-Driven Banking, means no open-insurance mandate creates a forcing function
+  for a public Sun Life API in its home market; the U.S. CMS mandate is what produced the only public
+  one.'
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
-  - Insurance
-  - Canada
-  - Life Insurance
-  - Health Insurance
-  - Employee Benefits
-  - Group Benefits
-  - Dental Insurance
-  - Disability
-  - Wealth Management
-  - Financial Services
-  - Carrier
+- Insurance
+- Canada
+- Life Insurance
+- Health Insurance
+- Employee Benefits
+- Group Benefits
+- Dental Insurance
+- Disability
+- Wealth Management
+- Financial Services
+- Carrier
+- FHIR
+- Patient Access
+- Provider Directory
+- Healthcare Interoperability
+- CMS-9115-F
+- DentaQuest
+- SMART on FHIR
+- Dental Benefits
 created: '2026-07-25'
 modified: '2026-07-25'
 specificationVersion: '0.19'
-apis: []
+apis:
+- aid: sun-life-dentaquest-fhir-patient-access
+  name: DentaQuest FHIR Patient Access API
+  description: FHIR R4 (4.0.1) read-only Patient Access API from DentaQuest, the Sun Life U.S. dental
+    company, published under the CMS Interoperability and Patient Access Final Rule (CMS-9115-F). Third-party
+    applications authorize a member with SMART App Launch 1.0.0 (authorization code + PKCE S256, scopes
+    patient/*.read, launch/patient, offline_access, openid, fhirUser) against an Okta CIAM authorization
+    server, then read that member's Patient, Coverage, Organization, Practitioner and RelatedPerson resources,
+    including _history and version reads. Conforms to HL7 US Core (3.1.1, 6.1.0 and 7.0.0-ballot instantiated
+    in the CapabilityStatement). Errors return a FHIR OperationOutcome. The same API is served for the
+    Delta Dental of Massachusetts brand.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
+  tags:
+  - FHIR
+  - Patient Access
+  - SMART on FHIR
+  - Dental
+  - CMS Mandate
+  - Health Data
+  - OAuth
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json
+  - type: Overlay
+    url: overlays/sun-life-dentaquest-fhir-patient-access-overlay.yaml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  - type: SignUp
+    url: https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+  - type: AgentSkill
+    url: skills/sun-life-dentaquest-patient-access-smart-launch.md
+- aid: sun-life-dentaquest-fhir-provider-directory
+  name: DentaQuest FHIR Provider Directory API
+  description: FHIR R4 (4.0.1) Provider Directory API from DentaQuest, the Sun Life U.S. dental company,
+    conforming to the HL7 Da Vinci PDex Plan-Net Implementation Guide 1.1.0 and published under CMS-9115-F.
+    Exposes read and search over Practitioner, PractitionerRole, Organization, Location, HealthcareService,
+    InsurancePlan and Endpoint, each with _history and version reads, so third-party applications can
+    find in-network dentists and dental plans. Authenticated with an Azure API Management subscription
+    key sent in the Ocp-Apim-Subscription-Key header or the subscription-key query parameter. Errors return
+    a FHIR OperationOutcome. The same API is served for the Delta Dental of Massachusetts brand.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/FhirProviderDirectory
+  tags:
+  - FHIR
+  - Provider Directory
+  - PDex Plan-Net
+  - Dental
+  - CMS Mandate
+  - Healthcare Providers
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json
+  - type: Overlay
+    url: overlays/sun-life-dentaquest-fhir-provider-directory-overlay.yaml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: SignUp
+    url: https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+  - type: AgentSkill
+    url: skills/sun-life-dentaquest-provider-directory-search.md
+- aid: sun-life-dentaquest-fhir-metadata
+  name: DentaQuest FHIR Metadata API
+  description: Anonymous FHIR R4 conformance endpoint for the DentaQuest (Sun Life U.S.) interoperability
+    platform. A single GET /metadata operation returns the CapabilityStatement of the underlying Azure
+    Healthcare APIs FHIR server (software version 4.0.815), listing every supported resource type, interaction
+    and search parameter in application/json or application/xml. Requires no credentials and is served
+    on both api.dentaquest.com and api.deltadentalma.com.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/fhirmetadata
+  tags:
+  - FHIR
+  - Conformance
+  - CapabilityStatement
+  - Metadata
+  - Dental
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-dentaquest-fhir-metadata-openapi.json
+  - type: Overlay
+    url: overlays/sun-life-dentaquest-fhir-metadata-overlay.yaml
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
 common:
-  - type: Website
-    url: https://www.sunlife.com/
-  - type: AboutUs
-    url: https://www.sunlife.com/en/about-us/
-  - type: Canada
-    url: https://www.sunlife.ca/
-  - type: UnitedStates
-    url: https://www.sunlife.com/us/en/
-  - type: DigitalCapabilities
-    url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/
-  - type: PartnerIntegrations
-    url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-link/
-  - type: EmployerPortal
-    url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-connect/
-  - type: MemberPortal
-    url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/member-portal/
-  - type: Onboarding
-    url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-onboard/
-  - type: WhitePapers
-    url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-link/navigating-connectivity-in-benefits-administration/
-  - type: SignIn
-    url: https://login.sunlifeconnect.com/commonlogin/
-  - type: AdvisorCommunity
-    url: https://connect.sunlife.ca/s/
-  - type: InvestorRelations
-    url: https://www.sunlife.com/en/investors/
-  - type: News
-    url: https://www.sunlife.com/en/newsroom/
-  - type: Careers
-    url: https://www.sunlife.com/en/careers/
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/sun-life-financial
+- type: DomainSecurity
+  url: security/sun-life-domain-security.yml
+- type: Website
+  url: https://www.sunlife.com/
+- type: AboutUs
+  url: https://www.sunlife.com/en/about-us/
+- type: Canada
+  url: https://www.sunlife.ca/
+- type: UnitedStates
+  url: https://www.sunlife.com/us/en/
+- type: DigitalCapabilities
+  url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/
+- type: PartnerIntegrations
+  url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-link/
+- type: EmployerPortal
+  url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-connect/
+- type: MemberPortal
+  url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/member-portal/
+- type: Onboarding
+  url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-onboard/
+- type: WhitePapers
+  url: https://www.sunlife.com/us/en/employers/products-and-services/digital-capabilities/sun-life-link/navigating-connectivity-in-benefits-administration/
+- type: SignIn
+  url: https://login.sunlifeconnect.com/commonlogin/
+- type: AdvisorCommunity
+  url: https://connect.sunlife.ca/s/
+- type: InvestorRelations
+  url: https://www.sunlife.com/en/investors/
+- type: News
+  url: https://www.sunlife.com/en/newsroom/
+- type: Careers
+  url: https://www.sunlife.com/en/careers/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/sun-life-financial
+- type: DeveloperPortal
+  url: https://developers.dentaquest.com/
+- type: Documentation
+  url: https://www.dentaquest.com/en/interoperability-api
+- type: APIReference
+  url: https://developers.dentaquest.com/apis
+- type: GettingStarted
+  url: https://www.dentaquest.com/en/interoperability-api
+- type: SignUp
+  url: https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+  name: Request DentaQuest API access
+- type: Support
+  url: https://www.dentaquest.com/en/contact-us
+- type: TermsOfService
+  url: https://www.dentaquest.com/en/policies/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.dentaquest.com/en/policies/internet-privacy-policy
+- type: Compliance
+  url: https://www.dentaquest.com/en/policies/hipaa-privacy-policy
+- type: Authentication
+  url: authentication/sun-life-authentication.yml
+- type: OAuthScopes
+  url: scopes/sun-life-scopes.yml
+- type: OpenIDConnect
+  url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+- type: WellKnown
+  url: well-known/sun-life-well-known.yml
+- type: Conformance
+  url: conformance/sun-life-conformance.yml
+- type: ErrorCatalog
+  url: errors/sun-life-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/sun-life-lifecycle.yml
+- type: Conventions
+  url: conventions/sun-life-conventions.yml
+- type: DataModel
+  url: data-model/sun-life-data-model.yml
+- type: MCPServer
+  url: mcp/sun-life-mcp.yml
+  name: Candidate MCP tool list (derived, not provider-published)
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/sun-life-llms.txt
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

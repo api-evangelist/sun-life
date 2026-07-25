@@ -1,0 +1,62 @@
+generated: '2026-07-25'
+method: searched
+source: live /.well-known probes of every Sun Life, DentaQuest and identity host
+note: Sun Life corporate hosts publish no /.well-known discovery surface. The only live discovery documents
+  in the Sun Life group belong to DentaQuest (Sun Life U.S. dental subsidiary), whose SMART-on-FHIR configuration
+  and Okta CIAM authorization server are anonymously readable.
+hosts:
+- host: https://api.dentaquest.com
+  documents:
+  - path: /FhirPatientAccess/v1/.well-known/smart-configuration
+    status: 200
+    file: sun-life-dentaquest-smart-configuration.json
+    spec: SMART App Launch 1.0.0
+  - path: /.well-known/smart-configuration
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://dentaquest-ciam.okta.com/oauth2/ausg07qa99xVdvh4Q4h7
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: sun-life-dentaquest-okta-openid-configuration.json
+    spec: OpenID Connect Discovery 1.0
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: sun-life-dentaquest-okta-oauth-authorization-server.json
+    spec: RFC 8414
+  - path: /v1/keys
+    status: 200
+    spec: JWKS (RFC 7517)
+    note: JWKS reachable; not archived
+- host: https://www.sunlife.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://www.sunlife.ca
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    note: DataDome bot protection; not machine-readable
+- host: https://www.dentaquest.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://developers.dentaquest.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+observations:
+- The published smart-configuration document sets "issuer" and "jwks_uri" to https://dentaquest-ciam.okta.com/oath2/...
+  — "oath2" is a typo for "oauth2". Those two URLs return HTTP 404 as published; the correctly spelled
+  /oauth2/ paths return 200. Recorded as observed, not corrected.

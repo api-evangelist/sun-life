@@ -1,0 +1,33 @@
+generated: '2026-07-25'
+method: generated
+note: >-
+  Skills are grounded in operationIds verified against the OpenAPI documents
+  exported from the DentaQuest (Sun Life U.S.) developer portal. Sun Life's own
+  surfaces — Sun Life Link, Sun Life Connect, mysunlife.ca — publish no
+  machine-readable contract, so no skill can be grounded there.
+skills:
+  - file: sun-life-dentaquest-patient-access-smart-launch.md
+    name: DentaQuest Patient Access — SMART on FHIR standalone launch
+    api: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json
+    operations:
+      - well-known-smart-configuration
+      - authorize
+      - token
+      - get-metadata
+      - get-patient
+      - get-patient-id
+      - get-coverage
+      - get-coverage-id
+  - file: sun-life-dentaquest-provider-directory-search.md
+    name: DentaQuest Provider Directory — find an in-network dentist
+    api: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json
+    operations:
+      - get-metadata
+      - get-practitioner
+      - get-practitionerrole
+      - get-practitionerrole-id
+      - get-location
+      - get-organization
+      - get-healthcareservice
+      - get-insuranceplan
+      - get-endpoint
