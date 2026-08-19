@@ -1,0 +1,4730 @@
+{
+  "item": [
+    {
+      "id": "1ec5127e-6f31-4bd6-9726-6d81d4d6e649",
+      "name": "Get conformance statement.",
+      "request": {
+        "name": "Get conformance statement.",
+        "description": {
+          "content": "Get conformance statement.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "metadata"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "4f9969be-51c7-4dbb-b573-9f82d7eee7b6",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "276cdd8b-0bb8-493e-99af-5a069c344a18",
+      "name": "/Endpoint - GET",
+      "request": {
+        "name": "/Endpoint - GET",
+        "description": {
+          "content": "/Endpoint - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Endpoint"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "organization",
+              "value": "<string>",
+              "description": "The organization that is managing the endpoint"
+            },
+            {
+              "disabled": false,
+              "key": "payload-type",
+              "value": "<string>",
+              "description": "The type of content that may be used at this endpoint (e.g. XDS Discharge summaries)"
+            },
+            {
+              "disabled": false,
+              "key": "_id",
+              "value": "<string>",
+              "description": "Logical id of this artifact"
+            },
+            {
+              "disabled": false,
+              "key": "_profile",
+              "value": "<string>",
+              "description": "Profiles this resource claims to conform to"
+            },
+            {
+              "disabled": false,
+              "key": "status",
+              "value": "<string>",
+              "description": "The current status of the Endpoint (usually expected to be active)"
+            },
+            {
+              "disabled": false,
+              "key": "connection-type",
+              "value": "<string>",
+              "description": "Protocol/Profile/Standard to be used with this endpoint connection"
+            },
+            {
+              "disabled": false,
+              "key": "_lastUpdated",
+              "value": "<date>",
+              "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+            },
+            {
+              "disabled": false,
+              "key": "_security",
+              "value": "<string>",
+              "description": "Security Labels applied to this resource"
+            },
+            {
+              "disabled": false,
+              "key": "_source",
+              "value": "<string>",
+              "description": "Identifies where the resource comes from"
+            },
+            {
+              "disabled": false,
+              "key": "name",
+              "value": "<string>",
+              "description": "A name that this endpoint can be identified by"
+            },
+            {
+              "disabled": false,
+              "key": "_tag",
+              "value": "<string>",
+              "description": "Tags applied to this resource"
+            },
+            {
+              "disabled": false,
+              "key": "identifier",
+              "value": "<string>",
+              "description": "Identifies this endpoint across multiple systems"
+            },
+            {
+              "disabled": false,
+              "key": "_format",
+              "value": "<string>",
+              "description": "Output formatting"
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "4b54ba6a-f8b5-4d67-a912-f802b4349da9",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Endpoint"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "organization",
+                  "value": "<string>"
+                },
+                {
+                  "key": "payload-type",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_id",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_profile",
+                  "value": "<string>"
+                },
+                {
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "key": "connection-type",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_lastUpdated",
+                  "value": "<date>"
+                },
+                {
+                  "key": "_security",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_source",
+                  "value": "<string>"
+                },
+                {
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_tag",
+                  "value": "<string>"
+                },
+                {
+                  "key": "identifier",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_format",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "86ea8258-6f8e-49e7-9ea6-31d187330c25",
+      "name": "/Endpoint/{id} - GET",
+      "request": {
+        "name": "/Endpoint/{id} - GET",
+        "description": {
+          "content": "/Endpoint/{id} - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Endpoint",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "5e281bf0-0e70-45ed-8d7d-ee3c233cd18f",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Endpoint",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "8b62c0fc-34d0-4f6d-b609-07b4dd34ade9",
+      "name": "/Endpoint/{id}/_history/{vid} - GET",
+      "request": {
+        "name": "/Endpoint/{id}/_history/{vid} - GET",
+        "description": {
+          "content": "/Endpoint/{id}/_history/{vid} - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Endpoint",
+            ":id",
+            "_history",
+            ":vid"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "vid",
+              "description": "(Required) version id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "c927662a-c920-4f79-b132-eaef467b2419",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Endpoint",
+                ":id",
+                "_history",
+                ":vid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vid",
+                  "description": "(Required) version id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "305a630f-12b0-4c07-ab47-b1402721ece3",
+      "name": "/Endpoint/{id}/_history - GET",
+      "request": {
+        "name": "/Endpoint/{id}/_history - GET",
+        "description": {
+          "content": "/Endpoint/{id}/_history - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Endpoint",
+            ":id",
+            "_history"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "_count",
+              "value": "<string>",
+              "description": "number to return"
+            },
+            {
+              "disabled": false,
+              "key": "_since",
+              "value": "<string>",
+              "description": "how far back"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "1c7c97e3-0bc5-4889-b490-c2d3ca6c52ff",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Endpoint",
+                ":id",
+                "_history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "_count",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_since",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "ef23536b-2768-49b4-9f3e-91a2748ab217",
+      "name": "/Endpoint/_history - GET",
+      "request": {
+        "name": "/Endpoint/_history - GET",
+        "description": {
+          "content": "/Endpoint/_history - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Endpoint",
+            "_history"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "_count",
+              "value": "<string>",
+              "description": "number to return"
+            },
+            {
+              "disabled": false,
+              "key": "_since",
+              "value": "<string>",
+              "description": "how far back"
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "ffe0ea7c-6ff9-4db6-8a8b-b649f86a4510",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Endpoint",
+                "_history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "_count",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_since",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "0cf99893-3478-41f2-a492-caed2d24b0e4",
+      "name": "/HealthcareService - GET",
+      "request": {
+        "name": "/HealthcareService - GET",
+        "description": {
+          "content": "/HealthcareService - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "HealthcareService"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "coverage-area",
+              "value": "<string>",
+              "description": "Location(s) service is intended for/available to"
+            },
+            {
+              "disabled": false,
+              "key": "characteristic",
+              "value": "<string>",
+              "description": "One of the HealthcareService's characteristics"
+            },
+            {
+              "disabled": false,
+              "key": "organization",
+              "value": "<string>",
+              "description": "The organization that provides this Healthcare Service"
+            },
+            {
+              "disabled": false,
+              "key": "service-category",
+              "value": "<string>",
+              "description": "Service Category of the Healthcare Service"
+            },
+            {
+              "disabled": false,
+              "key": "program",
+              "value": "<string>",
+              "description": "One of the Programs supported by this HealthcareService"
+            },
+            {
+              "disabled": false,
+              "key": "location",
+              "value": "<string>",
+              "description": "The location of the Healthcare Service"
+            },
+            {
+              "disabled": false,
+              "key": "active",
+              "value": "<string>",
+              "description": "The Healthcare Service is currently marked as active"
+            },
+            {
+              "disabled": false,
+              "key": "_id",
+              "value": "<string>",
+              "description": "Logical id of this artifact"
+            },
+            {
+              "disabled": false,
+              "key": "_profile",
+              "value": "<string>",
+              "description": "Profiles this resource claims to conform to"
+            },
+            {
+              "disabled": false,
+              "key": "service-type",
+              "value": "<string>",
+              "description": "The type of service provided by this healthcare service"
+            },
+            {
+              "disabled": false,
+              "key": "_lastUpdated",
+              "value": "<date>",
+              "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+            },
+            {
+              "disabled": false,
+              "key": "_security",
+              "value": "<string>",
+              "description": "Security Labels applied to this resource"
+            },
+            {
+              "disabled": false,
+              "key": "specialty",
+              "value": "<string>",
+              "description": "The specialty of the service provided by this healthcare service"
+            },
+            {
+              "disabled": false,
+              "key": "_source",
+              "value": "<string>",
+              "description": "Identifies where the resource comes from"
+            },
+            {
+              "disabled": false,
+              "key": "endpoint",
+              "value": "<string>",
+              "description": "Technical endpoints providing access to electronic services operated for the healthcare service"
+            },
+            {
+              "disabled": false,
+              "key": "name",
+              "value": "<string>",
+              "description": "A portion of the Healthcare service name"
+            },
+            {
+              "disabled": false,
+              "key": "_tag",
+              "value": "<string>",
+              "description": "Tags applied to this resource"
+            },
+            {
+              "disabled": false,
+              "key": "identifier",
+              "value": "<string>",
+              "description": "External identifiers for this item"
+            },
+            {
+              "disabled": false,
+              "key": "_format",
+              "value": "<string>",
+              "description": "Output formatting"
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "d827ce8d-b649-40e0-82c0-82cc08d3131e",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "HealthcareService"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "coverage-area",
+                  "value": "<string>"
+                },
+                {
+                  "key": "characteristic",
+                  "value": "<string>"
+                },
+                {
+                  "key": "organization",
+                  "value": "<string>"
+                },
+                {
+                  "key": "service-category",
+                  "value": "<string>"
+                },
+                {
+                  "key": "program",
+                  "value": "<string>"
+                },
+                {
+                  "key": "location",
+                  "value": "<string>"
+                },
+                {
+                  "key": "active",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_id",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_profile",
+                  "value": "<string>"
+                },
+                {
+                  "key": "service-type",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_lastUpdated",
+                  "value": "<date>"
+                },
+                {
+                  "key": "_security",
+                  "value": "<string>"
+                },
+                {
+                  "key": "specialty",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_source",
+                  "value": "<string>"
+                },
+                {
+                  "key": "endpoint",
+                  "value": "<string>"
+                },
+                {
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_tag",
+                  "value": "<string>"
+                },
+                {
+                  "key": "identifier",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_format",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "39a97412-988b-483a-8098-143abf847a2d",
+      "name": "/HealthcareService/{id} - GET",
+      "request": {
+        "name": "/HealthcareService/{id} - GET",
+        "description": {
+          "content": "/HealthcareService/{id} - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "HealthcareService",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "dbdbb785-c408-4266-a747-63d1104ac48b",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "HealthcareService",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "4767d950-d62b-40d1-b1fd-9129f081ff4d",
+      "name": "/HealthcareService/{id}/_history/{vid} - GET",
+      "request": {
+        "name": "/HealthcareService/{id}/_history/{vid} - GET",
+        "description": {
+          "content": "/HealthcareService/{id}/_history/{vid} - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "HealthcareService",
+            ":id",
+            "_history",
+            ":vid"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "vid",
+              "description": "(Required) version id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "23cc4542-5a60-4a1d-8e57-76758fc12fd6",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "HealthcareService",
+                ":id",
+                "_history",
+                ":vid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vid",
+                  "description": "(Required) version id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "1fca5f16-ae64-44ec-b3a1-92d88f45562b",
+      "name": "/HealthcareService/{id}/_history - GET",
+      "request": {
+        "name": "/HealthcareService/{id}/_history - GET",
+        "description": {
+          "content": "/HealthcareService/{id}/_history - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "HealthcareService",
+            ":id",
+            "_history"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "_count",
+              "value": "<string>",
+              "description": "number to return"
+            },
+            {
+              "disabled": false,
+              "key": "_since",
+              "value": "<string>",
+              "description": "how far back"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "186d94d2-53b2-4cea-9fa5-6515b8392b8b",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "HealthcareService",
+                ":id",
+                "_history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "_count",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_since",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "054a85f6-5eb5-4877-be26-febd5121e6c3",
+      "name": "/HealthcareService/_history - GET",
+      "request": {
+        "name": "/HealthcareService/_history - GET",
+        "description": {
+          "content": "/HealthcareService/_history - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "HealthcareService",
+            "_history"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "_count",
+              "value": "<string>",
+              "description": "number to return"
+            },
+            {
+              "disabled": false,
+              "key": "_since",
+              "value": "<string>",
+              "description": "how far back"
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "ca158c27-136b-4306-a778-fe816167edae",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "HealthcareService",
+                "_history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "_count",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_since",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "a0741591-9eab-4aaa-9281-a7c2283f4e20",
+      "name": "/InsurancePlan - GET",
+      "request": {
+        "name": "/InsurancePlan - GET",
+        "description": {
+          "content": "/InsurancePlan - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "InsurancePlan"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "address",
+              "value": "<string>",
+              "description": "A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
+            },
+            {
+              "disabled": false,
+              "key": "phonetic",
+              "value": "<string>",
+              "description": "A portion of the organization's name using some kind of phonetic matching algorithm"
+            },
+            {
+              "disabled": false,
+              "key": "address-state",
+              "value": "<string>",
+              "description": "A state specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "_id",
+              "value": "<string>",
+              "description": "Logical id of this artifact"
+            },
+            {
+              "disabled": false,
+              "key": "_profile",
+              "value": "<string>",
+              "description": "Profiles this resource claims to conform to"
+            },
+            {
+              "disabled": false,
+              "key": "address-country",
+              "value": "<string>",
+              "description": "A country specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "type",
+              "value": "<string>",
+              "description": "A code for the type of organization"
+            },
+            {
+              "disabled": false,
+              "key": "status",
+              "value": "<string>",
+              "description": "Is the Organization record active"
+            },
+            {
+              "disabled": false,
+              "key": "_lastUpdated",
+              "value": "<date>",
+              "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+            },
+            {
+              "disabled": false,
+              "key": "_security",
+              "value": "<string>",
+              "description": "Security Labels applied to this resource"
+            },
+            {
+              "disabled": false,
+              "key": "address-postalcode",
+              "value": "<string>",
+              "description": "A postal code specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "_source",
+              "value": "<string>",
+              "description": "Identifies where the resource comes from"
+            },
+            {
+              "disabled": false,
+              "key": "endpoint",
+              "value": "<string>",
+              "description": "Technical endpoint"
+            },
+            {
+              "disabled": false,
+              "key": "address-use",
+              "value": "<string>",
+              "description": "A use code specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "address-city",
+              "value": "<string>",
+              "description": "A city specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "name",
+              "value": "<string>",
+              "description": "A portion of the organization's name or alias"
+            },
+            {
+              "disabled": false,
+              "key": "_tag",
+              "value": "<string>",
+              "description": "Tags applied to this resource"
+            },
+            {
+              "disabled": false,
+              "key": "owned-by",
+              "value": "<string>",
+              "description": "An organization of which this organization forms a part"
+            },
+            {
+              "disabled": false,
+              "key": "identifier",
+              "value": "<string>",
+              "description": "Any identifier for the organization (not the accreditation issuer's identifier)"
+            },
+            {
+              "disabled": false,
+              "key": "administered-by",
+              "value": "<string>",
+              "description": "Product administrator"
+            },
+            {
+              "disabled": false,
+              "key": "_format",
+              "value": "<string>",
+              "description": "Output formatting"
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "7cea979b-bca2-4e27-972a-01ee8b51b64c",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "InsurancePlan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "address",
+                  "value": "<string>"
+                },
+                {
+                  "key": "phonetic",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-state",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_id",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_profile",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-country",
+                  "value": "<string>"
+                },
+                {
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_lastUpdated",
+                  "value": "<date>"
+                },
+                {
+                  "key": "_security",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-postalcode",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_source",
+                  "value": "<string>"
+                },
+                {
+                  "key": "endpoint",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-use",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-city",
+                  "value": "<string>"
+                },
+                {
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_tag",
+                  "value": "<string>"
+                },
+                {
+                  "key": "owned-by",
+                  "value": "<string>"
+                },
+                {
+                  "key": "identifier",
+                  "value": "<string>"
+                },
+                {
+                  "key": "administered-by",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_format",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "cbe20adb-0e47-45aa-8874-2d1b9676a486",
+      "name": "/InsurancePlan/{id} - GET",
+      "request": {
+        "name": "/InsurancePlan/{id} - GET",
+        "description": {
+          "content": "/InsurancePlan/{id} - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "InsurancePlan",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "7eb4fc1b-bbc4-41a1-8cf7-73aebc362bb2",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "InsurancePlan",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "184e48ff-ece3-4be0-9627-8c6b39744d4b",
+      "name": "/InsurancePlan/{id}/_history/{vid} - GET",
+      "request": {
+        "name": "/InsurancePlan/{id}/_history/{vid} - GET",
+        "description": {
+          "content": "/InsurancePlan/{id}/_history/{vid} - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "InsurancePlan",
+            ":id",
+            "_history",
+            ":vid"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "vid",
+              "description": "(Required) version id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "0ab7fc61-a068-4ea7-915d-62aaa99a215c",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "InsurancePlan",
+                ":id",
+                "_history",
+                ":vid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vid",
+                  "description": "(Required) version id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "5de60390-434a-4f9b-b05e-74fd92e83af3",
+      "name": "/InsurancePlan/{id}/_history - GET",
+      "request": {
+        "name": "/InsurancePlan/{id}/_history - GET",
+        "description": {
+          "content": "/InsurancePlan/{id}/_history - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "InsurancePlan",
+            ":id",
+            "_history"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "_count",
+              "value": "<string>",
+              "description": "number to return"
+            },
+            {
+              "disabled": false,
+              "key": "_since",
+              "value": "<string>",
+              "description": "how far back"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "a4d44ed1-4c5d-4dad-a13d-b2aa6286e12c",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "InsurancePlan",
+                ":id",
+                "_history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "_count",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_since",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "970080ec-4b37-48ca-9d42-31cf3a95b141",
+      "name": "/InsurancePlan/_history - GET",
+      "request": {
+        "name": "/InsurancePlan/_history - GET",
+        "description": {
+          "content": "/InsurancePlan/_history - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "InsurancePlan",
+            "_history"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "_count",
+              "value": "<string>",
+              "description": "number to return"
+            },
+            {
+              "disabled": false,
+              "key": "_since",
+              "value": "<string>",
+              "description": "how far back"
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "f8cebbc3-8c81-4908-8e2b-7c62ef37a7c8",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "InsurancePlan",
+                "_history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "_count",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_since",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "5268289d-ed57-4646-9c45-dddb61104ae1",
+      "name": "/Location - GET",
+      "request": {
+        "name": "/Location - GET",
+        "description": {
+          "content": "/Location - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Location"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "organization",
+              "value": "<string>",
+              "description": "Searches for locations that are managed by the provided organization"
+            },
+            {
+              "disabled": false,
+              "key": "address",
+              "value": "<string>",
+              "description": "A (part of the) address of the location"
+            },
+            {
+              "disabled": false,
+              "key": "operational-status",
+              "value": "<string>",
+              "description": "Searches for locations (typically bed/room) that have an operational status (e.g. contaminated, housekeeping)"
+            },
+            {
+              "disabled": false,
+              "key": "partof",
+              "value": "<string>",
+              "description": "A location of which this location is a part"
+            },
+            {
+              "disabled": false,
+              "key": "address-state",
+              "value": "<string>",
+              "description": "A state specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "_id",
+              "value": "<string>",
+              "description": "Logical id of this artifact"
+            },
+            {
+              "disabled": false,
+              "key": "_profile",
+              "value": "<string>",
+              "description": "Profiles this resource claims to conform to"
+            },
+            {
+              "disabled": false,
+              "key": "address-country",
+              "value": "<string>",
+              "description": "A country specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "type",
+              "value": "<string>",
+              "description": "A code for the type of location"
+            },
+            {
+              "disabled": false,
+              "key": "status",
+              "value": "<string>",
+              "description": "Searches for locations with a specific kind of status"
+            },
+            {
+              "disabled": false,
+              "key": "_lastUpdated",
+              "value": "<date>",
+              "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+            },
+            {
+              "disabled": false,
+              "key": "_security",
+              "value": "<string>",
+              "description": "Security Labels applied to this resource"
+            },
+            {
+              "disabled": false,
+              "key": "address-postalcode",
+              "value": "<string>",
+              "description": "A postal code specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "_source",
+              "value": "<string>",
+              "description": "Identifies where the resource comes from"
+            },
+            {
+              "disabled": false,
+              "key": "endpoint",
+              "value": "<string>",
+              "description": "Technical endpoints providing access to services operated for the location"
+            },
+            {
+              "disabled": false,
+              "key": "address-use",
+              "value": "<string>",
+              "description": "A use code specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "address-city",
+              "value": "<string>",
+              "description": "A city specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "name",
+              "value": "<string>",
+              "description": "A portion of the location's name or alias"
+            },
+            {
+              "disabled": false,
+              "key": "_tag",
+              "value": "<string>",
+              "description": "Tags applied to this resource"
+            },
+            {
+              "disabled": false,
+              "key": "identifier",
+              "value": "<string>",
+              "description": "An identifier for the location"
+            },
+            {
+              "disabled": false,
+              "key": "_format",
+              "value": "<string>",
+              "description": "Output formatting"
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "e0325451-3eed-474e-a4f6-a188cbfb55b5",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Location"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "organization",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address",
+                  "value": "<string>"
+                },
+                {
+                  "key": "operational-status",
+                  "value": "<string>"
+                },
+                {
+                  "key": "partof",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-state",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_id",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_profile",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-country",
+                  "value": "<string>"
+                },
+                {
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_lastUpdated",
+                  "value": "<date>"
+                },
+                {
+                  "key": "_security",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-postalcode",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_source",
+                  "value": "<string>"
+                },
+                {
+                  "key": "endpoint",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-use",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-city",
+                  "value": "<string>"
+                },
+                {
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_tag",
+                  "value": "<string>"
+                },
+                {
+                  "key": "identifier",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_format",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "a36f2df5-4402-4cc0-b56c-81a22590ab29",
+      "name": "/Location/{id} - GET",
+      "request": {
+        "name": "/Location/{id} - GET",
+        "description": {
+          "content": "/Location/{id} - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Location",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "bdef5c47-bcdd-4537-9479-9f49cc74db60",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Location",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "89ee3404-3ce0-4bb6-a35e-ee959510f770",
+      "name": "/Location/{id}/_history/{vid} - GET",
+      "request": {
+        "name": "/Location/{id}/_history/{vid} - GET",
+        "description": {
+          "content": "/Location/{id}/_history/{vid} - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Location",
+            ":id",
+            "_history",
+            ":vid"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "vid",
+              "description": "(Required) version id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "6d631da0-3bc2-4a2f-86fe-4f05ac7dac6f",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Location",
+                ":id",
+                "_history",
+                ":vid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vid",
+                  "description": "(Required) version id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "cd9fde80-c7c2-4a29-9642-c367f997328b",
+      "name": "/Location/{id}/_history - GET",
+      "request": {
+        "name": "/Location/{id}/_history - GET",
+        "description": {
+          "content": "/Location/{id}/_history - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Location",
+            ":id",
+            "_history"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "_count",
+              "value": "<string>",
+              "description": "number to return"
+            },
+            {
+              "disabled": false,
+              "key": "_since",
+              "value": "<string>",
+              "description": "how far back"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "41a52759-4778-4b5c-b106-2d110205bad8",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Location",
+                ":id",
+                "_history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "_count",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_since",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "bc0c775e-2a22-4491-bb82-45e35bfa5cfd",
+      "name": "/Location/_history - GET",
+      "request": {
+        "name": "/Location/_history - GET",
+        "description": {
+          "content": "/Location/_history - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Location",
+            "_history"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "_count",
+              "value": "<string>",
+              "description": "number to return"
+            },
+            {
+              "disabled": false,
+              "key": "_since",
+              "value": "<string>",
+              "description": "how far back"
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "4525d36e-9152-4af3-9a06-c74d473cca0b",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Location",
+                "_history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "_count",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_since",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "7f998fbd-4d80-47d5-86b3-f812b740a515",
+      "name": "/Organization - GET",
+      "request": {
+        "name": "/Organization - GET",
+        "description": {
+          "content": "/Organization - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Organization"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "address",
+              "value": "<string>",
+              "description": "A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
+            },
+            {
+              "disabled": false,
+              "key": "phonetic",
+              "value": "<string>",
+              "description": "A portion of the organization's name using some kind of phonetic matching algorithm"
+            },
+            {
+              "disabled": false,
+              "key": "partof",
+              "value": "<string>",
+              "description": "An organization of which this organization forms a part"
+            },
+            {
+              "disabled": false,
+              "key": "active",
+              "value": "<string>",
+              "description": "Is the Organization record active"
+            },
+            {
+              "disabled": false,
+              "key": "address-state",
+              "value": "<string>",
+              "description": "A state specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "_id",
+              "value": "<string>",
+              "description": "Logical id of this artifact"
+            },
+            {
+              "disabled": false,
+              "key": "_profile",
+              "value": "<string>",
+              "description": "Profiles this resource claims to conform to"
+            },
+            {
+              "disabled": false,
+              "key": "address-country",
+              "value": "<string>",
+              "description": "A country specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "type",
+              "value": "<string>",
+              "description": "A code for the type of organization"
+            },
+            {
+              "disabled": false,
+              "key": "_lastUpdated",
+              "value": "<date>",
+              "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+            },
+            {
+              "disabled": false,
+              "key": "_security",
+              "value": "<string>",
+              "description": "Security Labels applied to this resource"
+            },
+            {
+              "disabled": false,
+              "key": "address-postalcode",
+              "value": "<string>",
+              "description": "A postal code specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "_source",
+              "value": "<string>",
+              "description": "Identifies where the resource comes from"
+            },
+            {
+              "disabled": false,
+              "key": "endpoint",
+              "value": "<string>",
+              "description": "Technical endpoints providing access to services operated for the organization"
+            },
+            {
+              "disabled": false,
+              "key": "address-use",
+              "value": "<string>",
+              "description": "A use code specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "address-city",
+              "value": "<string>",
+              "description": "A city specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "name",
+              "value": "<string>",
+              "description": "A portion of the organization's name or alias"
+            },
+            {
+              "disabled": false,
+              "key": "_tag",
+              "value": "<string>",
+              "description": "Tags applied to this resource"
+            },
+            {
+              "disabled": false,
+              "key": "identifier",
+              "value": "<string>",
+              "description": "Any identifier for the organization (not the accreditation issuer's identifier)"
+            },
+            {
+              "disabled": false,
+              "key": "_format",
+              "value": "<string>",
+              "description": "Output formatting"
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "cffdcac8-0b68-4738-a726-9bda4dffe558",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Organization"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "address",
+                  "value": "<string>"
+                },
+                {
+                  "key": "phonetic",
+                  "value": "<string>"
+                },
+                {
+                  "key": "partof",
+                  "value": "<string>"
+                },
+                {
+                  "key": "active",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-state",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_id",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_profile",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-country",
+                  "value": "<string>"
+                },
+                {
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_lastUpdated",
+                  "value": "<date>"
+                },
+                {
+                  "key": "_security",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-postalcode",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_source",
+                  "value": "<string>"
+                },
+                {
+                  "key": "endpoint",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-use",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-city",
+                  "value": "<string>"
+                },
+                {
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_tag",
+                  "value": "<string>"
+                },
+                {
+                  "key": "identifier",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_format",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "12983598-9b61-4ad2-b210-82feedcaf662",
+      "name": "/Organization/{id} - GET",
+      "request": {
+        "name": "/Organization/{id} - GET",
+        "description": {
+          "content": "/Organization/{id} - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Organization",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "71ddfbcc-9480-4614-ac3e-e814f07c186b",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Organization",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "ec23fa29-1359-4997-a2dc-3940b4e4dd93",
+      "name": "/Organization/{id}/_history/{vid} - GET",
+      "request": {
+        "name": "/Organization/{id}/_history/{vid} - GET",
+        "description": {
+          "content": "/Organization/{id}/_history/{vid} - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Organization",
+            ":id",
+            "_history",
+            ":vid"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "vid",
+              "description": "(Required) version id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "a6f92be0-1503-4bb2-8e8e-ac43a8a88dc6",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Organization",
+                ":id",
+                "_history",
+                ":vid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vid",
+                  "description": "(Required) version id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "b3aa11e2-a46d-4dad-b52f-6fd18ac0cc4f",
+      "name": "/Organization/{id}/_history - GET",
+      "request": {
+        "name": "/Organization/{id}/_history - GET",
+        "description": {
+          "content": "/Organization/{id}/_history - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Organization",
+            ":id",
+            "_history"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "_count",
+              "value": "<string>",
+              "description": "number to return"
+            },
+            {
+              "disabled": false,
+              "key": "_since",
+              "value": "<string>",
+              "description": "how far back"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "43844aa7-c731-4a4a-b776-0a85e74555a5",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Organization",
+                ":id",
+                "_history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "_count",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_since",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "0390ffae-d663-47db-92f5-9915c0d798e3",
+      "name": "/Organization/_history - GET",
+      "request": {
+        "name": "/Organization/_history - GET",
+        "description": {
+          "content": "/Organization/_history - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Organization",
+            "_history"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "_count",
+              "value": "<string>",
+              "description": "number to return"
+            },
+            {
+              "disabled": false,
+              "key": "_since",
+              "value": "<string>",
+              "description": "how far back"
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "e9598ada-46b2-47dd-a3a6-bf1a78c4aad6",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Organization",
+                "_history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "_count",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_since",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "a06b346b-45ff-42c1-8f60-e1068d37e869",
+      "name": "/Practitioner - GET",
+      "request": {
+        "name": "/Practitioner - GET",
+        "description": {
+          "content": "/Practitioner - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Practitioner"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "phone",
+              "value": "<string>",
+              "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in a phone contact\r\n* [Person](person.html): A value in a phone contact\r\n* [Practitioner](practitioner.html): A value in a phone contact\r\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\r\n* [RelatedPerson](relatedperson.html): A value in a phone contact"
+            },
+            {
+              "disabled": false,
+              "key": "address",
+              "value": "<string>",
+              "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Person](person.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Practitioner](practitioner.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [RelatedPerson](relatedperson.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
+            },
+            {
+              "disabled": false,
+              "key": "phonetic",
+              "value": "<string>",
+              "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [Person](person.html): A portion of name using some kind of phonetic matching algorithm\r\n* [Practitioner](practitioner.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [RelatedPerson](relatedperson.html): A portion of name using some kind of phonetic matching algorithm"
+            },
+            {
+              "disabled": false,
+              "key": "family",
+              "value": "<string>",
+              "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of the family name of the patient\r\n* [Practitioner](practitioner.html): A portion of the family name"
+            },
+            {
+              "disabled": false,
+              "key": "active",
+              "value": "<string>",
+              "description": "Whether the practitioner record is active"
+            },
+            {
+              "disabled": false,
+              "key": "address-state",
+              "value": "<string>",
+              "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A state specified in an address\r\n* [Person](person.html): A state specified in an address\r\n* [Practitioner](practitioner.html): A state specified in an address\r\n* [RelatedPerson](relatedperson.html): A state specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "_id",
+              "value": "<string>",
+              "description": "Logical id of this artifact"
+            },
+            {
+              "disabled": false,
+              "key": "_profile",
+              "value": "<string>",
+              "description": "Profiles this resource claims to conform to"
+            },
+            {
+              "disabled": false,
+              "key": "gender",
+              "value": "<string>",
+              "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): Gender of the patient\r\n* [Person](person.html): The gender of the person\r\n* [Practitioner](practitioner.html): Gender of the practitioner\r\n* [RelatedPerson](relatedperson.html): Gender of the related person"
+            },
+            {
+              "disabled": false,
+              "key": "address-country",
+              "value": "<string>",
+              "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A country specified in an address\r\n* [Person](person.html): A country specified in an address\r\n* [Practitioner](practitioner.html): A country specified in an address\r\n* [RelatedPerson](relatedperson.html): A country specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "given",
+              "value": "<string>",
+              "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of the given name of the patient\r\n* [Practitioner](practitioner.html): A portion of the given name"
+            },
+            {
+              "disabled": false,
+              "key": "_lastUpdated",
+              "value": "<date>",
+              "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+            },
+            {
+              "disabled": false,
+              "key": "_security",
+              "value": "<string>",
+              "description": "Security Labels applied to this resource"
+            },
+            {
+              "disabled": false,
+              "key": "address-postalcode",
+              "value": "<string>",
+              "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A postalCode specified in an address\r\n* [Person](person.html): A postal code specified in an address\r\n* [Practitioner](practitioner.html): A postalCode specified in an address\r\n* [RelatedPerson](relatedperson.html): A postal code specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "_source",
+              "value": "<string>",
+              "description": "Identifies where the resource comes from"
+            },
+            {
+              "disabled": false,
+              "key": "communication",
+              "value": "<string>",
+              "description": "One of the languages that the practitioner can communicate with"
+            },
+            {
+              "disabled": false,
+              "key": "address-use",
+              "value": "<string>",
+              "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A use code specified in an address\r\n* [Person](person.html): A use code specified in an address\r\n* [Practitioner](practitioner.html): A use code specified in an address\r\n* [RelatedPerson](relatedperson.html): A use code specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "address-city",
+              "value": "<string>",
+              "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A city specified in an address\r\n* [Person](person.html): A city specified in an address\r\n* [Practitioner](practitioner.html): A city specified in an address\r\n* [RelatedPerson](relatedperson.html): A city specified in an address"
+            },
+            {
+              "disabled": false,
+              "key": "name",
+              "value": "<string>",
+              "description": "A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text"
+            },
+            {
+              "disabled": false,
+              "key": "_tag",
+              "value": "<string>",
+              "description": "Tags applied to this resource"
+            },
+            {
+              "disabled": false,
+              "key": "identifier",
+              "value": "<string>",
+              "description": "A practitioner's Identifier"
+            },
+            {
+              "disabled": false,
+              "key": "email",
+              "value": "<string>",
+              "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in an email contact\r\n* [Person](person.html): A value in an email contact\r\n* [Practitioner](practitioner.html): A value in an email contact\r\n* [PractitionerRole](practitionerrole.html): A value in an email contact\r\n* [RelatedPerson](relatedperson.html): A value in an email contact"
+            },
+            {
+              "disabled": false,
+              "key": "telecom",
+              "value": "<string>",
+              "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): The value in any kind of telecom details of the patient\r\n* [Person](person.html): The value in any kind of contact\r\n* [Practitioner](practitioner.html): The value in any kind of contact\r\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\r\n* [RelatedPerson](relatedperson.html): The value in any kind of contact"
+            },
+            {
+              "disabled": false,
+              "key": "_format",
+              "value": "<string>",
+              "description": "Output formatting"
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "7f0fc600-cea7-4a59-ab72-b9e031f3cf46",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Practitioner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "phone",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address",
+                  "value": "<string>"
+                },
+                {
+                  "key": "phonetic",
+                  "value": "<string>"
+                },
+                {
+                  "key": "family",
+                  "value": "<string>"
+                },
+                {
+                  "key": "active",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-state",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_id",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_profile",
+                  "value": "<string>"
+                },
+                {
+                  "key": "gender",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-country",
+                  "value": "<string>"
+                },
+                {
+                  "key": "given",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_lastUpdated",
+                  "value": "<date>"
+                },
+                {
+                  "key": "_security",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-postalcode",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_source",
+                  "value": "<string>"
+                },
+                {
+                  "key": "communication",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-use",
+                  "value": "<string>"
+                },
+                {
+                  "key": "address-city",
+                  "value": "<string>"
+                },
+                {
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_tag",
+                  "value": "<string>"
+                },
+                {
+                  "key": "identifier",
+                  "value": "<string>"
+                },
+                {
+                  "key": "email",
+                  "value": "<string>"
+                },
+                {
+                  "key": "telecom",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_format",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "ab582861-831b-4818-8541-82094bd3595e",
+      "name": "/Practitioner/{id} - GET",
+      "request": {
+        "name": "/Practitioner/{id} - GET",
+        "description": {
+          "content": "/Practitioner/{id} - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Practitioner",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "434d093f-7ea6-4b5b-9896-94c41236bd68",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Practitioner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "38508922-4683-4804-a5e5-5b4e7a392437",
+      "name": "/Practitioner/{id}/_history/{vid} - GET",
+      "request": {
+        "name": "/Practitioner/{id}/_history/{vid} - GET",
+        "description": {
+          "content": "/Practitioner/{id}/_history/{vid} - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Practitioner",
+            ":id",
+            "_history",
+            ":vid"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "vid",
+              "description": "(Required) version id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "8b711db6-072f-47b4-9dc5-1a2fe576df75",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Practitioner",
+                ":id",
+                "_history",
+                ":vid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vid",
+                  "description": "(Required) version id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "abe1df5c-bf5d-4085-93e5-0e499659dc38",
+      "name": "/Practitioner/{id}/_history - GET",
+      "request": {
+        "name": "/Practitioner/{id}/_history - GET",
+        "description": {
+          "content": "/Practitioner/{id}/_history - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Practitioner",
+            ":id",
+            "_history"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "_count",
+              "value": "<string>",
+              "description": "number to return"
+            },
+            {
+              "disabled": false,
+              "key": "_since",
+              "value": "<string>",
+              "description": "how far back"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "55604f21-1c8e-4f7b-8c72-29e279ca8e52",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Practitioner",
+                ":id",
+                "_history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "_count",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_since",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "cd6c4a59-29d3-4b2d-9594-0198bcb21209",
+      "name": "/Practitioner/_history - GET",
+      "request": {
+        "name": "/Practitioner/_history - GET",
+        "description": {
+          "content": "/Practitioner/_history - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Practitioner",
+            "_history"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "_count",
+              "value": "<string>",
+              "description": "number to return"
+            },
+            {
+              "disabled": false,
+              "key": "_since",
+              "value": "<string>",
+              "description": "how far back"
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "4b83e447-dd64-453a-866a-7a2e0aa3e3f2",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Practitioner",
+                "_history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "_count",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_since",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "a9206bc3-ee43-464c-b9d1-89a91608764e",
+      "name": "/PractitionerRole - GET",
+      "request": {
+        "name": "/PractitionerRole - GET",
+        "description": {
+          "content": "/PractitionerRole - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "PractitionerRole"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "phone",
+              "value": "<string>",
+              "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in a phone contact\r\n* [Person](person.html): A value in a phone contact\r\n* [Practitioner](practitioner.html): A value in a phone contact\r\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\r\n* [RelatedPerson](relatedperson.html): A value in a phone contact"
+            },
+            {
+              "disabled": false,
+              "key": "organization",
+              "value": "<string>",
+              "description": "The identity of the organization the practitioner represents / acts on behalf of"
+            },
+            {
+              "disabled": false,
+              "key": "date",
+              "value": "<date>",
+              "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). The period during which the practitioner is authorized to perform in these role(s)"
+            },
+            {
+              "disabled": false,
+              "key": "location",
+              "value": "<string>",
+              "description": "One of the locations at which this practitioner provides care"
+            },
+            {
+              "disabled": false,
+              "key": "practitioner",
+              "value": "<string>",
+              "description": "Practitioner that is able to provide the defined services for the organization"
+            },
+            {
+              "disabled": false,
+              "key": "active",
+              "value": "<string>",
+              "description": "Whether this practitioner role record is in active use"
+            },
+            {
+              "disabled": false,
+              "key": "_id",
+              "value": "<string>",
+              "description": "Logical id of this artifact"
+            },
+            {
+              "disabled": false,
+              "key": "_profile",
+              "value": "<string>",
+              "description": "Profiles this resource claims to conform to"
+            },
+            {
+              "disabled": false,
+              "key": "service",
+              "value": "<string>",
+              "description": "The list of healthcare services that this worker provides for this role's Organization/Location(s)"
+            },
+            {
+              "disabled": false,
+              "key": "_lastUpdated",
+              "value": "<date>",
+              "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+            },
+            {
+              "disabled": false,
+              "key": "_security",
+              "value": "<string>",
+              "description": "Security Labels applied to this resource"
+            },
+            {
+              "disabled": false,
+              "key": "specialty",
+              "value": "<string>",
+              "description": "The practitioner has this specialty at an organization"
+            },
+            {
+              "disabled": false,
+              "key": "_source",
+              "value": "<string>",
+              "description": "Identifies where the resource comes from"
+            },
+            {
+              "disabled": false,
+              "key": "endpoint",
+              "value": "<string>",
+              "description": "Technical endpoints providing access to services operated for the practitioner with this role"
+            },
+            {
+              "disabled": false,
+              "key": "_tag",
+              "value": "<string>",
+              "description": "Tags applied to this resource"
+            },
+            {
+              "disabled": false,
+              "key": "identifier",
+              "value": "<string>",
+              "description": "A practitioner's Identifier"
+            },
+            {
+              "disabled": false,
+              "key": "email",
+              "value": "<string>",
+              "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in an email contact\r\n* [Person](person.html): A value in an email contact\r\n* [Practitioner](practitioner.html): A value in an email contact\r\n* [PractitionerRole](practitionerrole.html): A value in an email contact\r\n* [RelatedPerson](relatedperson.html): A value in an email contact"
+            },
+            {
+              "disabled": false,
+              "key": "role",
+              "value": "<string>",
+              "description": "The practitioner can perform this role at for the organization"
+            },
+            {
+              "disabled": false,
+              "key": "telecom",
+              "value": "<string>",
+              "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): The value in any kind of telecom details of the patient\r\n* [Person](person.html): The value in any kind of contact\r\n* [Practitioner](practitioner.html): The value in any kind of contact\r\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\r\n* [RelatedPerson](relatedperson.html): The value in any kind of contact"
+            },
+            {
+              "disabled": false,
+              "key": "_format",
+              "value": "<string>",
+              "description": "Output formatting"
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "0ea034b8-68db-40f6-b191-80ae9e022376",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "PractitionerRole"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "phone",
+                  "value": "<string>"
+                },
+                {
+                  "key": "organization",
+                  "value": "<string>"
+                },
+                {
+                  "key": "date",
+                  "value": "<date>"
+                },
+                {
+                  "key": "location",
+                  "value": "<string>"
+                },
+                {
+                  "key": "practitioner",
+                  "value": "<string>"
+                },
+                {
+                  "key": "active",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_id",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_profile",
+                  "value": "<string>"
+                },
+                {
+                  "key": "service",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_lastUpdated",
+                  "value": "<date>"
+                },
+                {
+                  "key": "_security",
+                  "value": "<string>"
+                },
+                {
+                  "key": "specialty",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_source",
+                  "value": "<string>"
+                },
+                {
+                  "key": "endpoint",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_tag",
+                  "value": "<string>"
+                },
+                {
+                  "key": "identifier",
+                  "value": "<string>"
+                },
+                {
+                  "key": "email",
+                  "value": "<string>"
+                },
+                {
+                  "key": "role",
+                  "value": "<string>"
+                },
+                {
+                  "key": "telecom",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_format",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "15a96041-0558-4457-bf86-503ea4646af6",
+      "name": "/PractitionerRole/{id} - GET",
+      "request": {
+        "name": "/PractitionerRole/{id} - GET",
+        "description": {
+          "content": "/PractitionerRole/{id} - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "PractitionerRole",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "22a3bed5-8f06-4237-8320-51261d33a2e3",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "PractitionerRole",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "97a26a38-3aa7-4012-90c2-d3f52dd2544f",
+      "name": "/PractitionerRole/{id}/_history/{vid} - GET",
+      "request": {
+        "name": "/PractitionerRole/{id}/_history/{vid} - GET",
+        "description": {
+          "content": "/PractitionerRole/{id}/_history/{vid} - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "PractitionerRole",
+            ":id",
+            "_history",
+            ":vid"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "vid",
+              "description": "(Required) version id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "5826bf63-32ef-4a75-8a2d-82ceed6e6fc1",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "PractitionerRole",
+                ":id",
+                "_history",
+                ":vid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vid",
+                  "description": "(Required) version id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "a71914ed-cd2e-4076-a127-1f68fe9a6860",
+      "name": "/PractitionerRole/{id}/_history - GET",
+      "request": {
+        "name": "/PractitionerRole/{id}/_history - GET",
+        "description": {
+          "content": "/PractitionerRole/{id}/_history - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "PractitionerRole",
+            ":id",
+            "_history"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "_count",
+              "value": "<string>",
+              "description": "number to return"
+            },
+            {
+              "disabled": false,
+              "key": "_since",
+              "value": "<string>",
+              "description": "how far back"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) id of resource"
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "40c70e1f-3de1-4eae-b63a-21c508fc8aa3",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "PractitionerRole",
+                ":id",
+                "_history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "_count",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_since",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id of resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "193a1b7d-3244-4220-ba42-1d70ff09de4f",
+      "name": "/PractitionerRole/_history - GET",
+      "request": {
+        "name": "/PractitionerRole/_history - GET",
+        "description": {
+          "content": "/PractitionerRole/_history - GET",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "PractitionerRole",
+            "_history"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "_count",
+              "value": "<string>",
+              "description": "number to return"
+            },
+            {
+              "disabled": false,
+              "key": "_since",
+              "value": "<string>",
+              "description": "how far back"
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "2dcca9cd-cf01-40fb-a1fb-7526dc9045b2",
+          "name": "Success",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "PractitionerRole",
+                "_history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "_count",
+                  "value": "<string>"
+                },
+                {
+                  "key": "_since",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.dentaquest.com/FhirProviderDirectory",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b79c2c9c-212a-4225-923b-834462c40641",
+    "name": "Fhir Provider Directory",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n**Provider Directory API for CMS 9115-F**\n\nThe Provider Directory API provides access to provider information. To get started, a third-party developer must request an API key.\n\n**1. Get Your API Key** Request an API key by filling out the form at: [Logic Manager Form](https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241). Be sure to select \"Provider Directory\" from the API dropdown menu.\n\n**2. Make Requests** Once you receive your key, include it in the `Ocp-Apim-Subscription-Key` header for all API calls to your requests.\n\n### **API Standards and Conformance**\n\nThis API conforms to the following standards and implementation specifications:\n\n- **FHIR Version:** `4.0.1` (R4)\n    \n- **Implementation Guide:** `HL7 Da Vinci PDex Plan-Net Implementation Guide Version 1.1.0`\n    \n\n### **Exception Handling**\n\nThe API uses standard HTTP status codes to indicate the success or failure of a request. In the event of an error (HTTP status codes `4xx` or `5xx`), for example an invalid API key (`403 Forbidden`) or a malformed request (`400 Bad Request`). The response body will also contain a FHIR `OperationOutcome` resource. This resource provides detailed, structured information about the error, including severity, error codes, and human-readable diagnostics to assist with troubleshooting.\n\n\n\n### **Exception Response**\n| HTTP Status | Response                | Reason                                                                                                                               |\n| ----------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |\n| **400**     | `Bad Request`           | The request could not be understood by the server due to malformed syntax (e.g., an invalid parameter).                              |\n| **401**     | `Unauthorized`          | The request lacks valid authentication credentials. This may occur if the JWT token is missing, expired, or invalid.                 |\n| **403**     | `Forbidden`             | The server understood the request, but refuses to authorize it. This may occur if the member has not granted the application access. |\n| **404**     | `Not Found`             | The requested FHIR resource (e.g., a specific Patient or Coverage record) does not exist.                                            |\n| **500**     | `Internal Server Error` | The server encountered an unexpected condition that prevented it from fulfilling the request.                                        |\n\n",
+      "type": "text/plain"
+    }
+  }
+}

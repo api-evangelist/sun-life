@@ -340,3 +340,9 @@ excluded_operations:
   reason: OAuth/identity endpoint, not a data tool
 - operationId: tokenhook
   reason: OAuth/identity endpoint, not a data tool
+deployment:
+  mode: none
+  verified: derived
+  tools: 63
+  checked: '2026-08-12'
+  source: catalog MCP census

@@ -1,0 +1,1337 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fhir Patient Access",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get conformance statement.",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/metadata"
+      },
+      "docs": "Get conformance statement."
+    },
+    {
+      "info": {
+        "name": "/Coverage - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Coverage",
+        "params": [
+          {
+            "name": "payor",
+            "value": "",
+            "type": "query",
+            "description": "The identity of the insurer or party paying for services"
+          },
+          {
+            "name": "_id",
+            "value": "",
+            "type": "query",
+            "description": "Logical id of this artifact"
+          },
+          {
+            "name": "_profile",
+            "value": "",
+            "type": "query",
+            "description": "Profiles this resource claims to conform to"
+          },
+          {
+            "name": "type",
+            "value": "",
+            "type": "query",
+            "description": "The kind of coverage (health plan, auto, Workers Compensation)"
+          },
+          {
+            "name": "subscriber",
+            "value": "",
+            "type": "query",
+            "description": "Reference to the subscriber"
+          },
+          {
+            "name": "status",
+            "value": "",
+            "type": "query",
+            "description": "The status of the Coverage"
+          },
+          {
+            "name": "policy-holder",
+            "value": "",
+            "type": "query",
+            "description": "Reference to the policyholder"
+          },
+          {
+            "name": "class-value",
+            "value": "",
+            "type": "query",
+            "description": "Value of the class (eg. Plan number, group number)"
+          },
+          {
+            "name": "_lastUpdated",
+            "value": "",
+            "type": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+          },
+          {
+            "name": "_security",
+            "value": "",
+            "type": "query",
+            "description": "Security Labels applied to this resource"
+          },
+          {
+            "name": "patient",
+            "value": "",
+            "type": "query",
+            "description": "Retrieve coverages for a patient"
+          },
+          {
+            "name": "beneficiary",
+            "value": "",
+            "type": "query",
+            "description": "Covered party"
+          },
+          {
+            "name": "_source",
+            "value": "",
+            "type": "query",
+            "description": "Identifies where the resource comes from"
+          },
+          {
+            "name": "_tag",
+            "value": "",
+            "type": "query",
+            "description": "Tags applied to this resource"
+          },
+          {
+            "name": "identifier",
+            "value": "",
+            "type": "query",
+            "description": "The primary identifier of the insured and the coverage"
+          },
+          {
+            "name": "class-type",
+            "value": "",
+            "type": "query",
+            "description": "Coverage class (eg. plan, group)"
+          },
+          {
+            "name": "dependent",
+            "value": "",
+            "type": "query",
+            "description": "Dependent number"
+          },
+          {
+            "name": "_format",
+            "value": "",
+            "type": "query",
+            "description": "Output formatting"
+          }
+        ]
+      },
+      "docs": "/Coverage - GET"
+    },
+    {
+      "info": {
+        "name": "/Coverage/{id} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Coverage/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          }
+        ]
+      },
+      "docs": "/Coverage/{id} - GET"
+    },
+    {
+      "info": {
+        "name": "/Coverage/{id}/_history/{vid} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Coverage/:id/_history/:vid",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "vid",
+            "value": "",
+            "type": "path",
+            "description": "version id of resource"
+          }
+        ]
+      },
+      "docs": "/Coverage/{id}/_history/{vid} - GET"
+    },
+    {
+      "info": {
+        "name": "/Coverage/{id}/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Coverage/:id/_history",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/Coverage/{id}/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/Coverage/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Coverage/_history",
+        "params": [
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/Coverage/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/Organization - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Organization",
+        "params": [
+          {
+            "name": "address",
+            "value": "",
+            "type": "query",
+            "description": "A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
+          },
+          {
+            "name": "phonetic",
+            "value": "",
+            "type": "query",
+            "description": "A portion of the organization's name using some kind of phonetic matching algorithm"
+          },
+          {
+            "name": "partof",
+            "value": "",
+            "type": "query",
+            "description": "An organization of which this organization forms a part"
+          },
+          {
+            "name": "active",
+            "value": "",
+            "type": "query",
+            "description": "Is the Organization record active"
+          },
+          {
+            "name": "address-state",
+            "value": "",
+            "type": "query",
+            "description": "A state specified in an address"
+          },
+          {
+            "name": "_id",
+            "value": "",
+            "type": "query",
+            "description": "Logical id of this artifact"
+          },
+          {
+            "name": "_profile",
+            "value": "",
+            "type": "query",
+            "description": "Profiles this resource claims to conform to"
+          },
+          {
+            "name": "address-country",
+            "value": "",
+            "type": "query",
+            "description": "A country specified in an address"
+          },
+          {
+            "name": "type",
+            "value": "",
+            "type": "query",
+            "description": "A code for the type of organization"
+          },
+          {
+            "name": "_lastUpdated",
+            "value": "",
+            "type": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+          },
+          {
+            "name": "_security",
+            "value": "",
+            "type": "query",
+            "description": "Security Labels applied to this resource"
+          },
+          {
+            "name": "address-postalcode",
+            "value": "",
+            "type": "query",
+            "description": "A postal code specified in an address"
+          },
+          {
+            "name": "_source",
+            "value": "",
+            "type": "query",
+            "description": "Identifies where the resource comes from"
+          },
+          {
+            "name": "endpoint",
+            "value": "",
+            "type": "query",
+            "description": "Technical endpoints providing access to services operated for the organization"
+          },
+          {
+            "name": "address-use",
+            "value": "",
+            "type": "query",
+            "description": "A use code specified in an address"
+          },
+          {
+            "name": "address-city",
+            "value": "",
+            "type": "query",
+            "description": "A city specified in an address"
+          },
+          {
+            "name": "name",
+            "value": "",
+            "type": "query",
+            "description": "A portion of the organization's name or alias"
+          },
+          {
+            "name": "_tag",
+            "value": "",
+            "type": "query",
+            "description": "Tags applied to this resource"
+          },
+          {
+            "name": "identifier",
+            "value": "",
+            "type": "query",
+            "description": "Any identifier for the organization (not the accreditation issuer's identifier)"
+          },
+          {
+            "name": "_format",
+            "value": "",
+            "type": "query",
+            "description": "Output formatting"
+          }
+        ]
+      },
+      "docs": "/Organization - GET"
+    },
+    {
+      "info": {
+        "name": "/Organization/{id} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Organization/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          }
+        ]
+      },
+      "docs": "/Organization/{id} - GET"
+    },
+    {
+      "info": {
+        "name": "/Organization/{id}/_history/{vid} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Organization/:id/_history/:vid",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "vid",
+            "value": "",
+            "type": "path",
+            "description": "version id of resource"
+          }
+        ]
+      },
+      "docs": "/Organization/{id}/_history/{vid} - GET"
+    },
+    {
+      "info": {
+        "name": "/Organization/{id}/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Organization/:id/_history",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/Organization/{id}/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/Organization/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Organization/_history",
+        "params": [
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/Organization/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/Patient - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Patient",
+        "params": [
+          {
+            "name": "phone",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in a phone contact\r\n* [Person](person.html): A value in a phone contact\r\n* [Practitioner](practitioner.html): A value in a phone contact\r\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\r\n* [RelatedPerson](relatedperson.html): A value in a phone contact"
+          },
+          {
+            "name": "death-date",
+            "value": "",
+            "type": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). The date of death has been provided and satisfies this search value"
+          },
+          {
+            "name": "organization",
+            "value": "",
+            "type": "query",
+            "description": "The organization that is the custodian of the patient record"
+          },
+          {
+            "name": "deceased",
+            "value": "",
+            "type": "query",
+            "description": "This patient has been marked as deceased, or as a death date entered"
+          },
+          {
+            "name": "address",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Person](person.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Practitioner](practitioner.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [RelatedPerson](relatedperson.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
+          },
+          {
+            "name": "birthdate",
+            "value": "",
+            "type": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). Multiple Resources: \r\n\r\n* [Patient](patient.html): The patient's date of birth\r\n* [Person](person.html): The person's date of birth\r\n* [RelatedPerson](relatedperson.html): The Related Person's date of birth"
+          },
+          {
+            "name": "link",
+            "value": "",
+            "type": "query",
+            "description": "All patients linked to the given patient"
+          },
+          {
+            "name": "phonetic",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [Person](person.html): A portion of name using some kind of phonetic matching algorithm\r\n* [Practitioner](practitioner.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [RelatedPerson](relatedperson.html): A portion of name using some kind of phonetic matching algorithm"
+          },
+          {
+            "name": "family",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of the family name of the patient\r\n* [Practitioner](practitioner.html): A portion of the family name"
+          },
+          {
+            "name": "active",
+            "value": "",
+            "type": "query",
+            "description": "Whether the patient record is active"
+          },
+          {
+            "name": "address-state",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A state specified in an address\r\n* [Person](person.html): A state specified in an address\r\n* [Practitioner](practitioner.html): A state specified in an address\r\n* [RelatedPerson](relatedperson.html): A state specified in an address"
+          },
+          {
+            "name": "_id",
+            "value": "",
+            "type": "query",
+            "description": "Logical id of this artifact"
+          },
+          {
+            "name": "_profile",
+            "value": "",
+            "type": "query",
+            "description": "Profiles this resource claims to conform to"
+          },
+          {
+            "name": "gender",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): Gender of the patient\r\n* [Person](person.html): The gender of the person\r\n* [Practitioner](practitioner.html): Gender of the practitioner\r\n* [RelatedPerson](relatedperson.html): Gender of the related person"
+          },
+          {
+            "name": "address-country",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A country specified in an address\r\n* [Person](person.html): A country specified in an address\r\n* [Practitioner](practitioner.html): A country specified in an address\r\n* [RelatedPerson](relatedperson.html): A country specified in an address"
+          },
+          {
+            "name": "given",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of the given name of the patient\r\n* [Practitioner](practitioner.html): A portion of the given name"
+          },
+          {
+            "name": "general-practitioner",
+            "value": "",
+            "type": "query",
+            "description": "Patient's nominated general practitioner, not the organization that manages the record"
+          },
+          {
+            "name": "_lastUpdated",
+            "value": "",
+            "type": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+          },
+          {
+            "name": "language",
+            "value": "",
+            "type": "query",
+            "description": "Language code (irrespective of use value)"
+          },
+          {
+            "name": "_security",
+            "value": "",
+            "type": "query",
+            "description": "Security Labels applied to this resource"
+          },
+          {
+            "name": "address-postalcode",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A postalCode specified in an address\r\n* [Person](person.html): A postal code specified in an address\r\n* [Practitioner](practitioner.html): A postalCode specified in an address\r\n* [RelatedPerson](relatedperson.html): A postal code specified in an address"
+          },
+          {
+            "name": "_source",
+            "value": "",
+            "type": "query",
+            "description": "Identifies where the resource comes from"
+          },
+          {
+            "name": "address-use",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A use code specified in an address\r\n* [Person](person.html): A use code specified in an address\r\n* [Practitioner](practitioner.html): A use code specified in an address\r\n* [RelatedPerson](relatedperson.html): A use code specified in an address"
+          },
+          {
+            "name": "address-city",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A city specified in an address\r\n* [Person](person.html): A city specified in an address\r\n* [Practitioner](practitioner.html): A city specified in an address\r\n* [RelatedPerson](relatedperson.html): A city specified in an address"
+          },
+          {
+            "name": "name",
+            "value": "",
+            "type": "query",
+            "description": "A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text"
+          },
+          {
+            "name": "_tag",
+            "value": "",
+            "type": "query",
+            "description": "Tags applied to this resource"
+          },
+          {
+            "name": "identifier",
+            "value": "",
+            "type": "query",
+            "description": "A patient identifier"
+          },
+          {
+            "name": "email",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in an email contact\r\n* [Person](person.html): A value in an email contact\r\n* [Practitioner](practitioner.html): A value in an email contact\r\n* [PractitionerRole](practitionerrole.html): A value in an email contact\r\n* [RelatedPerson](relatedperson.html): A value in an email contact"
+          },
+          {
+            "name": "telecom",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): The value in any kind of telecom details of the patient\r\n* [Person](person.html): The value in any kind of contact\r\n* [Practitioner](practitioner.html): The value in any kind of contact\r\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\r\n* [RelatedPerson](relatedperson.html): The value in any kind of contact"
+          },
+          {
+            "name": "_format",
+            "value": "",
+            "type": "query",
+            "description": "Output formatting"
+          }
+        ]
+      },
+      "docs": "/Patient - GET"
+    },
+    {
+      "info": {
+        "name": "/Patient/{id} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Patient/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          }
+        ]
+      },
+      "docs": "/Patient/{id} - GET"
+    },
+    {
+      "info": {
+        "name": "/Patient/{id}/_history/{vid} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Patient/:id/_history/:vid",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "vid",
+            "value": "",
+            "type": "path",
+            "description": "version id of resource"
+          }
+        ]
+      },
+      "docs": "/Patient/{id}/_history/{vid} - GET"
+    },
+    {
+      "info": {
+        "name": "/Patient/{id}/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Patient/:id/_history",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/Patient/{id}/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/Patient/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Patient/_history",
+        "params": [
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/Patient/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/Practitioner - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Practitioner",
+        "params": [
+          {
+            "name": "phone",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in a phone contact\r\n* [Person](person.html): A value in a phone contact\r\n* [Practitioner](practitioner.html): A value in a phone contact\r\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\r\n* [RelatedPerson](relatedperson.html): A value in a phone contact"
+          },
+          {
+            "name": "address",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Person](person.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Practitioner](practitioner.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [RelatedPerson](relatedperson.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
+          },
+          {
+            "name": "phonetic",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [Person](person.html): A portion of name using some kind of phonetic matching algorithm\r\n* [Practitioner](practitioner.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [RelatedPerson](relatedperson.html): A portion of name using some kind of phonetic matching algorithm"
+          },
+          {
+            "name": "family",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of the family name of the patient\r\n* [Practitioner](practitioner.html): A portion of the family name"
+          },
+          {
+            "name": "active",
+            "value": "",
+            "type": "query",
+            "description": "Whether the practitioner record is active"
+          },
+          {
+            "name": "address-state",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A state specified in an address\r\n* [Person](person.html): A state specified in an address\r\n* [Practitioner](practitioner.html): A state specified in an address\r\n* [RelatedPerson](relatedperson.html): A state specified in an address"
+          },
+          {
+            "name": "_id",
+            "value": "",
+            "type": "query",
+            "description": "Logical id of this artifact"
+          },
+          {
+            "name": "_profile",
+            "value": "",
+            "type": "query",
+            "description": "Profiles this resource claims to conform to"
+          },
+          {
+            "name": "gender",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): Gender of the patient\r\n* [Person](person.html): The gender of the person\r\n* [Practitioner](practitioner.html): Gender of the practitioner\r\n* [RelatedPerson](relatedperson.html): Gender of the related person"
+          },
+          {
+            "name": "address-country",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A country specified in an address\r\n* [Person](person.html): A country specified in an address\r\n* [Practitioner](practitioner.html): A country specified in an address\r\n* [RelatedPerson](relatedperson.html): A country specified in an address"
+          },
+          {
+            "name": "given",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of the given name of the patient\r\n* [Practitioner](practitioner.html): A portion of the given name"
+          },
+          {
+            "name": "_lastUpdated",
+            "value": "",
+            "type": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+          },
+          {
+            "name": "_security",
+            "value": "",
+            "type": "query",
+            "description": "Security Labels applied to this resource"
+          },
+          {
+            "name": "address-postalcode",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A postalCode specified in an address\r\n* [Person](person.html): A postal code specified in an address\r\n* [Practitioner](practitioner.html): A postalCode specified in an address\r\n* [RelatedPerson](relatedperson.html): A postal code specified in an address"
+          },
+          {
+            "name": "_source",
+            "value": "",
+            "type": "query",
+            "description": "Identifies where the resource comes from"
+          },
+          {
+            "name": "communication",
+            "value": "",
+            "type": "query",
+            "description": "One of the languages that the practitioner can communicate with"
+          },
+          {
+            "name": "address-use",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A use code specified in an address\r\n* [Person](person.html): A use code specified in an address\r\n* [Practitioner](practitioner.html): A use code specified in an address\r\n* [RelatedPerson](relatedperson.html): A use code specified in an address"
+          },
+          {
+            "name": "address-city",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A city specified in an address\r\n* [Person](person.html): A city specified in an address\r\n* [Practitioner](practitioner.html): A city specified in an address\r\n* [RelatedPerson](relatedperson.html): A city specified in an address"
+          },
+          {
+            "name": "name",
+            "value": "",
+            "type": "query",
+            "description": "A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text"
+          },
+          {
+            "name": "_tag",
+            "value": "",
+            "type": "query",
+            "description": "Tags applied to this resource"
+          },
+          {
+            "name": "identifier",
+            "value": "",
+            "type": "query",
+            "description": "A practitioner's Identifier"
+          },
+          {
+            "name": "email",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in an email contact\r\n* [Person](person.html): A value in an email contact\r\n* [Practitioner](practitioner.html): A value in an email contact\r\n* [PractitionerRole](practitionerrole.html): A value in an email contact\r\n* [RelatedPerson](relatedperson.html): A value in an email contact"
+          },
+          {
+            "name": "telecom",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): The value in any kind of telecom details of the patient\r\n* [Person](person.html): The value in any kind of contact\r\n* [Practitioner](practitioner.html): The value in any kind of contact\r\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\r\n* [RelatedPerson](relatedperson.html): The value in any kind of contact"
+          },
+          {
+            "name": "_format",
+            "value": "",
+            "type": "query",
+            "description": "Output formatting"
+          }
+        ]
+      },
+      "docs": "/Practitioner - GET"
+    },
+    {
+      "info": {
+        "name": "/Practitioner/{id} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Practitioner/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          }
+        ]
+      },
+      "docs": "/Practitioner/{id} - GET"
+    },
+    {
+      "info": {
+        "name": "/Practitioner/{id}/_history/{vid} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Practitioner/:id/_history/:vid",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "vid",
+            "value": "",
+            "type": "path",
+            "description": "version id of resource"
+          }
+        ]
+      },
+      "docs": "/Practitioner/{id}/_history/{vid} - GET"
+    },
+    {
+      "info": {
+        "name": "/Practitioner/{id}/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Practitioner/:id/_history",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/Practitioner/{id}/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/Practitioner/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/Practitioner/_history",
+        "params": [
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/Practitioner/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/RelatedPerson - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/RelatedPerson",
+        "params": [
+          {
+            "name": "phone",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in a phone contact\r\n* [Person](person.html): A value in a phone contact\r\n* [Practitioner](practitioner.html): A value in a phone contact\r\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\r\n* [RelatedPerson](relatedperson.html): A value in a phone contact"
+          },
+          {
+            "name": "relationship",
+            "value": "",
+            "type": "query",
+            "description": "The relationship between the patient and the relatedperson"
+          },
+          {
+            "name": "address",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Person](person.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Practitioner](practitioner.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [RelatedPerson](relatedperson.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
+          },
+          {
+            "name": "birthdate",
+            "value": "",
+            "type": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). Multiple Resources: \r\n\r\n* [Patient](patient.html): The patient's date of birth\r\n* [Person](person.html): The person's date of birth\r\n* [RelatedPerson](relatedperson.html): The Related Person's date of birth"
+          },
+          {
+            "name": "phonetic",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [Person](person.html): A portion of name using some kind of phonetic matching algorithm\r\n* [Practitioner](practitioner.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [RelatedPerson](relatedperson.html): A portion of name using some kind of phonetic matching algorithm"
+          },
+          {
+            "name": "active",
+            "value": "",
+            "type": "query",
+            "description": "Indicates if the related person record is active"
+          },
+          {
+            "name": "address-state",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A state specified in an address\r\n* [Person](person.html): A state specified in an address\r\n* [Practitioner](practitioner.html): A state specified in an address\r\n* [RelatedPerson](relatedperson.html): A state specified in an address"
+          },
+          {
+            "name": "_id",
+            "value": "",
+            "type": "query",
+            "description": "Logical id of this artifact"
+          },
+          {
+            "name": "_profile",
+            "value": "",
+            "type": "query",
+            "description": "Profiles this resource claims to conform to"
+          },
+          {
+            "name": "gender",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): Gender of the patient\r\n* [Person](person.html): The gender of the person\r\n* [Practitioner](practitioner.html): Gender of the practitioner\r\n* [RelatedPerson](relatedperson.html): Gender of the related person"
+          },
+          {
+            "name": "address-country",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A country specified in an address\r\n* [Person](person.html): A country specified in an address\r\n* [Practitioner](practitioner.html): A country specified in an address\r\n* [RelatedPerson](relatedperson.html): A country specified in an address"
+          },
+          {
+            "name": "_lastUpdated",
+            "value": "",
+            "type": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+          },
+          {
+            "name": "_security",
+            "value": "",
+            "type": "query",
+            "description": "Security Labels applied to this resource"
+          },
+          {
+            "name": "patient",
+            "value": "",
+            "type": "query",
+            "description": "The patient this related person is related to"
+          },
+          {
+            "name": "address-postalcode",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A postalCode specified in an address\r\n* [Person](person.html): A postal code specified in an address\r\n* [Practitioner](practitioner.html): A postalCode specified in an address\r\n* [RelatedPerson](relatedperson.html): A postal code specified in an address"
+          },
+          {
+            "name": "_source",
+            "value": "",
+            "type": "query",
+            "description": "Identifies where the resource comes from"
+          },
+          {
+            "name": "address-use",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A use code specified in an address\r\n* [Person](person.html): A use code specified in an address\r\n* [Practitioner](practitioner.html): A use code specified in an address\r\n* [RelatedPerson](relatedperson.html): A use code specified in an address"
+          },
+          {
+            "name": "address-city",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A city specified in an address\r\n* [Person](person.html): A city specified in an address\r\n* [Practitioner](practitioner.html): A city specified in an address\r\n* [RelatedPerson](relatedperson.html): A city specified in an address"
+          },
+          {
+            "name": "name",
+            "value": "",
+            "type": "query",
+            "description": "A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text"
+          },
+          {
+            "name": "_tag",
+            "value": "",
+            "type": "query",
+            "description": "Tags applied to this resource"
+          },
+          {
+            "name": "identifier",
+            "value": "",
+            "type": "query",
+            "description": "An Identifier of the RelatedPerson"
+          },
+          {
+            "name": "email",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in an email contact\r\n* [Person](person.html): A value in an email contact\r\n* [Practitioner](practitioner.html): A value in an email contact\r\n* [PractitionerRole](practitionerrole.html): A value in an email contact\r\n* [RelatedPerson](relatedperson.html): A value in an email contact"
+          },
+          {
+            "name": "telecom",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): The value in any kind of telecom details of the patient\r\n* [Person](person.html): The value in any kind of contact\r\n* [Practitioner](practitioner.html): The value in any kind of contact\r\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\r\n* [RelatedPerson](relatedperson.html): The value in any kind of contact"
+          },
+          {
+            "name": "_format",
+            "value": "",
+            "type": "query",
+            "description": "Output formatting"
+          }
+        ]
+      },
+      "docs": "/RelatedPerson - GET"
+    },
+    {
+      "info": {
+        "name": "/RelatedPerson/{id} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/RelatedPerson/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          }
+        ]
+      },
+      "docs": "/RelatedPerson/{id} - GET"
+    },
+    {
+      "info": {
+        "name": "/RelatedPerson/{id}/_history/{vid} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/RelatedPerson/:id/_history/:vid",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "vid",
+            "value": "",
+            "type": "path",
+            "description": "version id of resource"
+          }
+        ]
+      },
+      "docs": "/RelatedPerson/{id}/_history/{vid} - GET"
+    },
+    {
+      "info": {
+        "name": "/RelatedPerson/{id}/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/RelatedPerson/:id/_history",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/RelatedPerson/{id}/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/RelatedPerson/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/RelatedPerson/_history",
+        "params": [
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/RelatedPerson/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/.well-known/smart-configuration ",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/.well-known/smart-configuration"
+      },
+      "docs": "/.well-known/smart-configuration "
+    },
+    {
+      "info": {
+        "name": "/Authorize",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/authorize"
+      },
+      "docs": "/Authorize"
+    },
+    {
+      "info": {
+        "name": "/Callback",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/callback"
+      },
+      "docs": "/Callback"
+    },
+    {
+      "info": {
+        "name": "/token",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/token"
+      },
+      "docs": "/token"
+    },
+    {
+      "info": {
+        "name": "/tokenhook",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.dentaquest.com/FhirPatientAccess/v1/tokenhook"
+      },
+      "docs": "/tokenhook"
+    }
+  ],
+  "bundled": true
+}

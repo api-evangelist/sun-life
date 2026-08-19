@@ -1,0 +1,1648 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fhir Provider Directory",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get conformance statement.",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/metadata"
+      },
+      "docs": "Get conformance statement."
+    },
+    {
+      "info": {
+        "name": "/Endpoint - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Endpoint",
+        "params": [
+          {
+            "name": "organization",
+            "value": "",
+            "type": "query",
+            "description": "The organization that is managing the endpoint"
+          },
+          {
+            "name": "payload-type",
+            "value": "",
+            "type": "query",
+            "description": "The type of content that may be used at this endpoint (e.g. XDS Discharge summaries)"
+          },
+          {
+            "name": "_id",
+            "value": "",
+            "type": "query",
+            "description": "Logical id of this artifact"
+          },
+          {
+            "name": "_profile",
+            "value": "",
+            "type": "query",
+            "description": "Profiles this resource claims to conform to"
+          },
+          {
+            "name": "status",
+            "value": "",
+            "type": "query",
+            "description": "The current status of the Endpoint (usually expected to be active)"
+          },
+          {
+            "name": "connection-type",
+            "value": "",
+            "type": "query",
+            "description": "Protocol/Profile/Standard to be used with this endpoint connection"
+          },
+          {
+            "name": "_lastUpdated",
+            "value": "",
+            "type": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+          },
+          {
+            "name": "_security",
+            "value": "",
+            "type": "query",
+            "description": "Security Labels applied to this resource"
+          },
+          {
+            "name": "_source",
+            "value": "",
+            "type": "query",
+            "description": "Identifies where the resource comes from"
+          },
+          {
+            "name": "name",
+            "value": "",
+            "type": "query",
+            "description": "A name that this endpoint can be identified by"
+          },
+          {
+            "name": "_tag",
+            "value": "",
+            "type": "query",
+            "description": "Tags applied to this resource"
+          },
+          {
+            "name": "identifier",
+            "value": "",
+            "type": "query",
+            "description": "Identifies this endpoint across multiple systems"
+          },
+          {
+            "name": "_format",
+            "value": "",
+            "type": "query",
+            "description": "Output formatting"
+          }
+        ]
+      },
+      "docs": "/Endpoint - GET"
+    },
+    {
+      "info": {
+        "name": "/Endpoint/{id} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Endpoint/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          }
+        ]
+      },
+      "docs": "/Endpoint/{id} - GET"
+    },
+    {
+      "info": {
+        "name": "/Endpoint/{id}/_history/{vid} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Endpoint/:id/_history/:vid",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "vid",
+            "value": "",
+            "type": "path",
+            "description": "version id of resource"
+          }
+        ]
+      },
+      "docs": "/Endpoint/{id}/_history/{vid} - GET"
+    },
+    {
+      "info": {
+        "name": "/Endpoint/{id}/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Endpoint/:id/_history",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/Endpoint/{id}/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/Endpoint/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Endpoint/_history",
+        "params": [
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/Endpoint/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/HealthcareService - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/HealthcareService",
+        "params": [
+          {
+            "name": "coverage-area",
+            "value": "",
+            "type": "query",
+            "description": "Location(s) service is intended for/available to"
+          },
+          {
+            "name": "characteristic",
+            "value": "",
+            "type": "query",
+            "description": "One of the HealthcareService's characteristics"
+          },
+          {
+            "name": "organization",
+            "value": "",
+            "type": "query",
+            "description": "The organization that provides this Healthcare Service"
+          },
+          {
+            "name": "service-category",
+            "value": "",
+            "type": "query",
+            "description": "Service Category of the Healthcare Service"
+          },
+          {
+            "name": "program",
+            "value": "",
+            "type": "query",
+            "description": "One of the Programs supported by this HealthcareService"
+          },
+          {
+            "name": "location",
+            "value": "",
+            "type": "query",
+            "description": "The location of the Healthcare Service"
+          },
+          {
+            "name": "active",
+            "value": "",
+            "type": "query",
+            "description": "The Healthcare Service is currently marked as active"
+          },
+          {
+            "name": "_id",
+            "value": "",
+            "type": "query",
+            "description": "Logical id of this artifact"
+          },
+          {
+            "name": "_profile",
+            "value": "",
+            "type": "query",
+            "description": "Profiles this resource claims to conform to"
+          },
+          {
+            "name": "service-type",
+            "value": "",
+            "type": "query",
+            "description": "The type of service provided by this healthcare service"
+          },
+          {
+            "name": "_lastUpdated",
+            "value": "",
+            "type": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+          },
+          {
+            "name": "_security",
+            "value": "",
+            "type": "query",
+            "description": "Security Labels applied to this resource"
+          },
+          {
+            "name": "specialty",
+            "value": "",
+            "type": "query",
+            "description": "The specialty of the service provided by this healthcare service"
+          },
+          {
+            "name": "_source",
+            "value": "",
+            "type": "query",
+            "description": "Identifies where the resource comes from"
+          },
+          {
+            "name": "endpoint",
+            "value": "",
+            "type": "query",
+            "description": "Technical endpoints providing access to electronic services operated for the healthcare service"
+          },
+          {
+            "name": "name",
+            "value": "",
+            "type": "query",
+            "description": "A portion of the Healthcare service name"
+          },
+          {
+            "name": "_tag",
+            "value": "",
+            "type": "query",
+            "description": "Tags applied to this resource"
+          },
+          {
+            "name": "identifier",
+            "value": "",
+            "type": "query",
+            "description": "External identifiers for this item"
+          },
+          {
+            "name": "_format",
+            "value": "",
+            "type": "query",
+            "description": "Output formatting"
+          }
+        ]
+      },
+      "docs": "/HealthcareService - GET"
+    },
+    {
+      "info": {
+        "name": "/HealthcareService/{id} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/HealthcareService/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          }
+        ]
+      },
+      "docs": "/HealthcareService/{id} - GET"
+    },
+    {
+      "info": {
+        "name": "/HealthcareService/{id}/_history/{vid} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/HealthcareService/:id/_history/:vid",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "vid",
+            "value": "",
+            "type": "path",
+            "description": "version id of resource"
+          }
+        ]
+      },
+      "docs": "/HealthcareService/{id}/_history/{vid} - GET"
+    },
+    {
+      "info": {
+        "name": "/HealthcareService/{id}/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/HealthcareService/:id/_history",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/HealthcareService/{id}/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/HealthcareService/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/HealthcareService/_history",
+        "params": [
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/HealthcareService/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/InsurancePlan - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/InsurancePlan",
+        "params": [
+          {
+            "name": "address",
+            "value": "",
+            "type": "query",
+            "description": "A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
+          },
+          {
+            "name": "phonetic",
+            "value": "",
+            "type": "query",
+            "description": "A portion of the organization's name using some kind of phonetic matching algorithm"
+          },
+          {
+            "name": "address-state",
+            "value": "",
+            "type": "query",
+            "description": "A state specified in an address"
+          },
+          {
+            "name": "_id",
+            "value": "",
+            "type": "query",
+            "description": "Logical id of this artifact"
+          },
+          {
+            "name": "_profile",
+            "value": "",
+            "type": "query",
+            "description": "Profiles this resource claims to conform to"
+          },
+          {
+            "name": "address-country",
+            "value": "",
+            "type": "query",
+            "description": "A country specified in an address"
+          },
+          {
+            "name": "type",
+            "value": "",
+            "type": "query",
+            "description": "A code for the type of organization"
+          },
+          {
+            "name": "status",
+            "value": "",
+            "type": "query",
+            "description": "Is the Organization record active"
+          },
+          {
+            "name": "_lastUpdated",
+            "value": "",
+            "type": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+          },
+          {
+            "name": "_security",
+            "value": "",
+            "type": "query",
+            "description": "Security Labels applied to this resource"
+          },
+          {
+            "name": "address-postalcode",
+            "value": "",
+            "type": "query",
+            "description": "A postal code specified in an address"
+          },
+          {
+            "name": "_source",
+            "value": "",
+            "type": "query",
+            "description": "Identifies where the resource comes from"
+          },
+          {
+            "name": "endpoint",
+            "value": "",
+            "type": "query",
+            "description": "Technical endpoint"
+          },
+          {
+            "name": "address-use",
+            "value": "",
+            "type": "query",
+            "description": "A use code specified in an address"
+          },
+          {
+            "name": "address-city",
+            "value": "",
+            "type": "query",
+            "description": "A city specified in an address"
+          },
+          {
+            "name": "name",
+            "value": "",
+            "type": "query",
+            "description": "A portion of the organization's name or alias"
+          },
+          {
+            "name": "_tag",
+            "value": "",
+            "type": "query",
+            "description": "Tags applied to this resource"
+          },
+          {
+            "name": "owned-by",
+            "value": "",
+            "type": "query",
+            "description": "An organization of which this organization forms a part"
+          },
+          {
+            "name": "identifier",
+            "value": "",
+            "type": "query",
+            "description": "Any identifier for the organization (not the accreditation issuer's identifier)"
+          },
+          {
+            "name": "administered-by",
+            "value": "",
+            "type": "query",
+            "description": "Product administrator"
+          },
+          {
+            "name": "_format",
+            "value": "",
+            "type": "query",
+            "description": "Output formatting"
+          }
+        ]
+      },
+      "docs": "/InsurancePlan - GET"
+    },
+    {
+      "info": {
+        "name": "/InsurancePlan/{id} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/InsurancePlan/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          }
+        ]
+      },
+      "docs": "/InsurancePlan/{id} - GET"
+    },
+    {
+      "info": {
+        "name": "/InsurancePlan/{id}/_history/{vid} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/InsurancePlan/:id/_history/:vid",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "vid",
+            "value": "",
+            "type": "path",
+            "description": "version id of resource"
+          }
+        ]
+      },
+      "docs": "/InsurancePlan/{id}/_history/{vid} - GET"
+    },
+    {
+      "info": {
+        "name": "/InsurancePlan/{id}/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/InsurancePlan/:id/_history",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/InsurancePlan/{id}/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/InsurancePlan/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/InsurancePlan/_history",
+        "params": [
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/InsurancePlan/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/Location - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Location",
+        "params": [
+          {
+            "name": "organization",
+            "value": "",
+            "type": "query",
+            "description": "Searches for locations that are managed by the provided organization"
+          },
+          {
+            "name": "address",
+            "value": "",
+            "type": "query",
+            "description": "A (part of the) address of the location"
+          },
+          {
+            "name": "operational-status",
+            "value": "",
+            "type": "query",
+            "description": "Searches for locations (typically bed/room) that have an operational status (e.g. contaminated, housekeeping)"
+          },
+          {
+            "name": "partof",
+            "value": "",
+            "type": "query",
+            "description": "A location of which this location is a part"
+          },
+          {
+            "name": "address-state",
+            "value": "",
+            "type": "query",
+            "description": "A state specified in an address"
+          },
+          {
+            "name": "_id",
+            "value": "",
+            "type": "query",
+            "description": "Logical id of this artifact"
+          },
+          {
+            "name": "_profile",
+            "value": "",
+            "type": "query",
+            "description": "Profiles this resource claims to conform to"
+          },
+          {
+            "name": "address-country",
+            "value": "",
+            "type": "query",
+            "description": "A country specified in an address"
+          },
+          {
+            "name": "type",
+            "value": "",
+            "type": "query",
+            "description": "A code for the type of location"
+          },
+          {
+            "name": "status",
+            "value": "",
+            "type": "query",
+            "description": "Searches for locations with a specific kind of status"
+          },
+          {
+            "name": "_lastUpdated",
+            "value": "",
+            "type": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+          },
+          {
+            "name": "_security",
+            "value": "",
+            "type": "query",
+            "description": "Security Labels applied to this resource"
+          },
+          {
+            "name": "address-postalcode",
+            "value": "",
+            "type": "query",
+            "description": "A postal code specified in an address"
+          },
+          {
+            "name": "_source",
+            "value": "",
+            "type": "query",
+            "description": "Identifies where the resource comes from"
+          },
+          {
+            "name": "endpoint",
+            "value": "",
+            "type": "query",
+            "description": "Technical endpoints providing access to services operated for the location"
+          },
+          {
+            "name": "address-use",
+            "value": "",
+            "type": "query",
+            "description": "A use code specified in an address"
+          },
+          {
+            "name": "address-city",
+            "value": "",
+            "type": "query",
+            "description": "A city specified in an address"
+          },
+          {
+            "name": "name",
+            "value": "",
+            "type": "query",
+            "description": "A portion of the location's name or alias"
+          },
+          {
+            "name": "_tag",
+            "value": "",
+            "type": "query",
+            "description": "Tags applied to this resource"
+          },
+          {
+            "name": "identifier",
+            "value": "",
+            "type": "query",
+            "description": "An identifier for the location"
+          },
+          {
+            "name": "_format",
+            "value": "",
+            "type": "query",
+            "description": "Output formatting"
+          }
+        ]
+      },
+      "docs": "/Location - GET"
+    },
+    {
+      "info": {
+        "name": "/Location/{id} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Location/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          }
+        ]
+      },
+      "docs": "/Location/{id} - GET"
+    },
+    {
+      "info": {
+        "name": "/Location/{id}/_history/{vid} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Location/:id/_history/:vid",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "vid",
+            "value": "",
+            "type": "path",
+            "description": "version id of resource"
+          }
+        ]
+      },
+      "docs": "/Location/{id}/_history/{vid} - GET"
+    },
+    {
+      "info": {
+        "name": "/Location/{id}/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Location/:id/_history",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/Location/{id}/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/Location/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Location/_history",
+        "params": [
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/Location/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/Organization - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Organization",
+        "params": [
+          {
+            "name": "address",
+            "value": "",
+            "type": "query",
+            "description": "A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
+          },
+          {
+            "name": "phonetic",
+            "value": "",
+            "type": "query",
+            "description": "A portion of the organization's name using some kind of phonetic matching algorithm"
+          },
+          {
+            "name": "partof",
+            "value": "",
+            "type": "query",
+            "description": "An organization of which this organization forms a part"
+          },
+          {
+            "name": "active",
+            "value": "",
+            "type": "query",
+            "description": "Is the Organization record active"
+          },
+          {
+            "name": "address-state",
+            "value": "",
+            "type": "query",
+            "description": "A state specified in an address"
+          },
+          {
+            "name": "_id",
+            "value": "",
+            "type": "query",
+            "description": "Logical id of this artifact"
+          },
+          {
+            "name": "_profile",
+            "value": "",
+            "type": "query",
+            "description": "Profiles this resource claims to conform to"
+          },
+          {
+            "name": "address-country",
+            "value": "",
+            "type": "query",
+            "description": "A country specified in an address"
+          },
+          {
+            "name": "type",
+            "value": "",
+            "type": "query",
+            "description": "A code for the type of organization"
+          },
+          {
+            "name": "_lastUpdated",
+            "value": "",
+            "type": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+          },
+          {
+            "name": "_security",
+            "value": "",
+            "type": "query",
+            "description": "Security Labels applied to this resource"
+          },
+          {
+            "name": "address-postalcode",
+            "value": "",
+            "type": "query",
+            "description": "A postal code specified in an address"
+          },
+          {
+            "name": "_source",
+            "value": "",
+            "type": "query",
+            "description": "Identifies where the resource comes from"
+          },
+          {
+            "name": "endpoint",
+            "value": "",
+            "type": "query",
+            "description": "Technical endpoints providing access to services operated for the organization"
+          },
+          {
+            "name": "address-use",
+            "value": "",
+            "type": "query",
+            "description": "A use code specified in an address"
+          },
+          {
+            "name": "address-city",
+            "value": "",
+            "type": "query",
+            "description": "A city specified in an address"
+          },
+          {
+            "name": "name",
+            "value": "",
+            "type": "query",
+            "description": "A portion of the organization's name or alias"
+          },
+          {
+            "name": "_tag",
+            "value": "",
+            "type": "query",
+            "description": "Tags applied to this resource"
+          },
+          {
+            "name": "identifier",
+            "value": "",
+            "type": "query",
+            "description": "Any identifier for the organization (not the accreditation issuer's identifier)"
+          },
+          {
+            "name": "_format",
+            "value": "",
+            "type": "query",
+            "description": "Output formatting"
+          }
+        ]
+      },
+      "docs": "/Organization - GET"
+    },
+    {
+      "info": {
+        "name": "/Organization/{id} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Organization/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          }
+        ]
+      },
+      "docs": "/Organization/{id} - GET"
+    },
+    {
+      "info": {
+        "name": "/Organization/{id}/_history/{vid} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Organization/:id/_history/:vid",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "vid",
+            "value": "",
+            "type": "path",
+            "description": "version id of resource"
+          }
+        ]
+      },
+      "docs": "/Organization/{id}/_history/{vid} - GET"
+    },
+    {
+      "info": {
+        "name": "/Organization/{id}/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Organization/:id/_history",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/Organization/{id}/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/Organization/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Organization/_history",
+        "params": [
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/Organization/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/Practitioner - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Practitioner",
+        "params": [
+          {
+            "name": "phone",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in a phone contact\r\n* [Person](person.html): A value in a phone contact\r\n* [Practitioner](practitioner.html): A value in a phone contact\r\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\r\n* [RelatedPerson](relatedperson.html): A value in a phone contact"
+          },
+          {
+            "name": "address",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Person](person.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Practitioner](practitioner.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [RelatedPerson](relatedperson.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
+          },
+          {
+            "name": "phonetic",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [Person](person.html): A portion of name using some kind of phonetic matching algorithm\r\n* [Practitioner](practitioner.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [RelatedPerson](relatedperson.html): A portion of name using some kind of phonetic matching algorithm"
+          },
+          {
+            "name": "family",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of the family name of the patient\r\n* [Practitioner](practitioner.html): A portion of the family name"
+          },
+          {
+            "name": "active",
+            "value": "",
+            "type": "query",
+            "description": "Whether the practitioner record is active"
+          },
+          {
+            "name": "address-state",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A state specified in an address\r\n* [Person](person.html): A state specified in an address\r\n* [Practitioner](practitioner.html): A state specified in an address\r\n* [RelatedPerson](relatedperson.html): A state specified in an address"
+          },
+          {
+            "name": "_id",
+            "value": "",
+            "type": "query",
+            "description": "Logical id of this artifact"
+          },
+          {
+            "name": "_profile",
+            "value": "",
+            "type": "query",
+            "description": "Profiles this resource claims to conform to"
+          },
+          {
+            "name": "gender",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): Gender of the patient\r\n* [Person](person.html): The gender of the person\r\n* [Practitioner](practitioner.html): Gender of the practitioner\r\n* [RelatedPerson](relatedperson.html): Gender of the related person"
+          },
+          {
+            "name": "address-country",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A country specified in an address\r\n* [Person](person.html): A country specified in an address\r\n* [Practitioner](practitioner.html): A country specified in an address\r\n* [RelatedPerson](relatedperson.html): A country specified in an address"
+          },
+          {
+            "name": "given",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of the given name of the patient\r\n* [Practitioner](practitioner.html): A portion of the given name"
+          },
+          {
+            "name": "_lastUpdated",
+            "value": "",
+            "type": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+          },
+          {
+            "name": "_security",
+            "value": "",
+            "type": "query",
+            "description": "Security Labels applied to this resource"
+          },
+          {
+            "name": "address-postalcode",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A postalCode specified in an address\r\n* [Person](person.html): A postal code specified in an address\r\n* [Practitioner](practitioner.html): A postalCode specified in an address\r\n* [RelatedPerson](relatedperson.html): A postal code specified in an address"
+          },
+          {
+            "name": "_source",
+            "value": "",
+            "type": "query",
+            "description": "Identifies where the resource comes from"
+          },
+          {
+            "name": "communication",
+            "value": "",
+            "type": "query",
+            "description": "One of the languages that the practitioner can communicate with"
+          },
+          {
+            "name": "address-use",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A use code specified in an address\r\n* [Person](person.html): A use code specified in an address\r\n* [Practitioner](practitioner.html): A use code specified in an address\r\n* [RelatedPerson](relatedperson.html): A use code specified in an address"
+          },
+          {
+            "name": "address-city",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A city specified in an address\r\n* [Person](person.html): A city specified in an address\r\n* [Practitioner](practitioner.html): A city specified in an address\r\n* [RelatedPerson](relatedperson.html): A city specified in an address"
+          },
+          {
+            "name": "name",
+            "value": "",
+            "type": "query",
+            "description": "A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text"
+          },
+          {
+            "name": "_tag",
+            "value": "",
+            "type": "query",
+            "description": "Tags applied to this resource"
+          },
+          {
+            "name": "identifier",
+            "value": "",
+            "type": "query",
+            "description": "A practitioner's Identifier"
+          },
+          {
+            "name": "email",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in an email contact\r\n* [Person](person.html): A value in an email contact\r\n* [Practitioner](practitioner.html): A value in an email contact\r\n* [PractitionerRole](practitionerrole.html): A value in an email contact\r\n* [RelatedPerson](relatedperson.html): A value in an email contact"
+          },
+          {
+            "name": "telecom",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): The value in any kind of telecom details of the patient\r\n* [Person](person.html): The value in any kind of contact\r\n* [Practitioner](practitioner.html): The value in any kind of contact\r\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\r\n* [RelatedPerson](relatedperson.html): The value in any kind of contact"
+          },
+          {
+            "name": "_format",
+            "value": "",
+            "type": "query",
+            "description": "Output formatting"
+          }
+        ]
+      },
+      "docs": "/Practitioner - GET"
+    },
+    {
+      "info": {
+        "name": "/Practitioner/{id} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Practitioner/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          }
+        ]
+      },
+      "docs": "/Practitioner/{id} - GET"
+    },
+    {
+      "info": {
+        "name": "/Practitioner/{id}/_history/{vid} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Practitioner/:id/_history/:vid",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "vid",
+            "value": "",
+            "type": "path",
+            "description": "version id of resource"
+          }
+        ]
+      },
+      "docs": "/Practitioner/{id}/_history/{vid} - GET"
+    },
+    {
+      "info": {
+        "name": "/Practitioner/{id}/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Practitioner/:id/_history",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/Practitioner/{id}/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/Practitioner/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/Practitioner/_history",
+        "params": [
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/Practitioner/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/PractitionerRole - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/PractitionerRole",
+        "params": [
+          {
+            "name": "phone",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in a phone contact\r\n* [Person](person.html): A value in a phone contact\r\n* [Practitioner](practitioner.html): A value in a phone contact\r\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\r\n* [RelatedPerson](relatedperson.html): A value in a phone contact"
+          },
+          {
+            "name": "organization",
+            "value": "",
+            "type": "query",
+            "description": "The identity of the organization the practitioner represents / acts on behalf of"
+          },
+          {
+            "name": "date",
+            "value": "",
+            "type": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). The period during which the practitioner is authorized to perform in these role(s)"
+          },
+          {
+            "name": "location",
+            "value": "",
+            "type": "query",
+            "description": "One of the locations at which this practitioner provides care"
+          },
+          {
+            "name": "practitioner",
+            "value": "",
+            "type": "query",
+            "description": "Practitioner that is able to provide the defined services for the organization"
+          },
+          {
+            "name": "active",
+            "value": "",
+            "type": "query",
+            "description": "Whether this practitioner role record is in active use"
+          },
+          {
+            "name": "_id",
+            "value": "",
+            "type": "query",
+            "description": "Logical id of this artifact"
+          },
+          {
+            "name": "_profile",
+            "value": "",
+            "type": "query",
+            "description": "Profiles this resource claims to conform to"
+          },
+          {
+            "name": "service",
+            "value": "",
+            "type": "query",
+            "description": "The list of healthcare services that this worker provides for this role's Organization/Location(s)"
+          },
+          {
+            "name": "_lastUpdated",
+            "value": "",
+            "type": "query",
+            "description": "Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed"
+          },
+          {
+            "name": "_security",
+            "value": "",
+            "type": "query",
+            "description": "Security Labels applied to this resource"
+          },
+          {
+            "name": "specialty",
+            "value": "",
+            "type": "query",
+            "description": "The practitioner has this specialty at an organization"
+          },
+          {
+            "name": "_source",
+            "value": "",
+            "type": "query",
+            "description": "Identifies where the resource comes from"
+          },
+          {
+            "name": "endpoint",
+            "value": "",
+            "type": "query",
+            "description": "Technical endpoints providing access to services operated for the practitioner with this role"
+          },
+          {
+            "name": "_tag",
+            "value": "",
+            "type": "query",
+            "description": "Tags applied to this resource"
+          },
+          {
+            "name": "identifier",
+            "value": "",
+            "type": "query",
+            "description": "A practitioner's Identifier"
+          },
+          {
+            "name": "email",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in an email contact\r\n* [Person](person.html): A value in an email contact\r\n* [Practitioner](practitioner.html): A value in an email contact\r\n* [PractitionerRole](practitionerrole.html): A value in an email contact\r\n* [RelatedPerson](relatedperson.html): A value in an email contact"
+          },
+          {
+            "name": "role",
+            "value": "",
+            "type": "query",
+            "description": "The practitioner can perform this role at for the organization"
+          },
+          {
+            "name": "telecom",
+            "value": "",
+            "type": "query",
+            "description": "Multiple Resources: \r\n\r\n* [Patient](patient.html): The value in any kind of telecom details of the patient\r\n* [Person](person.html): The value in any kind of contact\r\n* [Practitioner](practitioner.html): The value in any kind of contact\r\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\r\n* [RelatedPerson](relatedperson.html): The value in any kind of contact"
+          },
+          {
+            "name": "_format",
+            "value": "",
+            "type": "query",
+            "description": "Output formatting"
+          }
+        ]
+      },
+      "docs": "/PractitionerRole - GET"
+    },
+    {
+      "info": {
+        "name": "/PractitionerRole/{id} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/PractitionerRole/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          }
+        ]
+      },
+      "docs": "/PractitionerRole/{id} - GET"
+    },
+    {
+      "info": {
+        "name": "/PractitionerRole/{id}/_history/{vid} - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/PractitionerRole/:id/_history/:vid",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "vid",
+            "value": "",
+            "type": "path",
+            "description": "version id of resource"
+          }
+        ]
+      },
+      "docs": "/PractitionerRole/{id}/_history/{vid} - GET"
+    },
+    {
+      "info": {
+        "name": "/PractitionerRole/{id}/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/PractitionerRole/:id/_history",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "id of resource"
+          },
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/PractitionerRole/{id}/_history - GET"
+    },
+    {
+      "info": {
+        "name": "/PractitionerRole/_history - GET",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/FhirProviderDirectory/PractitionerRole/_history",
+        "params": [
+          {
+            "name": "_count",
+            "value": "",
+            "type": "query",
+            "description": "number to return"
+          },
+          {
+            "name": "_since",
+            "value": "",
+            "type": "query",
+            "description": "how far back"
+          }
+        ]
+      },
+      "docs": "/PractitionerRole/_history - GET"
+    }
+  ],
+  "bundled": true
+}

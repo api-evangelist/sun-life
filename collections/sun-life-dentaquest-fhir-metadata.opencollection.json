@@ -1,0 +1,21 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FHIR Metadata",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get conformance statement.",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.dentaquest.com/fhirmetadata/metadata"
+      },
+      "docs": "Get conformance statement."
+    }
+  ],
+  "bundled": true
+}
