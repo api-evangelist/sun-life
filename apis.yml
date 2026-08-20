@@ -33,6 +33,26 @@ tags:
 - Dental Insurance
 - Disability
 - Wealth Management
+- Financial-Services
+- Carrier
+- FHIR
+- Patient Access
+- Provider Directory
+- Healthcare Interoperability
+- CMS-9115-F
+- DentaQuest
+- SMART on FHIR
+- Dental Benefits
+tags_raw:
+- Insurance
+- Canada
+- Life Insurance
+- Health Insurance
+- Employee Benefits
+- Group Benefits
+- Dental Insurance
+- Disability
+- Wealth Management
 - Financial Services
 - Carrier
 - FHIR
@@ -60,6 +80,14 @@ apis:
   humanURL: https://developers.dentaquest.com/apis
   baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
   tags:
+  - FHIR
+  - Patient Access
+  - SMART on FHIR
+  - Dental
+  - CMS Mandate
+  - Health Data
+  - Authentication
+  tags_raw:
   - FHIR
   - Patient Access
   - SMART on FHIR
