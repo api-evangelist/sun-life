@@ -67,39 +67,16 @@ created: '2026-07-25'
 modified: '2026-07-25'
 specificationVersion: '0.23'
 apis:
-- aid: sun-life-dentaquest-fhir-patient-access
-  name: DentaQuest FHIR Patient Access API
-  description: FHIR R4 (4.0.1) read-only Patient Access API from DentaQuest, the Sun Life U.S. dental
-    company, published under the CMS Interoperability and Patient Access Final Rule (CMS-9115-F). Third-party
-    applications authorize a member with SMART App Launch 1.0.0 (authorization code + PKCE S256, scopes
-    patient/*.read, launch/patient, offline_access, openid, fhirUser) against an Okta CIAM authorization
-    server, then read that member's Patient, Coverage, Organization, Practitioner and RelatedPerson resources,
-    including _history and version reads. Conforms to HL7 US Core (3.1.1, 6.1.0 and 7.0.0-ballot instantiated
-    in the CapabilityStatement). Errors return a FHIR OperationOutcome. The same API is served for the
-    Delta Dental of Massachusetts brand.
+- aid: sun-life:sun-life-authorize-api
+  name: Sun Life Authorize API
+  description: The Authorize API from Sun Life — 1 operation(s) for authorize.
   humanURL: https://developers.dentaquest.com/apis
   baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
   tags:
-  - FHIR
-  - Patient Access
-  - SMART on FHIR
-  - Dental
-  - CMS Mandate
-  - Health Data
-  - Authentication
-  tags_raw:
-  - FHIR
-  - Patient Access
-  - SMART on FHIR
-  - Dental
-  - CMS Mandate
-  - Health Data
-  - OAuth
+  - Authorize
   properties:
   - type: OpenAPI
-    url: openapi/sun-life-dentaquest-fhir-patient-access-openapi.json
-  - type: Overlay
-    url: overlays/sun-life-dentaquest-fhir-patient-access-overlay.yaml
+    url: openapi/sun-life-authorize-api-openapi.yml
   - type: Documentation
     url: https://www.dentaquest.com/en/interoperability-api
   - type: APIReference
@@ -111,65 +88,364 @@ apis:
   - type: OpenIDConnect
     url: well-known/sun-life-dentaquest-okta-openid-configuration.json
   - type: SignUp
-    url: https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
-  - type: AgentSkill
-    url: skills/sun-life-dentaquest-patient-access-smart-launch.md
-- aid: sun-life-dentaquest-fhir-provider-directory
-  name: DentaQuest FHIR Provider Directory API
-  description: FHIR R4 (4.0.1) Provider Directory API from DentaQuest, the Sun Life U.S. dental company,
-    conforming to the HL7 Da Vinci PDex Plan-Net Implementation Guide 1.1.0 and published under CMS-9115-F.
-    Exposes read and search over Practitioner, PractitionerRole, Organization, Location, HealthcareService,
-    InsurancePlan and Endpoint, each with _history and version reads, so third-party applications can
-    find in-network dentists and dental plans. Authenticated with an Azure API Management subscription
-    key sent in the Ocp-Apim-Subscription-Key header or the subscription-key query parameter. Errors return
-    a FHIR OperationOutcome. The same API is served for the Delta Dental of Massachusetts brand.
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+- aid: sun-life:sun-life-callback-api
+  name: Sun Life Callback API
+  description: The Callback API from Sun Life — 1 operation(s) for callback.
   humanURL: https://developers.dentaquest.com/apis
-  baseURL: https://api.dentaquest.com/FhirProviderDirectory
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
   tags:
-  - FHIR
-  - Provider Directory
-  - PDex Plan-Net
-  - Dental
-  - CMS Mandate
-  - Healthcare Providers
+  - Callback
   properties:
   - type: OpenAPI
-    url: openapi/sun-life-dentaquest-fhir-provider-directory-openapi.json
-  - type: Overlay
-    url: overlays/sun-life-dentaquest-fhir-provider-directory-overlay.yaml
+    url: openapi/sun-life-callback-api-openapi.yml
   - type: Documentation
     url: https://www.dentaquest.com/en/interoperability-api
   - type: APIReference
     url: https://developers.dentaquest.com/apis
   - type: Authentication
     url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
   - type: SignUp
-    url: https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
-  - type: AgentSkill
-    url: skills/sun-life-dentaquest-provider-directory-search.md
-- aid: sun-life-dentaquest-fhir-metadata
-  name: DentaQuest FHIR Metadata API
-  description: Anonymous FHIR R4 conformance endpoint for the DentaQuest (Sun Life U.S.) interoperability
-    platform. A single GET /metadata operation returns the CapabilityStatement of the underlying Azure
-    Healthcare APIs FHIR server (software version 4.0.815), listing every supported resource type, interaction
-    and search parameter in application/json or application/xml. Requires no credentials and is served
-    on both api.dentaquest.com and api.deltadentalma.com.
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+- aid: sun-life:sun-life-coverage-api
+  name: Sun Life Coverage API
+  description: The Coverage API from Sun Life — 5 operation(s) for coverage.
   humanURL: https://developers.dentaquest.com/apis
-  baseURL: https://api.dentaquest.com/fhirmetadata
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
   tags:
-  - FHIR
-  - Conformance
-  - CapabilityStatement
-  - Metadata
-  - Dental
+  - Coverage
   properties:
   - type: OpenAPI
-    url: openapi/sun-life-dentaquest-fhir-metadata-openapi.json
-  - type: Overlay
-    url: overlays/sun-life-dentaquest-fhir-metadata-overlay.yaml
+    url: openapi/sun-life-coverage-api-openapi.yml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
   - type: APIReference
     url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  - type: SignUp
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+- aid: sun-life:sun-life-endpoint-api
+  name: Sun Life Endpoint API
+  description: The Endpoint API from Sun Life — 5 operation(s) for endpoint.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
+  tags:
+  - Endpoint
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-endpoint-api-openapi.yml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  - type: SignUp
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+- aid: sun-life:sun-life-healthcareservice-api
+  name: Sun Life Healthcare Service API
+  description: The HealthcareService API from Sun Life — 5 operation(s) for healthcareservice.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
+  tags:
+  - HealthcareService
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-healthcareservice-api-openapi.yml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  - type: SignUp
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+- aid: sun-life:sun-life-insuranceplan-api
+  name: Sun Life Insurance Plan API
+  description: The InsurancePlan API from Sun Life — 5 operation(s) for insuranceplan.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
+  tags:
+  - InsurancePlan
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-insuranceplan-api-openapi.yml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  - type: SignUp
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+- aid: sun-life:sun-life-location-api
+  name: Sun Life Location API
+  description: The Location API from Sun Life — 5 operation(s) for location.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
+  tags:
+  - Location
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-location-api-openapi.yml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  - type: SignUp
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+- aid: sun-life:sun-life-metadata-api
+  name: Sun Life Metadata API
+  description: The Metadata API from Sun Life — 1 operation(s) for metadata.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
+  tags:
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-metadata-api-openapi.yml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  - type: SignUp
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+- aid: sun-life:sun-life-organization-api
+  name: Sun Life Organization API
+  description: The Organization API from Sun Life — 5 operation(s) for organization.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
+  tags:
+  - Organization
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-organization-api-openapi.yml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  - type: SignUp
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+- aid: sun-life:sun-life-patient-api
+  name: Sun Life Patient API
+  description: The Patient API from Sun Life — 5 operation(s) for patient.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
+  tags:
+  - Patient
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-patient-api-openapi.yml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  - type: SignUp
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+- aid: sun-life:sun-life-practitioner-api
+  name: Sun Life Practitioner API
+  description: The Practitioner API from Sun Life — 5 operation(s) for practitioner.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
+  tags:
+  - Practitioner
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-practitioner-api-openapi.yml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  - type: SignUp
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+- aid: sun-life:sun-life-practitionerrole-api
+  name: Sun Life Practitioner Role API
+  description: The PractitionerRole API from Sun Life — 5 operation(s) for practitionerrole.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
+  tags:
+  - PractitionerRole
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-practitionerrole-api-openapi.yml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  - type: SignUp
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+- aid: sun-life:sun-life-relatedperson-api
+  name: Sun Life Related Person API
+  description: The RelatedPerson API from Sun Life — 5 operation(s) for relatedperson.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
+  tags:
+  - RelatedPerson
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-relatedperson-api-openapi.yml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  - type: SignUp
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+- aid: sun-life:sun-life-token-api
+  name: Sun Life Token API
+  description: The Token API from Sun Life — 1 operation(s) for token.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
+  tags:
+  - Token
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-token-api-openapi.yml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  - type: SignUp
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+- aid: sun-life:sun-life-tokenhook-api
+  name: Sun Life Tokenhook API
+  description: The Tokenhook API from Sun Life — 1 operation(s) for tokenhook.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
+  tags:
+  - Tokenhook
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-tokenhook-api-openapi.yml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  - type: SignUp
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+- aid: sun-life:sun-life-well-known-api
+  name: Sun Life .well Known API
+  description: The .well Known API from Sun Life — 1 operation(s) for .well known.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
+  tags:
+  - .well Known
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-well-known-api-openapi.yml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  - type: SignUp
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
 common:
+- type: Overlay
+  url: overlays/sun-life-dentaquest-fhir-patient-access-overlay.yaml
+- type: AgentSkill
+  url: skills/sun-life-dentaquest-patient-access-smart-launch.md
+- type: Overlay
+  url: overlays/sun-life-dentaquest-fhir-provider-directory-overlay.yaml
+- type: AgentSkill
+  url: skills/sun-life-dentaquest-provider-directory-search.md
+- type: Overlay
+  url: overlays/sun-life-dentaquest-fhir-metadata-overlay.yaml
 - type: DomainSecurity
   url: security/sun-life-domain-security.yml
 - type: Website
