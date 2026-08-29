@@ -22,6 +22,18 @@ description: 'Sun Life Financial Inc. is a Canadian multinational life and healt
   of insurance from Consumer-Driven Banking, means no open-insurance mandate creates a forcing function
   for a public Sun Life API in its home market; the U.S. CMS mandate is what produced the only public
   one.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Insurance
