@@ -1,0 +1,229 @@
+openapi: 3.2.0
+info:
+  title: Fhir Provider Directory Location API
+  description: "\n**Provider Directory API for CMS 9115-F**\n\nThe Provider Directory API provides access to provider information. To get started, a third-party developer must request an API key.\n\n**1. Get Your API Key** Request an API key by filling out the form at: [Logic Manager Form](https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241). Be sure to select \"Provider Directory\" from the API dropdown menu.\n\n**2. Make Requests** Once you receive your key, include it in the `Ocp-Apim-Subscription-Key` header for all API calls to your requests.\n\n### **API Standards and Conformance**\n\nThis API conforms to the following standards and implementation specifications:\n\n- **FHIR Version:** `4.0.1` (R4)\n    \n- **Implementation Guide:** `HL7 Da Vinci PDex Plan-Net Implementation Guide Version 1.1.0`\n    \n\n### **Exception Handling**\n\nThe API uses standard HTTP status codes to indicate the success or failure of a request. In the event of an error (HTTP status codes `4xx` or `5xx`), for example an invalid API key (`403 Forbidden`) or a malformed request (`400 Bad Request`). The response body will also contain a FHIR `OperationOutcome` resource. This resource provides detailed, structured information about the error, including severity, error codes, and human-readable diagnostics to assist with troubleshooting.\n\n\n\n### **Exception Response**\n| HTTP Status | Response                | Reason                                                                                                                               |\n| ----------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |\n| **400**     | `Bad Request`           | The request could not be understood by the server due to malformed syntax (e.g., an invalid parameter).                              |\n| **401**     | `Unauthorized`          | The request lacks valid authentication credentials. This may occur if the JWT token is missing, expired, or invalid.                 |\n| **403**     | `Forbidden`             | The server understood the request, but refuses to authorize it. This may occur if the member has not granted the application access. |\n| **404**     | `Not Found`             | The requested FHIR resource (e.g., a specific Patient or Coverage record) does not exist.                                            |\n| **500**     | `Internal Server Error` | The server encountered an unexpected condition that prevented it from fulfilling the request.                                        |\n\n"
+  version: '1.0'
+servers:
+- url: https://api.dentaquest.com/FhirProviderDirectory
+- url: https://api.deltadentalma.com/FhirProviderDirectory
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+tags:
+- name: Location
+paths:
+  /Location:
+    get:
+      summary: /Location - GET
+      description: /Location - GET
+      operationId: get-location
+      parameters:
+      - name: organization
+        in: query
+        description: Searches for locations that are managed by the provided organization
+        schema:
+          type: string
+      - name: address
+        in: query
+        description: A (part of the) address of the location
+        schema:
+          type: string
+      - name: operational-status
+        in: query
+        description: Searches for locations (typically bed/room) that have an operational status (e.g. contaminated, housekeeping)
+        schema:
+          type: string
+      - name: partof
+        in: query
+        description: A location of which this location is a part
+        schema:
+          type: string
+      - name: address-state
+        in: query
+        description: A state specified in an address
+        schema:
+          type: string
+      - name: _id
+        in: query
+        description: Logical id of this artifact
+        schema:
+          type: string
+      - name: _profile
+        in: query
+        description: Profiles this resource claims to conform to
+        schema:
+          type: string
+      - name: address-country
+        in: query
+        description: A country specified in an address
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: A code for the type of location
+        schema:
+          type: string
+      - name: status
+        in: query
+        description: Searches for locations with a specific kind of status
+        schema:
+          type: string
+      - name: _lastUpdated
+        in: query
+        description: Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed
+        schema:
+          type: string
+          format: date
+      - name: _security
+        in: query
+        description: Security Labels applied to this resource
+        schema:
+          type: string
+      - name: address-postalcode
+        in: query
+        description: A postal code specified in an address
+        schema:
+          type: string
+      - name: _source
+        in: query
+        description: Identifies where the resource comes from
+        schema:
+          type: string
+      - name: endpoint
+        in: query
+        description: Technical endpoints providing access to services operated for the location
+        schema:
+          type: string
+      - name: address-use
+        in: query
+        description: A use code specified in an address
+        schema:
+          type: string
+      - name: address-city
+        in: query
+        description: A city specified in an address
+        schema:
+          type: string
+      - name: name
+        in: query
+        description: A portion of the location's name or alias
+        schema:
+          type: string
+      - name: _tag
+        in: query
+        description: Tags applied to this resource
+        schema:
+          type: string
+      - name: identifier
+        in: query
+        description: An identifier for the location
+        schema:
+          type: string
+      - name: _format
+        in: query
+        description: Output formatting
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Location
+  /Location/{id}:
+    get:
+      summary: /Location/{id} - GET
+      description: /Location/{id} - GET
+      operationId: get-location-id
+      parameters:
+      - name: id
+        in: path
+        description: id of resource
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Location
+  /Location/{id}/_history/{vid}:
+    get:
+      summary: /Location/{id}/_history/{vid} - GET
+      description: /Location/{id}/_history/{vid} - GET
+      operationId: get-location-id-_history-vid
+      parameters:
+      - name: id
+        in: path
+        description: id of resource
+        required: true
+        schema:
+          type: string
+      - name: vid
+        in: path
+        description: version id of resource
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Location
+  /Location/{id}/_history:
+    get:
+      summary: /Location/{id}/_history - GET
+      description: /Location/{id}/_history - GET
+      operationId: get-location-id-_history
+      parameters:
+      - name: id
+        in: path
+        description: id of resource
+        required: true
+        schema:
+          type: string
+      - name: _count
+        in: query
+        description: number to return
+        schema:
+          type: string
+      - name: _since
+        in: query
+        description: how far back
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Location
+  /Location/_history:
+    get:
+      summary: /Location/_history - GET
+      description: /Location/_history - GET
+      operationId: get-location-_history
+      parameters:
+      - name: _count
+        in: query
+        description: number to return
+        schema:
+          type: string
+      - name: _since
+        in: query
+        description: how far back
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Location
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query

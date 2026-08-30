@@ -1,0 +1,261 @@
+openapi: 3.2.0
+info:
+  title: Sun Life Practitioner API
+  version: '1.0'
+  description: 'Operations tagged Practitioner across 2 of this provider''s published API definitions: sun-life-dentaquest-fhir-patient-access-openapi.json, sun-life-dentaquest-fhir-provider-directory-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.dentaquest.com/FhirPatientAccess/v1
+- url: https://api.deltadentalma.com/FhirPatientAccess/v1
+- url: https://api.dentaquest.com/FhirProviderDirectory
+- url: https://api.deltadentalma.com/FhirProviderDirectory
+tags:
+- name: Practitioner
+paths:
+  /Practitioner:
+    get:
+      summary: /Practitioner - GET
+      description: /Practitioner - GET
+      operationId: get-practitioner
+      parameters:
+      - name: phone
+        in: query
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A value in a phone contact\n* [Person](person.html): A value in a phone contact\n* [Practitioner](practitioner.html): A value in a phone contact\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\n* [RelatedPerson](relatedperson.html): A value in a phone contact"
+        schema:
+          type: string
+      - name: address
+        in: query
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\n* [Person](person.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\n* [Practitioner](practitioner.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\n* [RelatedPerson](relatedperson.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
+        schema:
+          type: string
+      - name: phonetic
+        in: query
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A portion of either family or given name using some kind of phonetic matching algorithm\n* [Person](person.html): A portion of name using some kind of phonetic matching algorithm\n* [Practitioner](practitioner.html): A portion of either family or given name using some kind of phonetic matching algorithm\n* [RelatedPerson](relatedperson.html): A portion of name using some kind of phonetic matching algorithm"
+        schema:
+          type: string
+      - name: family
+        in: query
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A portion of the family name of the patient\n* [Practitioner](practitioner.html): A portion of the family name"
+        schema:
+          type: string
+      - name: active
+        in: query
+        description: Whether the practitioner record is active
+        schema:
+          type: string
+      - name: address-state
+        in: query
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A state specified in an address\n* [Person](person.html): A state specified in an address\n* [Practitioner](practitioner.html): A state specified in an address\n* [RelatedPerson](relatedperson.html): A state specified in an address"
+        schema:
+          type: string
+      - name: _id
+        in: query
+        description: Logical id of this artifact
+        schema:
+          type: string
+      - name: _profile
+        in: query
+        description: Profiles this resource claims to conform to
+        schema:
+          type: string
+      - name: gender
+        in: query
+        description: "Multiple Resources: \n\n* [Patient](patient.html): Gender of the patient\n* [Person](person.html): The gender of the person\n* [Practitioner](practitioner.html): Gender of the practitioner\n* [RelatedPerson](relatedperson.html): Gender of the related person"
+        schema:
+          type: string
+      - name: address-country
+        in: query
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A country specified in an address\n* [Person](person.html): A country specified in an address\n* [Practitioner](practitioner.html): A country specified in an address\n* [RelatedPerson](relatedperson.html): A country specified in an address"
+        schema:
+          type: string
+      - name: given
+        in: query
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A portion of the given name of the patient\n* [Practitioner](practitioner.html): A portion of the given name"
+        schema:
+          type: string
+      - name: _lastUpdated
+        in: query
+        description: Format - date (as full-date in RFC3339). Format - date (as full-date in RFC3339). When the resource version last changed
+        schema:
+          type: string
+          format: date
+      - name: _security
+        in: query
+        description: Security Labels applied to this resource
+        schema:
+          type: string
+      - name: address-postalcode
+        in: query
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A postalCode specified in an address\n* [Person](person.html): A postal code specified in an address\n* [Practitioner](practitioner.html): A postalCode specified in an address\n* [RelatedPerson](relatedperson.html): A postal code specified in an address"
+        schema:
+          type: string
+      - name: _source
+        in: query
+        description: Identifies where the resource comes from
+        schema:
+          type: string
+      - name: communication
+        in: query
+        description: One of the languages that the practitioner can communicate with
+        schema:
+          type: string
+      - name: address-use
+        in: query
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A use code specified in an address\n* [Person](person.html): A use code specified in an address\n* [Practitioner](practitioner.html): A use code specified in an address\n* [RelatedPerson](relatedperson.html): A use code specified in an address"
+        schema:
+          type: string
+      - name: address-city
+        in: query
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A city specified in an address\n* [Person](person.html): A city specified in an address\n* [Practitioner](practitioner.html): A city specified in an address\n* [RelatedPerson](relatedperson.html): A city specified in an address"
+        schema:
+          type: string
+      - name: name
+        in: query
+        description: A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text
+        schema:
+          type: string
+      - name: _tag
+        in: query
+        description: Tags applied to this resource
+        schema:
+          type: string
+      - name: identifier
+        in: query
+        description: A practitioner's Identifier
+        schema:
+          type: string
+      - name: email
+        in: query
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A value in an email contact\n* [Person](person.html): A value in an email contact\n* [Practitioner](practitioner.html): A value in an email contact\n* [PractitionerRole](practitionerrole.html): A value in an email contact\n* [RelatedPerson](relatedperson.html): A value in an email contact"
+        schema:
+          type: string
+      - name: telecom
+        in: query
+        description: "Multiple Resources: \n\n* [Patient](patient.html): The value in any kind of telecom details of the patient\n* [Person](person.html): The value in any kind of contact\n* [Practitioner](practitioner.html): The value in any kind of contact\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\n* [RelatedPerson](relatedperson.html): The value in any kind of contact"
+        schema:
+          type: string
+      - name: _format
+        in: query
+        description: Output formatting
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Practitioner
+    servers:
+    - url: https://api.dentaquest.com/FhirPatientAccess/v1
+    - url: https://api.deltadentalma.com/FhirPatientAccess/v1
+  /Practitioner/{id}:
+    get:
+      summary: /Practitioner/{id} - GET
+      description: /Practitioner/{id} - GET
+      operationId: get-practitioner-id
+      parameters:
+      - name: id
+        in: path
+        description: id of resource
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Practitioner
+    servers:
+    - url: https://api.dentaquest.com/FhirPatientAccess/v1
+    - url: https://api.deltadentalma.com/FhirPatientAccess/v1
+  /Practitioner/{id}/_history/{vid}:
+    get:
+      summary: /Practitioner/{id}/_history/{vid} - GET
+      description: /Practitioner/{id}/_history/{vid} - GET
+      operationId: get-practitioner-id-_history-vid
+      parameters:
+      - name: id
+        in: path
+        description: id of resource
+        required: true
+        schema:
+          type: string
+      - name: vid
+        in: path
+        description: version id of resource
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Practitioner
+    servers:
+    - url: https://api.dentaquest.com/FhirPatientAccess/v1
+    - url: https://api.deltadentalma.com/FhirPatientAccess/v1
+  /Practitioner/{id}/_history:
+    get:
+      summary: /Practitioner/{id}/_history - GET
+      description: /Practitioner/{id}/_history - GET
+      operationId: get-practitioner-id-_history
+      parameters:
+      - name: id
+        in: path
+        description: id of resource
+        required: true
+        schema:
+          type: string
+      - name: _count
+        in: query
+        description: number to return
+        schema:
+          type: string
+      - name: _since
+        in: query
+        description: how far back
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Practitioner
+    servers:
+    - url: https://api.dentaquest.com/FhirPatientAccess/v1
+    - url: https://api.deltadentalma.com/FhirPatientAccess/v1
+  /Practitioner/_history:
+    get:
+      summary: /Practitioner/_history - GET
+      description: /Practitioner/_history - GET
+      operationId: get-practitioner-_history
+      parameters:
+      - name: _count
+        in: query
+        description: number to return
+        schema:
+          type: string
+      - name: _since
+        in: query
+        description: how far back
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Practitioner
+    servers:
+    - url: https://api.dentaquest.com/FhirPatientAccess/v1
+    - url: https://api.deltadentalma.com/FhirPatientAccess/v1
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-refined-from:
+- sun-life-dentaquest-fhir-patient-access-openapi.json
+- sun-life-dentaquest-fhir-provider-directory-openapi.json

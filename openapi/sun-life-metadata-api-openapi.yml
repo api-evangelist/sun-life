@@ -1,0 +1,45 @@
+openapi: 3.2.0
+info:
+  title: Sun Life Metadata API
+  version: '1.0'
+  description: 'Operations tagged Metadata across 3 of this provider''s published API definitions: sun-life-dentaquest-fhir-metadata-openapi.json, sun-life-dentaquest-fhir-patient-access-openapi.json, sun-life-dentaquest-fhir-provider-directory-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.dentaquest.com/fhirmetadata
+- url: https://api.deltadentalma.com/fhirmetadata
+- url: https://api.dentaquest.com/FhirPatientAccess/v1
+- url: https://api.deltadentalma.com/FhirPatientAccess/v1
+- url: https://api.dentaquest.com/FhirProviderDirectory
+- url: https://api.deltadentalma.com/FhirProviderDirectory
+tags:
+- name: Metadata
+paths:
+  /metadata:
+    get:
+      summary: Get conformance statement.
+      description: Get conformance statement.
+      operationId: get-metadata
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json: {}
+            application/xml: {}
+      tags:
+      - Metadata
+    servers:
+    - url: https://api.dentaquest.com/fhirmetadata
+    - url: https://api.deltadentalma.com/fhirmetadata
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+x-refined-from:
+- sun-life-dentaquest-fhir-metadata-openapi.json
+- sun-life-dentaquest-fhir-patient-access-openapi.json
+- sun-life-dentaquest-fhir-provider-directory-openapi.json
