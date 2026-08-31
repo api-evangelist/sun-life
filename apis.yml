@@ -153,7 +153,8 @@ apis:
   description: The Endpoint API from Sun Life — 5 operation(s) for endpoint.
   humanURL: https://developers.dentaquest.com/apis
   baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
-  tags:
+  tags: []
+  tags_raw:
   - Endpoint
   properties:
   - type: OpenAPI
