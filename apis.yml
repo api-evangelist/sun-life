@@ -186,52 +186,6 @@ apis:
   - type: SignUp
     url: >-
       https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
-- aid: sun-life:sun-life-healthcareservice-api
-  name: Sun Life Healthcare Service API
-  description: The HealthcareService API from Sun Life — 5 operation(s) for healthcareservice.
-  humanURL: https://developers.dentaquest.com/apis
-  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
-  tags:
-  - HealthcareService
-  properties:
-  - type: OpenAPI
-    url: openapi/sun-life-healthcareservice-api-openapi.yml
-  - type: Documentation
-    url: https://www.dentaquest.com/en/interoperability-api
-  - type: APIReference
-    url: https://developers.dentaquest.com/apis
-  - type: Authentication
-    url: authentication/sun-life-authentication.yml
-  - type: OAuthScopes
-    url: scopes/sun-life-scopes.yml
-  - type: OpenIDConnect
-    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
-  - type: SignUp
-    url: >-
-      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
-- aid: sun-life:sun-life-insuranceplan-api
-  name: Sun Life Insurance Plan API
-  description: The InsurancePlan API from Sun Life — 5 operation(s) for insuranceplan.
-  humanURL: https://developers.dentaquest.com/apis
-  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
-  tags:
-  - InsurancePlan
-  properties:
-  - type: OpenAPI
-    url: openapi/sun-life-insuranceplan-api-openapi.yml
-  - type: Documentation
-    url: https://www.dentaquest.com/en/interoperability-api
-  - type: APIReference
-    url: https://developers.dentaquest.com/apis
-  - type: Authentication
-    url: authentication/sun-life-authentication.yml
-  - type: OAuthScopes
-    url: scopes/sun-life-scopes.yml
-  - type: OpenIDConnect
-    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
-  - type: SignUp
-    url: >-
-      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
 - aid: sun-life:sun-life-location-api
   name: Sun Life Location API
   description: The Location API from Sun Life — 5 operation(s) for location.
@@ -347,29 +301,6 @@ apis:
   - type: SignUp
     url: >-
       https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
-- aid: sun-life:sun-life-practitionerrole-api
-  name: Sun Life Practitioner Role API
-  description: The PractitionerRole API from Sun Life — 5 operation(s) for practitionerrole.
-  humanURL: https://developers.dentaquest.com/apis
-  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
-  tags:
-  - PractitionerRole
-  properties:
-  - type: OpenAPI
-    url: openapi/sun-life-practitionerrole-api-openapi.yml
-  - type: Documentation
-    url: https://www.dentaquest.com/en/interoperability-api
-  - type: APIReference
-    url: https://developers.dentaquest.com/apis
-  - type: Authentication
-    url: authentication/sun-life-authentication.yml
-  - type: OAuthScopes
-    url: scopes/sun-life-scopes.yml
-  - type: OpenIDConnect
-    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
-  - type: SignUp
-    url: >-
-      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
 - aid: sun-life:sun-life-relatedperson-api
   name: Sun Life Related Person API
   description: The RelatedPerson API from Sun Life — 5 operation(s) for relatedperson.
@@ -449,6 +380,75 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/sun-life-well-known-api-openapi.yml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  - type: SignUp
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+- aid: sun-life:sun-life-healthcare-service-api
+  name: Sun Life Healthcare Service API
+  description: The Healthcare Service API from Sun Life — 5 operation(s) for healthcare service.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
+  tags:
+  - Healthcare Service
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-healthcare-service-api-openapi.yml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  - type: SignUp
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+- aid: sun-life:sun-life-insurance-plan-api
+  name: Sun Life Insurance Plan API
+  description: The Insurance Plan API from Sun Life — 5 operation(s) for insurance plan.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
+  tags:
+  - Insurance Plan
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-insurance-plan-api-openapi.yml
+  - type: Documentation
+    url: https://www.dentaquest.com/en/interoperability-api
+  - type: APIReference
+    url: https://developers.dentaquest.com/apis
+  - type: Authentication
+    url: authentication/sun-life-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sun-life-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/sun-life-dentaquest-okta-openid-configuration.json
+  - type: SignUp
+    url: >-
+      https://dentaquest.logicmanager.com/incidents/?t=1241&p=215&k=F0E3BD92F157F9B73EDE82834286E7CEA4044134B39D92AC3EE7E56392194241
+- aid: sun-life:sun-life-practitioner-role-api
+  name: Sun Life Practitioner Role API
+  description: The Practitioner Role API from Sun Life — 5 operation(s) for practitioner role.
+  humanURL: https://developers.dentaquest.com/apis
+  baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
+  tags:
+  - Practitioner Role
+  properties:
+  - type: OpenAPI
+    url: openapi/sun-life-practitioner-role-api-openapi.yml
   - type: Documentation
     url: https://www.dentaquest.com/en/interoperability-api
   - type: APIReference
