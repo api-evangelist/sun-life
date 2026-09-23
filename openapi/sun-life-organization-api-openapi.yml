@@ -14,7 +14,6 @@ paths:
   /Organization:
     get:
       summary: /Organization - GET
-      description: /Organization - GET
       operationId: get-organization
       parameters:
       - name: address
@@ -129,7 +128,6 @@ paths:
   /Organization/{id}:
     get:
       summary: /Organization/{id} - GET
-      description: /Organization/{id} - GET
       operationId: get-organization-id
       parameters:
       - name: id
@@ -149,7 +147,6 @@ paths:
   /Organization/{id}/_history/{vid}:
     get:
       summary: /Organization/{id}/_history/{vid} - GET
-      description: /Organization/{id}/_history/{vid} - GET
       operationId: get-organization-id-_history-vid
       parameters:
       - name: id
@@ -175,7 +172,6 @@ paths:
   /Organization/{id}/_history:
     get:
       summary: /Organization/{id}/_history - GET
-      description: /Organization/{id}/_history - GET
       operationId: get-organization-id-_history
       parameters:
       - name: id
@@ -205,7 +201,6 @@ paths:
   /Organization/_history:
     get:
       summary: /Organization/_history - GET
-      description: /Organization/_history - GET
       operationId: get-organization-_history
       parameters:
       - name: _count

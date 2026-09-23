@@ -14,7 +14,6 @@ paths:
   /Practitioner:
     get:
       summary: /Practitioner - GET
-      description: /Practitioner - GET
       operationId: get-practitioner
       parameters:
       - name: phone
@@ -149,7 +148,6 @@ paths:
   /Practitioner/{id}:
     get:
       summary: /Practitioner/{id} - GET
-      description: /Practitioner/{id} - GET
       operationId: get-practitioner-id
       parameters:
       - name: id
@@ -169,7 +167,6 @@ paths:
   /Practitioner/{id}/_history/{vid}:
     get:
       summary: /Practitioner/{id}/_history/{vid} - GET
-      description: /Practitioner/{id}/_history/{vid} - GET
       operationId: get-practitioner-id-_history-vid
       parameters:
       - name: id
@@ -195,7 +192,6 @@ paths:
   /Practitioner/{id}/_history:
     get:
       summary: /Practitioner/{id}/_history - GET
-      description: /Practitioner/{id}/_history - GET
       operationId: get-practitioner-id-_history
       parameters:
       - name: id
@@ -225,7 +221,6 @@ paths:
   /Practitioner/_history:
     get:
       summary: /Practitioner/_history - GET
-      description: /Practitioner/_history - GET
       operationId: get-practitioner-_history
       parameters:
       - name: _count
