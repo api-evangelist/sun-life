@@ -59,12 +59,12 @@ tags:
 - Dental Insurance
 - Disability
 - Wealth Management
-- Financial-Services
+- Financial Services
 - Carrier
 - FHIR
 - Patient Access
 - Provider Directory
-- Healthcare Interoperability
+- Interoperability
 - CMS-9115-F
 - DentaQuest
 - SMART on FHIR
@@ -89,6 +89,7 @@ tags_raw:
 - DentaQuest
 - SMART on FHIR
 - Dental Benefits
+- Financial-Services
 created: '2026-07-25'
 modified: '2026-07-25'
 specificationVersion: '0.23'
@@ -403,8 +404,6 @@ apis:
   humanURL: https://developers.dentaquest.com/apis
   baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
   tags:
-  - HealthcareService
-  tags_raw:
   - Healthcare Service
   properties:
   - type: OpenAPI
@@ -428,8 +427,6 @@ apis:
   humanURL: https://developers.dentaquest.com/apis
   baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
   tags:
-  - InsurancePlan
-  tags_raw:
   - Insurance Plan
   properties:
   - type: OpenAPI
@@ -453,8 +450,6 @@ apis:
   humanURL: https://developers.dentaquest.com/apis
   baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
   tags:
-  - PractitionerRole
-  tags_raw:
   - Practitioner Role
   properties:
   - type: OpenAPI
