@@ -404,6 +404,8 @@ apis:
   humanURL: https://developers.dentaquest.com/apis
   baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
   tags:
+  - HealthcareService
+  tags_raw:
   - Healthcare Service
   properties:
   - type: OpenAPI
@@ -427,6 +429,8 @@ apis:
   humanURL: https://developers.dentaquest.com/apis
   baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
   tags:
+  - InsurancePlan
+  tags_raw:
   - Insurance Plan
   properties:
   - type: OpenAPI
@@ -450,6 +454,8 @@ apis:
   humanURL: https://developers.dentaquest.com/apis
   baseURL: https://api.dentaquest.com/FhirPatientAccess/v1
   tags:
+  - PractitionerRole
+  tags_raw:
   - Practitioner Role
   properties:
   - type: OpenAPI

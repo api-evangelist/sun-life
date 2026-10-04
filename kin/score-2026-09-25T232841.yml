@@ -1,21 +1,19 @@
-# Kin Score artifact — sun-life — 2026-08-25T143147
+# Kin Score artifact — sun-life — 2026-09-25T232841
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: sun-life
-  schema_version: 0.14.0
-  scored_at: '2026-08-25'
-  run_ts: 2026-08-25T143147
-  composite: 49.4
+  schema_version: 0.23.0
+  scored_at: '2026-09-25'
+  run_ts: 2026-09-25T232841
+  composite: 42.4
   band: developing
   facets:
-    discoverability: 85.2
-    contract_quality: 43.8
-    governance: 30.3
+    discoverability: 79.5
+    contract_quality: 38.5
+    contract_governance: 18.2
     operational_transparency: 0.0
     developer_ergonomics: 56.5
-    commercial_clarity: 42.1
-    contract_governance: 30.3
     access_clarity: 42.1
   agent_readiness:
     score: 31.8
@@ -44,14 +42,14 @@ kin_score:
     applies: true
     regime: Insurance
     regime_id: insurance
-    score: 71.2
+    score: 41.2
     matched_via: tags
   provenance:
     mcp: derived
     skills: derived
     conformance: first-party
     contracts:
-      total: 3
+      total: 16
       derived: 0
       coverage: 0.0
       callable: 100.0
