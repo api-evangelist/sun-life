@@ -1,0 +1,24 @@
+generated: '2026-10-14'
+method: searched
+checked:
+- workday/integrations/workday-integration-edges.yml
+source:
+- workday/integrations/workday-integration-edges.yml
+edges:
+- partner_name: Workday (own)
+  partner: workday
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.workday.com/apps/586503/sun-life-link
+  mirror_of: workday/integrations/workday-integration-edges.yml
+  apps:
+  - Sun Life Link
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Region & Country
